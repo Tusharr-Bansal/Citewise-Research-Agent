@@ -205,6 +205,7 @@ footer { color: var(--muted); font-size: 13px; }
         <div><label class="f" for="new-desc">What it's about (optional)</label><textarea id="new-desc" rows="3" maxlength="400" placeholder="e.g. Pediatric heart-sound screening: signal quality, uncertainty, explainability"></textarea>
           <span class="hint">Helps the agent understand your field's terms.</span></div>
         <div class="row"><button class="primary" type="submit" id="new-go">Create project</button><span class="status" id="new-status"></span></div>
+        <p class="hint" style="margin:0">Projects and their papers are deleted automatically 7 days after they're created.</p>
       </form>
       <div class="card">
         <h2>Try the demo</h2>
@@ -214,7 +215,7 @@ footer { color: var(--muted); font-size: 13px; }
         <ul class="plain" id="my-projects"></ul>
       </div>
     </div>
-    <p class="notice">Anyone with a project's link can open it, so don't upload anything confidential. This is a free demo server: processing uploads takes a few minutes per paper.</p>
+    <p class="notice">Anyone with a project's link can open it, so don't upload anything confidential. Projects are deleted after 7 days. This is a free demo server: processing uploads takes a few minutes per paper.</p>
   </main>
 
   <!-- ===== Project ===== -->
@@ -223,6 +224,7 @@ footer { color: var(--muted); font-size: 13px; }
       <div class="row"><h1 id="p-name"></h1><span class="badge" id="p-badge" hidden>Demo · read-only</span></div>
       <p class="lede" id="p-desc"></p>
       <div class="row hint"><span>Share link:</span><code id="p-link" style="overflow-wrap:anywhere"></code><button class="link-btn" type="button" id="p-copy">Copy</button></div>
+      <p class="hint" id="p-expiry" style="margin:0" hidden></p>
     </section>
 
     <section class="card" id="papers-card" style="order:2">
@@ -393,6 +395,9 @@ footer { color: var(--muted); font-size: 13px; }
     $("p-desc").textContent = p.description || "";
     $("p-desc").hidden = !p.description;
     $("p-badge").hidden = !p.is_demo;
+    $("p-expiry").hidden = !p.expires_at;
+    if (p.expires_at) $("p-expiry").textContent = "This project and its papers will be deleted automatically on " +
+      new Date(p.expires_at).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }) + ".";
     $("p-link").textContent = location.origin + location.pathname + "?p=" + encodeURIComponent(p.id);
     $("upload-area").hidden = p.is_demo;
     renderPapers(p.papers);
