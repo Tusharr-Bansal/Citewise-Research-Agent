@@ -40,7 +40,13 @@ def _cache_key(text: str) -> str:
     return hashlib.sha256(f"{config.EMBED_MODEL_NAME}\x00{text}".encode()).hexdigest()
 
 
-def embed_passages(texts: list[str], batch_size: int = 32) -> np.ndarray:
+# Small batches: ONNX Runtime keeps the peak activation memory of the largest batch it has seen.
+# Measured in the app at 1 thread (decision 0015): batch 32 peaked at 634 MB, over Render's 512 MB,
+# while batch 4 peaked at 309 MB and was faster per chunk (0.56 s vs 0.64 s; less padding).
+EMBED_BATCH_SIZE = 4
+
+
+def embed_passages(texts: list[str], batch_size: int = EMBED_BATCH_SIZE) -> np.ndarray:
     """Embed passages, reusing vectors cached on disk for text seen before.
 
     Embedding is deterministic for a fixed model, so a cache is safe, and it
