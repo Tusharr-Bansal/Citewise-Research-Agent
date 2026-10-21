@@ -50,3 +50,36 @@ Per visitor per day: 10 projects, 120 uploads, 30 questions (5/minute). Global: 
 - Filtered approximate-nearest-neighbour search, and why it's a trap (pgvector 0.8 added iterative index scans to mitigate it).
 - Capability URLs: security by unguessable link, and its limits (links leak through sharing, browser history, screenshots).
 - Why the demo kept its ids (test-set validity), and how you proved nothing changed (content hash, identical retrieval results).
+
+## Addendum: upload progress bar (requested by Tushar after launch)
+
+On the free host a paper takes minutes, and a "Processing" label alone looked frozen. The bar has two phases:
+
+1. **Sending the files:** real bytes-sent progress. `fetch()` can't report upload progress, so this one request uses `XMLHttpRequest` and its `upload.onprogress` event.
+2. **Processing on the server:** each paper now records a `stage` and a `progress` value (0–1) in its row, which the page already polls every 3 s:
+   - Reading the PDF: 2%
+   - Reading the title and authors: 5%
+   - Embedding passages (n of N): 10% → 95%, since this is ~90% of the time
+   - Saving: 97%
+   - Ready: 100%
+
+   Embedding runs in slices of 8 passages so the count moves every few seconds, even on Render's 0.1 CPU. The bar shows the average over all papers in the current upload ("Paper 2 of 3 · Embedding passages (24 of 48)"). If the page is reloaded mid-upload, papers still in progress are picked up again.
+
+Below the bar is Tushar's note that the demo runs on free services and is slow.
+
+**Schema change on a live database:** `CREATE TABLE IF NOT EXISTS` never adds columns to an existing table, so the new columns use `ALTER TABLE … ADD COLUMN IF NOT EXISTS`, which runs safely on every start. Verified on the local database, which had the old table: the columns were added and the upload test passed.
+
+**Tested:** two PDFs uploaded through the API (stages and percentages moved as expected, both reached "ready"); browser runs at 1280 px (light) and 390 px (dark): the bar went from "Paper 1 of 2 · Embedding passages (0 of 48)" to "Done: 2 ready 100%", with no horizontal overflow.
+
+## Addendum: uploaded projects are deleted after 7 days (Tushar's decision)
+
+**Rule:** every non-demo project, with its papers and passages, is deleted **7 days after it was created** (not after last use; `CITEWISE_PROJECT_TTL_DAYS` to change). The demo is never deleted. This bounds the database (Neon's free 1 GB) and how long anyone's uploads are kept.
+
+**How:**
+- **Hidden at once.** `get_project` only returns projects younger than 7 days. Every endpoint (view, upload, ask, remove) goes through it, so an expired project returns 404 the moment it turns 7 days old, whether or not it has been deleted yet.
+- **Deleted lazily.** One `DELETE FROM projects WHERE NOT is_demo AND created_at < now() - 7 days`, with papers and chunks removed by `ON DELETE CASCADE`. It runs at startup, and then at most once an hour, *only inside a request that is already using the database*. A separate hourly timer would wake Neon 24 times a day and burn its free compute-hours (the same reasoning as the DB-free `/api/ping`, 0015). If the cleanup itself fails, it's logged and never breaks the request.
+- **Users are told:** the create form ("deleted automatically 7 days after they're created"), the home notice, and each project page ("will be deleted automatically on 29 October 2026"). The 404 message says why a link may have stopped working, and the browser's "Your projects" list drops a project once its link returns 404.
+
+**Tested:** unit tests (`tests/test_cleanup.py`). End to end on the local database: a project backdated to 8 days old (7 papers, 185 passages) returned 404 immediately for both viewing and asking; after a restart the cleanup logged "deleted 1 expired project" and left **0 project, paper and passage rows**. A project at 6 days 23 hours and the demo (985 passages) were untouched.
+
+**Bug found by the tests:** the "last cleanup" timestamp started at `0.0`, but `time.monotonic()` counts from boot. On a host booted under an hour ago, "0" looked recent, so the first hourly cleanup would have been skipped. The startup cleanup masked it; fixed by starting at `-inf` ("never").

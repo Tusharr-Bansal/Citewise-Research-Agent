@@ -99,7 +99,11 @@ def ingest_paper(conn: psycopg.Connection, project_id: str, paper_id: str, pdf_p
 
     Updates the paper's status as it goes. Returns the number of chunks stored.
     """
-    conn.execute("UPDATE papers SET status = 'processing', error = NULL WHERE id = %s", (paper_id,))
+    def progress(stage: str, fraction: float) -> None:
+        conn.execute("UPDATE papers SET stage = %s, progress = %s WHERE id = %s", (stage, fraction, paper_id))
+
+    conn.execute("UPDATE papers SET status = 'processing', error = NULL, stage = 'Reading the PDF', "
+                 "progress = 0.02 WHERE id = %s", (paper_id,))
     try:
         pages = extract(pdf_path)
         text_chars = sum(len(p.text.strip()) for p in pages)
@@ -107,13 +111,17 @@ def ingest_paper(conn: psycopg.Connection, project_id: str, paper_id: str, pdf_p
             raise IngestError("No selectable text found. This looks like a scanned PDF; "
                               "upload a version with real text.")
         if meta is None:
+            progress("Reading the title and authors", 0.05)
             meta = extract_metadata(pages[0].text, filename, llm)
             meta["url"] = find_link(pages[0].text + "\n" + (pages[1].text if len(pages) > 1 else ""))
         chunks = chunk_paper(paper_id, pages, count_tokens, config.CHUNK_MAX_TOKENS,
                              config.CHUNK_OVERLAP_TOKENS)
         if not chunks:
             raise IngestError("The PDF has no usable text after cleaning.")
-        vectors = embed_passages([c.text for c in chunks])
+        # Embedding is ~90% of the processing time, so it gets 10% → 95% of the bar.
+        vectors = embed_passages([c.text for c in chunks], on_progress=lambda done, total: progress(
+            f"Embedding passages ({done} of {total})", 0.10 + 0.85 * done / max(1, total)))
+        progress("Saving", 0.97)
         with conn.transaction():
             conn.execute("DELETE FROM chunks WHERE paper_id = %s", (paper_id,))
             with conn.cursor() as cur:
@@ -124,7 +132,7 @@ def ingest_paper(conn: psycopg.Connection, project_id: str, paper_id: str, pdf_p
                       c.text, v) for c, v in zip(chunks, vectors)],
                 )
             conn.execute(
-                "UPDATE papers SET status = 'ready', title = %s, authors = %s, year = %s, url = %s, "
+                "UPDATE papers SET status = 'ready', stage = NULL, progress = 1, title = %s, authors = %s, year = %s, url = %s, "
                 "n_pages = %s, n_chunks = %s WHERE id = %s",
                 (meta["title"], meta.get("authors", ""), meta.get("year"), meta.get("url"),
                  len(pages), len(chunks), paper_id),

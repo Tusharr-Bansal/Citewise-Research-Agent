@@ -146,10 +146,11 @@ def get_project(project_id: str) -> dict:
 def list_papers(project_id: str) -> list[dict]:
     with conn() as c:
         rows = c.execute(
-            "SELECT id, title, authors, year, url, filename, n_pages, n_chunks, status, error "
+            "SELECT id, title, authors, year, url, filename, n_pages, n_chunks, status, error, stage, progress "
             "FROM papers WHERE project_id = %s ORDER BY created_at, id", (project_id,)
         ).fetchall()
-    keys = ("id", "title", "authors", "year", "url", "filename", "n_pages", "n_chunks", "status", "error")
+    keys = ("id", "title", "authors", "year", "url", "filename", "n_pages", "n_chunks", "status", "error",
+            "stage", "progress")
     return [dict(zip(keys, r)) for r in rows]
 
 

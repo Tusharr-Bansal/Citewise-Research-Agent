@@ -27,6 +27,10 @@ CREATE TABLE IF NOT EXISTS papers (
     created_at  timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS papers_project_idx ON papers (project_id);
+-- Processing progress for the upload progress bar. Added after launch, so ALTER ... IF NOT EXISTS
+-- (CREATE TABLE IF NOT EXISTS never adds columns to a table that already exists).
+ALTER TABLE papers ADD COLUMN IF NOT EXISTS stage text;                       -- e.g. 'Embedding passages'
+ALTER TABLE papers ADD COLUMN IF NOT EXISTS progress real NOT NULL DEFAULT 0; -- 0..1 while processing
 
 CREATE TABLE IF NOT EXISTS chunks (
     id          text PRIMARY KEY,                  -- "<paper id>:<index>", stable across rebuilds

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 from functools import lru_cache
+from typing import Callable
 
 import numpy as np
 from fastembed import TextEmbedding
@@ -46,7 +47,8 @@ def _cache_key(text: str) -> str:
 EMBED_BATCH_SIZE = 4
 
 
-def embed_passages(texts: list[str], batch_size: int = EMBED_BATCH_SIZE) -> np.ndarray:
+def embed_passages(texts: list[str], batch_size: int = EMBED_BATCH_SIZE,
+                   on_progress: Callable[[int, int], None] | None = None) -> np.ndarray:
     """Embed passages, reusing vectors cached on disk for text seen before.
 
     Embedding is deterministic for a fixed model, so a cache is safe, and it
@@ -61,9 +63,18 @@ def embed_passages(texts: list[str], batch_size: int = EMBED_BATCH_SIZE) -> np.n
     keys = [_cache_key(t) for t in texts]
     missing = [i for i, k in enumerate(keys) if k not in cache]
     if missing:
-        new = _model().embed([texts[i] for i in missing], batch_size=batch_size)
-        for i, vec in zip(missing, new):
-            cache[keys[i]] = np.asarray(vec, dtype=np.float32)
+        done = len(texts) - len(missing)
+        if on_progress:
+            on_progress(done, len(texts))
+        # Embed in slices so progress can be reported between them (one slice ≈ a few seconds).
+        step = batch_size * 2
+        for s in range(0, len(missing), step):
+            part = missing[s:s + step]
+            for i, vec in zip(part, _model().embed([texts[i] for i in part], batch_size=batch_size)):
+                cache[keys[i]] = np.asarray(vec, dtype=np.float32)
+            done += len(part)
+            if on_progress:
+                on_progress(done, len(texts))
         cache_file.parent.mkdir(exist_ok=True)
         np.savez(cache_file, **cache)
     print(f"embeddings: {len(texts) - len(missing)} cached, {len(missing)} computed")

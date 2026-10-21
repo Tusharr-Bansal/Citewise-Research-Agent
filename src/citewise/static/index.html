@@ -124,6 +124,14 @@ ul.plain { list-style: none; margin: 0; padding: 0; display: flex; flex-directio
 .examples button { font: 13px var(--font-ui); text-align: left; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
 .examples button:hover { border-color: var(--link); color: var(--link); }
 .status { color: var(--muted); font-size: 14px; min-height: 1.5em; }
+.upload-progress { margin-top: 12px; }
+.upload-progress .row { font-size: 14px; flex-wrap: nowrap; align-items: baseline; }
+#up-label { min-width: 0; }
+.upload-progress .pct { font: 500 13px var(--font-mono); color: var(--muted); }
+.bar { height: 6px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+.bar > span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 999px; transition: width .4s ease; }
+.upload-progress .note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+@media (prefers-reduced-motion: reduce) { .bar > span { transition: none; } }
 .error { color: var(--no); }
 .answer .text { font-size: 16.5px; line-height: 1.65; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .sec-h { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin: 0; }
@@ -227,6 +235,11 @@ footer { color: var(--muted); font-size: 13px; }
           <p class="hint" style="margin:8px 0 0">Text PDFs only (not scans), up to 25 MB each and 40 per project. Processing takes about 20–60 seconds per paper.</p>
         </div>
         <div class="status" id="upload-status" aria-live="polite"></div>
+        <div class="upload-progress" id="upload-progress" hidden>
+          <div class="row"><span id="up-label"></span><span class="spacer"></span><span class="pct" id="up-pct"></span></div>
+          <div class="bar" id="up-bar" role="progressbar" aria-label="Upload progress" aria-valuemin="0" aria-valuemax="100"><span id="up-fill"></span></div>
+          <p class="note">Please note: this demo works with free services, hence they are slow. Thank you for showing patience and support.</p>
+        </div>
       </div>
       <div id="paper-list"></div>
       <div><button class="link-btn" type="button" id="papers-toggle" hidden></button></div>
@@ -369,7 +382,10 @@ footer { color: var(--muted); font-size: 13px; }
       if (err.status === 404) store.forget(pid);
       return;
     }
-    if (current?.id !== p.id) { showAllPapers = false; $("result").hidden = true; $("q").value = ""; updateCount(); $("ask-status").textContent = ""; }
+    if (current?.id !== p.id) {
+      showAllPapers = false; $("result").hidden = true; $("q").value = ""; updateCount(); $("ask-status").textContent = "";
+      batch = new Set(); clearTimeout(hideTimer); hideTimer = null; $("upload-progress").hidden = true; $("upload-status").textContent = "";
+    }
     current = p;
     if (!p.is_demo) store.remember(p);
     document.title = `${p.name} · Citewise`;
@@ -423,7 +439,7 @@ footer { color: var(--muted); font-size: 13px; }
         ? [x.authors, x.year, x.n_pages ? `${x.n_pages} pages` : "", `${x.n_chunks} passages`].filter(Boolean).join(" · ")
         : esc(x.filename || "");
       d.innerHTML = `<div class="t">${x.url && x.status === "ready" ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : esc(x.title)}</div>
-        <div class="row" style="justify-content:flex-end"><span class="pill ${x.status}">${label[x.status]}</span>${current.is_demo || x.status === "queued" || x.status === "processing" ? "" : `<button class="link-btn danger" type="button">Remove</button>`}</div>
+        <div class="row" style="justify-content:flex-end"><span class="pill ${x.status}">${label[x.status]}${x.status === "processing" ? ` ${Math.round((x.progress || 0) * 100)}%` : ""}</span>${current.is_demo || x.status === "queued" || x.status === "processing" ? "" : `<button class="link-btn danger" type="button">Remove</button>`}</div>
         <div class="m">${esc(meta)}</div>${x.status === "failed" && x.error ? `<div class="err">${esc(x.error)}</div>` : ""}`;
       const rm = d.querySelector("button");
       if (rm) rm.onclick = async () => {
@@ -437,8 +453,56 @@ footer { color: var(--muted); font-size: 13px; }
     $("ask-status").className = "status";
     if (ready === 0 && !current.is_demo) $("ask-status").textContent = papers.length ? "Questions open once at least one paper is ready." : "";
     else if ($("ask-status").textContent.startsWith("Questions open")) $("ask-status").textContent = "";
+    showProcessing(papers);
     clearTimeout(pollTimer);
     if (busy) pollTimer = setTimeout(refreshPapers, 3000);
+  }
+
+  // ---------- upload progress bar ----------
+  // Two phases: the browser sending the files (bytes sent), then the server processing them
+  // (each paper reports a stage and a 0..1 progress; the bar averages over the current batch).
+  let batch = new Set(), hideTimer = null;
+  function setBar(label, fraction) {
+    clearTimeout(hideTimer);
+    const pct = Math.max(0, Math.min(100, Math.round(fraction * 100)));
+    $("upload-progress").hidden = false;
+    $("up-label").textContent = label; $("up-pct").textContent = pct + "%";
+    $("up-fill").style.width = pct + "%"; $("up-bar").setAttribute("aria-valuenow", String(pct));
+  }
+  function showProcessing(papers) {
+    const byId = new Map(papers.map((x) => [x.id, x]));
+    for (const x of papers) if (x.status === "queued" || x.status === "processing") batch.add(x.id);
+    for (const id of [...batch]) if (!byId.has(id)) batch.delete(id);   // removed papers
+    if (!batch.size) { if (!hideTimer) $("upload-progress").hidden = true; return; }
+    const items = [...batch].map((id) => byId.get(id));
+    const final = items.filter((x) => x.status === "ready" || x.status === "failed");
+    const total = items.reduce((s, x) => s + (x.status === "ready" || x.status === "failed" ? 1 : x.status === "processing" ? (x.progress || 0) : 0), 0);
+    if (final.length === items.length) {
+      const failed = final.filter((x) => x.status === "failed").length;
+      setBar(`Done: ${final.length - failed} ready` + (failed ? `, ${failed} failed` : ""), 1);
+      batch = new Set();
+      hideTimer = setTimeout(() => { $("upload-progress").hidden = true; hideTimer = null; }, 6000);
+      return;
+    }
+    const now = items.find((x) => x.status === "processing");
+    const of = items.length > 1 ? `Paper ${final.length + 1} of ${items.length}` : "Processing";
+    setBar(now ? `${of} · ${now.stage || "Processing"}` : `${of} · Waiting in line`, total / items.length);
+  }
+  function uploadWithProgress(path, body, onProgress) {
+    // fetch() can't report upload progress; XMLHttpRequest can.
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "api/" + path);
+      xhr.upload.onprogress = (e) => { if (e.lengthComputable) onProgress(e.loaded / e.total); };
+      xhr.onload = () => {
+        let data = {}; try { data = JSON.parse(xhr.responseText); } catch {}
+        if (xhr.status >= 200 && xhr.status < 300) return resolve(data);
+        const d = data.detail;
+        reject(Object.assign(new Error(Array.isArray(d) ? (d[0]?.msg || "Invalid input.") : (d || "Something went wrong. Please try again.")), { status: xhr.status }));
+      };
+      xhr.onerror = () => reject(new Error("The upload failed. Check your connection and try again."));
+      xhr.send(body);
+    });
   }
   async function refreshPapers() {
     if (!current) return;
@@ -457,13 +521,19 @@ footer { color: var(--muted); font-size: 13px; }
     const pdfs = files.filter((f) => f.name.toLowerCase().endsWith(".pdf") || f.type === "application/pdf");
     if (!pdfs.length) { $("upload-status").className = "status error"; $("upload-status").textContent = "Only PDF files can be uploaded."; return; }
     const fd = new FormData(); pdfs.forEach((f) => fd.append("files", f, f.name));
-    $("upload-status").className = "status"; $("upload-status").textContent = `Uploading ${pdfs.length} file${pdfs.length > 1 ? "s" : ""}…`;
+    $("upload-status").className = "status"; $("upload-status").textContent = "";
+    const what = `Uploading ${pdfs.length} file${pdfs.length > 1 ? "s" : ""}`;
+    setBar(what, 0);
     try {
-      const r = await api(`projects/${encodeURIComponent(current.id)}/papers`, { method: "POST", body: fd });
+      const r = await uploadWithProgress(`projects/${encodeURIComponent(current.id)}/papers`, fd, (f) => setBar(what, f));
       const rej = r.rejected.map((x) => `${x.filename}: ${x.error}`).join(" ");
-      $("upload-status").textContent = `${r.accepted.length} uploaded and queued for processing.` + (rej ? ` Not accepted: ${rej}` : "");
+      if (rej) $("upload-status").textContent = `Not accepted: ${rej}`;
+      r.accepted.forEach((id) => batch.add(id));
       renderPapers(r.papers);
-    } catch (err) { $("upload-status").className = "status error"; $("upload-status").textContent = err.message; }
+    } catch (err) {
+      $("upload-progress").hidden = true;
+      $("upload-status").className = "status error"; $("upload-status").textContent = err.message;
+    }
   }
 
   // ---------- questions ----------
