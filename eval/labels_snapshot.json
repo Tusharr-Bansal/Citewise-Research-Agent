@@ -1,0 +1,359 @@
+{
+  "g:althaph2025_ehst:016": {
+    "ambiguous": false,
+    "fixed_question": "Is there an open heart-sound dataset that grades valvular disease severity, not just presence?",
+    "item_id": "g:althaph2025_ehst:016",
+    "updated_at": "2026-10-21T18:54:05.201Z",
+    "verdict": "fix"
+  },
+  "g:althaph2025_ehst:029": {
+    "ambiguous": false,
+    "fixed_question": "What depth, number of attention heads and embedding size does the Explainable HeartSound Transformer (EHST) use?",
+    "item_id": "g:althaph2025_ehst:029",
+    "updated_at": "2026-10-21T18:55:09.472Z",
+    "verdict": "fix"
+  },
+  "g:balanya2024_adaptive_temp_scaling:024": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:balanya2024_adaptive_temp_scaling:024",
+    "updated_at": "2026-10-21T18:55:57.625Z",
+    "verdict": "good"
+  },
+  "g:balanya2024_adaptive_temp_scaling:039": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:balanya2024_adaptive_temp_scaling:039",
+    "updated_at": "2026-10-21T18:56:39.863Z",
+    "verdict": "good"
+  },
+  "g:bondareva2022_tandem_uq:006": {
+    "ambiguous": false,
+    "fixed_question": "In the tandem-learning approach to uncertainty-aware murmur detection, what MC Dropout deviation threshold marks a recording as unknown?",
+    "item_id": "g:bondareva2022_tandem_uq:006",
+    "updated_at": "2026-10-21T18:58:17.489Z",
+    "verdict": "fix"
+  },
+  "g:bondareva2022_tandem_uq:011": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:bondareva2022_tandem_uq:011",
+    "updated_at": "2026-10-21T19:24:12.493Z",
+    "verdict": "good"
+  },
+  "g:desimone2025_uncertainty_edge:018": {
+    "ambiguous": false,
+    "fixed_question": "In the edge-deployable murmur detector, what is done with predictions that get a low confidence score, and what does that gain?",
+    "item_id": "g:desimone2025_uncertainty_edge:018",
+    "updated_at": "2026-10-21T19:00:36.821Z",
+    "verdict": "fix"
+  },
+  "g:desimone2025_uncertainty_edge:027": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:desimone2025_uncertainty_edge:027",
+    "updated_at": "2026-10-21T18:59:30.525Z",
+    "verdict": "good"
+  },
+  "g:despotovic2025_cardiophon:009": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:despotovic2025_cardiophon:009",
+    "updated_at": "2026-10-21T19:01:25.595Z",
+    "verdict": "good"
+  },
+  "g:despotovic2025_cardiophon:021": {
+    "ambiguous": false,
+    "fixed_question": "When CardioPHON adds demographic features, how does it deal with children whose age, height or weight wasn’t recorded?",
+    "item_id": "g:despotovic2025_cardiophon:021",
+    "updated_at": "2026-10-21T19:03:23.088Z",
+    "verdict": "fix"
+  },
+  "g:feng2026_childvox:015": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:feng2026_childvox:015",
+    "updated_at": "2026-10-21T19:05:48.962Z",
+    "verdict": "good"
+  },
+  "g:feng2026_childvox:017": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:feng2026_childvox:017",
+    "updated_at": "2026-10-21T19:04:31.566Z",
+    "verdict": "drop"
+  },
+  "g:festag2022_outcome_ensemble:005": {
+    "ambiguous": false,
+    "fixed_question": "What STFT settings does the murmur-and-outcome ensemble use to build its spectrogram input?",
+    "item_id": "g:festag2022_outcome_ensemble:005",
+    "updated_at": "2026-10-21T19:07:43.907Z",
+    "verdict": "fix"
+  },
+  "g:festag2022_outcome_ensemble:009": {
+    "ambiguous": false,
+    "fixed_question": "In the ensemble model that predicts both murmur presence and clinical outcome, what loss is used for the murmur task, and how are the three classes weighted?",
+    "item_id": "g:festag2022_outcome_ensemble:009",
+    "updated_at": "2026-10-21T19:06:59.563Z",
+    "verdict": "fix"
+  },
+  "g:golnari2025_qivcnet:004": {
+    "ambiguous": false,
+    "fixed_question": "Which block in QiVC-Net lets it read a heart-sound recording both forwards and backwards in time?",
+    "item_id": "g:golnari2025_qivcnet:004",
+    "updated_at": "2026-10-21T19:09:21.788Z",
+    "verdict": "fix"
+  },
+  "g:golnari2025_qivcnet:014": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:golnari2025_qivcnet:014",
+    "updated_at": "2026-10-21T19:08:24.083Z",
+    "verdict": "drop"
+  },
+  "g:guo2017_calibration:005": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:guo2017_calibration:005",
+    "updated_at": "2026-10-21T19:12:04.442Z",
+    "verdict": "good"
+  },
+  "g:guo2017_calibration:006": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:guo2017_calibration:006",
+    "updated_at": "2026-10-21T19:10:38.340Z",
+    "verdict": "good"
+  },
+  "g:ismail2018_pcg_review:006": {
+    "ambiguous": true,
+    "fixed_question": "What are the main sub-problems when automating heart-sound analysis?",
+    "item_id": "g:ismail2018_pcg_review:006",
+    "updated_at": "2026-10-21T19:12:23.454Z",
+    "verdict": "fix"
+  },
+  "g:jain2025_mysteth:038": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:jain2025_mysteth:038",
+    "updated_at": "2026-10-21T19:12:38.126Z",
+    "verdict": "good"
+  },
+  "g:jain2025_mysteth:039": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:jain2025_mysteth:039",
+    "updated_at": "2026-10-21T19:13:02.543Z",
+    "verdict": "drop"
+  },
+  "g:jobayer2024_funnelnet:021": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:jobayer2024_funnelnet:021",
+    "updated_at": "2026-10-21T19:13:48.837Z",
+    "verdict": "good"
+  },
+  "g:jobayer2024_funnelnet:027": {
+    "ambiguous": false,
+    "fixed_question": "How fast and how accurate is FunnelNet when it runs on a Raspberry Pi?",
+    "item_id": "g:jobayer2024_funnelnet:027",
+    "updated_at": "2026-10-21T19:13:24.322Z",
+    "verdict": "fix"
+  },
+  "g:khan2020_time_freq_features:010": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:khan2020_time_freq_features:010",
+    "updated_at": "2026-10-21T19:14:26.022Z",
+    "verdict": "drop"
+  },
+  "g:khan2020_time_freq_features:021": {
+    "ambiguous": true,
+    "fixed_question": "What is the standard HMM-based method for splitting heart sounds into S1, systole, S2 and diastole?",
+    "item_id": "g:khan2020_time_freq_features:021",
+    "updated_at": "2026-10-21T19:14:13.921Z",
+    "verdict": "fix"
+  },
+  "g:mehrtash2020_calibration_segmentation:010": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:mehrtash2020_calibration_segmentation:010",
+    "updated_at": "2026-10-21T19:14:57.388Z",
+    "verdict": "good"
+  },
+  "g:mehrtash2020_calibration_segmentation:017": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:mehrtash2020_calibration_segmentation:017",
+    "updated_at": "2026-10-21T19:14:43.933Z",
+    "verdict": "good"
+  },
+  "g:muna2025_ss_dppn:025": {
+    "ambiguous": false,
+    "fixed_question": "How long are the CirCor recordings, and what sampling rate do they use?",
+    "item_id": "g:muna2025_ss_dppn:025",
+    "updated_at": "2026-10-21T19:15:48.025Z",
+    "verdict": "fix"
+  },
+  "g:muna2025_ss_dppn:033": {
+    "ambiguous": false,
+    "fixed_question": "In SS-DPPN’s spectrogram branch, what sits between the ResNet-50 features and the final embedding?",
+    "item_id": "g:muna2025_ss_dppn:033",
+    "updated_at": "2026-10-21T19:15:18.067Z",
+    "verdict": "fix"
+  },
+  "g:niizumi2024_m2d_murmur:008": {
+    "ambiguous": false,
+    "fixed_question": "When benchmarking general-purpose audio models such as M2D for murmur detection, how many runs are averaged per model?",
+    "item_id": "g:niizumi2024_m2d_murmur:008",
+    "updated_at": "2026-10-21T19:16:12.202Z",
+    "verdict": "fix"
+  },
+  "g:niizumi2024_m2d_murmur:013": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:niizumi2024_m2d_murmur:013",
+    "updated_at": "2026-10-21T19:16:24.946Z",
+    "verdict": "good"
+  },
+  "g:niizumi2025_foundation_models:005": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:niizumi2025_foundation_models:005",
+    "updated_at": "2026-10-21T19:17:00.091Z",
+    "verdict": "drop"
+  },
+  "g:niizumi2025_foundation_models:011": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:niizumi2025_foundation_models:011",
+    "updated_at": "2026-10-21T19:17:30.934Z",
+    "verdict": "good"
+  },
+  "g:noponen2007_pediatric_murmur:017": {
+    "ambiguous": false,
+    "fixed_question": "How accurately can a simple duration-and-frequency rule on phonocardiograms tell innocent from pathological heart murmurs in children?",
+    "item_id": "g:noponen2007_pediatric_murmur:017",
+    "updated_at": "2026-10-21T19:18:15.789Z",
+    "verdict": "fix"
+  },
+  "g:noponen2007_pediatric_murmur:019": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:noponen2007_pediatric_murmur:019",
+    "updated_at": "2026-10-21T19:17:53.650Z",
+    "verdict": "good"
+  },
+  "g:panah2023_wav2vec2:016": {
+    "ambiguous": false,
+    "fixed_question": "How much does wav2vec 2.0’s recall on murmur-present recordings drop as the fine-tuning data shrinks?",
+    "item_id": "g:panah2023_wav2vec2:016",
+    "updated_at": "2026-10-21T19:18:48.919Z",
+    "verdict": "fix"
+  },
+  "g:panah2023_wav2vec2:019": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:panah2023_wav2vec2:019",
+    "updated_at": "2026-10-21T19:18:29.050Z",
+    "verdict": "good"
+  },
+  "g:pedrosa2014_pediatric_segmentation:006": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:pedrosa2014_pediatric_segmentation:006",
+    "updated_at": "2026-10-21T19:19:21.522Z",
+    "verdict": "drop"
+  },
+  "g:pedrosa2014_pediatric_segmentation:007": {
+    "ambiguous": false,
+    "fixed_question": "In the autocorrelation-based segmentation method for pediatric heart sounds, how is the signal cleaned up before segmentation?",
+    "item_id": "g:pedrosa2014_pediatric_segmentation:007",
+    "updated_at": "2026-10-21T19:19:08.995Z",
+    "verdict": "fix"
+  },
+  "g:reyna2023_physionet_challenge:011": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:reyna2023_physionet_challenge:011",
+    "updated_at": "2026-10-21T19:20:28.797Z",
+    "verdict": "good"
+  },
+  "g:reyna2023_physionet_challenge:020": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:reyna2023_physionet_challenge:020",
+    "updated_at": "2026-10-21T19:20:12.014Z",
+    "verdict": "good"
+  },
+  "g:rohr2024_mil_explainability:016": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:rohr2024_mil_explainability:016",
+    "updated_at": "2026-10-21T19:20:45.271Z",
+    "verdict": "good"
+  },
+  "g:rohr2024_mil_explainability:019": {
+    "ambiguous": false,
+    "fixed_question": "In the MIL-U-Net murmur framework, how many time-frequency features are computed from the Hilbert envelopes and other signal transforms?",
+    "item_id": "g:rohr2024_mil_explainability:019",
+    "updated_at": "2026-10-21T19:21:04.921Z",
+    "verdict": "fix"
+  },
+  "g:sondermann2025_cycle_normalization:012": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:sondermann2025_cycle_normalization:012",
+    "updated_at": "2026-10-21T19:21:25.919Z",
+    "verdict": "good"
+  },
+  "g:sondermann2025_cycle_normalization:018": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:sondermann2025_cycle_normalization:018",
+    "updated_at": "2026-10-21T19:21:41.408Z",
+    "verdict": "good"
+  },
+  "g:taipalmaa2018_cycle_segmentation:004": {
+    "ambiguous": false,
+    "fixed_question": "In segmentation methods that classify short PCG frames with handcrafted features, which classifiers were compared for picking out S2?",
+    "item_id": "g:taipalmaa2018_cycle_segmentation:004",
+    "updated_at": "2026-10-21T19:22:03.074Z",
+    "verdict": "fix"
+  },
+  "g:taipalmaa2018_cycle_segmentation:010": {
+    "ambiguous": true,
+    "fixed_question": "How can S1 and S2 be told apart using timing alone?",
+    "item_id": "g:taipalmaa2018_cycle_segmentation:010",
+    "updated_at": "2026-10-21T19:22:23.915Z",
+    "verdict": "fix"
+  },
+  "g:xu2024_multitask_grading:017": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:xu2024_multitask_grading:017",
+    "updated_at": "2026-10-21T19:22:40.423Z",
+    "verdict": "good"
+  },
+  "g:xu2024_multitask_grading:019": {
+    "ambiguous": false,
+    "fixed_question": "In the HMT framework, how are features extracted from each auscultation location’s recording?",
+    "item_id": "g:xu2024_multitask_grading:019",
+    "updated_at": "2026-10-21T19:23:10.374Z",
+    "verdict": "fix"
+  },
+  "g:zhang2024_parallel_attentive_uq:008": {
+    "ambiguous": true,
+    "fixed_question": null,
+    "item_id": "g:zhang2024_parallel_attentive_uq:008",
+    "updated_at": "2026-10-21T19:23:41.022Z",
+    "verdict": "good"
+  },
+  "g:zhang2024_parallel_attentive_uq:018": {
+    "ambiguous": false,
+    "fixed_question": null,
+    "item_id": "g:zhang2024_parallel_attentive_uq:018",
+    "updated_at": "2026-10-21T19:23:25.233Z",
+    "verdict": "good"
+  }
+}

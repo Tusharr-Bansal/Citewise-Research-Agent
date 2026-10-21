@@ -1,0 +1,818 @@
+[
+  {
+    "id": "g:althaph2025_ehst:016",
+    "source": "llm_draft",
+    "paper_key": "althaph2025_ehst",
+    "source_chunk": "althaph2025_ehst:016",
+    "pages": [
+      5,
+      5
+    ],
+    "question": "What electronic phonocardiogram dataset comprising Normal, Mild, and Severe classifications with 845 samples at a 4 kHz sampling rate is detailed in the repository comparison?",
+    "answer": "The Heart Sounds Shenzhen (HSS) dataset is described as containing 845 samples at a 4 kHz sampling rate using electronic devices, focusing on valvular disease severity with Normal, Mild, and Severe categories.",
+    "evidence_quote": "Heart Sounds Shenzhen (HSS) Normal, Mild, Severe 845 4 kHz (Electronic) Centered on valvular disease severity Table 2. Comparative overview of open-access heart sound datasets.",
+    "quote_verified": true,
+    "lexical_overlap": 0.412,
+    "passage": "AS, MS, MVP, MR 1,000 8 kHz (Mixed) Valvular focus; lacks demographic variety Heart Sounds Shenzhen (HSS) Normal, Mild, Severe 845 4 kHz (Electronic) Centered on valvular disease severity Table 2. Comparative overview of open-access heart sound datasets. controlled datasets. Systems that can adapt, or at least detect potential mismatches, could avert misclassifications and guide clinicians toward secondary confirmatory tests. Given these open questions, this work proposes an attention-centric framework designed to accommodate multi-class PCG classification while delivering interpretable insights. By leveraging the global reach of Transformer-like architectures and refining XAI outputs for domain specificity, we aim to address the dual imperatives of accuracy and clinical trustworthiness ultimately bridging current gaps and laying a foundation for more robust, transparent cardiovascular diagnostics. Dataset description This section provides an overview of the heart sound datasets employed for cardiovascular disease (CVD) analysis, focusing on the coverage of normal and abnormal conditions, annotation detail, and demographic diversity. Each dataset highlights different clinical or technical scenarios, offering a rich testing ground for machine learning models aimed at automated auscultation. Two tables summarize the characteristics and notable limitations of these repositories, reflecting variations in sampling rates, device types, and labeling precision. HeartWave dataset"
+  },
+  {
+    "id": "g:althaph2025_ehst:029",
+    "source": "llm_draft",
+    "paper_key": "althaph2025_ehst",
+    "source_chunk": "althaph2025_ehst:029",
+    "pages": [
+      11,
+      12
+    ],
+    "question": "What hyperparameter settings and ranges are utilized for the Transformer layers, multi-head attention heads, and model dimensions in the heart sound classification architecture?",
+    "answer": "The Transformer layers range from 2 to 4, the multi-head attention heads are set to either 4 or 8, and the model dimension ranges between 128 and 256.",
+    "evidence_quote": "Transformer Layers (L) 2–4 Typically T < 120 frames/heartbeat Heads (h) 4 or 8 For multi-head attention diversity Model Dimension (dmodel ) 128–256 Embedding dimension",
+    "quote_verified": true,
+    "lexical_overlap": 0.438,
+    "passage": "Performance metrics This section details the evaluation framework for our Transformer-based heart sound classification system. We describe the loss functions employed to address class imbalance, present the hyperparameter configurations for our model and ten baseline approaches, and outline a comprehensive set of metrics used to assess both classification performance and interpretability. Loss functions Addressing class imbalance Heart sound datasets are often imbalanced, with normal recordings typically outnumbering pathological cases. To prevent the model from favoring majority classes, we adopt loss functions that assign higher penalties to misclassifications of minority classes. This is essential to improve the model’s sensitivity to less frequent but clinically significant conditions. Weighted cross-entropy For a classification task with C classes, let y ∈ {0, 1}C denote the one-hot encoded label and p̂ ∈ RC the predicted probability distribution. The weighted cross-entropy loss is defined as: Parameter Typical value/range Notes Learning Rate 1 × 10−4 − 2 × 10−3 Adam/AdamW optimizer 8–32 Depends on spectrogram dimensions Transformer Layers (L) 2–4 Typically T < 120 frames/heartbeat Heads (h) 4 or 8 For multi-head attention diversity Model Dimension (dmodel ) 128–256 Embedding dimension Feedforward Dimension 256–1024 Dropout Rate 0.1–0.3 Typically 4 × dmodel"
+  },
+  {
+    "id": "g:balanya2024_adaptive_temp_scaling:024",
+    "source": "llm_draft",
+    "paper_key": "balanya2024_adaptive_temp_scaling",
+    "source_chunk": "balanya2024_adaptive_temp_scaling:024",
+    "pages": [
+      7,
+      8
+    ],
+    "question": "How does Parameterized Temperature Scaling define its temperature function and optimization objective?",
+    "answer": "Parameterized Temperature Scaling uses a neural network conditioned on the sorted logit vector as its temperature function and minimizes an Expected Calibration Error-based loss.",
+    "evidence_quote": "PTS can be expressed as an ATS method with temperature function: TPTS ðzÞ ¼ NNðzs Þ; ð12Þ where NN is the function defined by the neural network. Instead of optimizing the parameters of the NN to minimize some PSR as other methods do, authors propose to minimize an ECE-based loss given by: LECE ¼ M X jBi j i¼1 jDtest j kaccðBi Þ   cofðBi Þk2 ; ð13Þ",
+    "quote_verified": false,
+    "lexical_overlap": 0.286,
+    "passage": "3.3 Baseline methods We now describe other accuracy-preserving methods already existing in the literature with state-of-the-art performance. Some of these, but not all of them, belong to the ATS family as they can be expressed in the general form given by Eq. 3.1. 8080 3.3.1 Parameterized temperature scaling parameterized Temperature Scaling (PTS) [15] is a specific instance of the ATS family in which the temperature function is conditioned to be a neural network (NN). The input to the NN is the logit vector sorted by decreasing value of confidence zs . Sorting the logit vector makes the model order-invariant [23] simplifying the hypothesis space at the cost of losing the possibility of discriminating between classes—i.e., it cannot consider the predicted ranking over the classes. PTS can be expressed as an ATS method with temperature function: TPTS ðzÞ ¼ NNðzs Þ; ð12Þ where NN is the function defined by the neural network. Instead of optimizing the parameters of the NN to minimize some PSR as other methods do, authors propose to minimize an ECE-based loss given by: LECE ¼ M X jBi j i¼1 jDtest j kaccðBi Þ \u0005 cofðBi Þk2 ; ð13Þ where Bi , cofðBi Þ, and accðBi Þ, are defined as in Eq. 2.1.1."
+  },
+  {
+    "id": "g:balanya2024_adaptive_temp_scaling:039",
+    "source": "llm_draft",
+    "paper_key": "balanya2024_adaptive_temp_scaling",
+    "source_chunk": "balanya2024_adaptive_temp_scaling:039",
+    "pages": [
+      12,
+      12
+    ],
+    "question": "What happens to the performance of HnLTS when evaluated in data-scarce settings?",
+    "answer": "HnLTS fails in low-data scenarios, which indicates that increasing model expressiveness can complicate the training objective and cause performance issues.",
+    "evidence_quote": "Interestingly, HnLTS fails in low-data scenarios, even though it could, in theory, recover the HTS solution by zeroing the wL parameter.",
+    "quote_verified": true,
+    "lexical_overlap": 0.286,
+    "passage": "Also, it is worth noting the difference between datasets. In the highly dimensional CIFAR100, we can see a greater advantage in using calibration methods more complex than TS. On the other hand, the best methods barely outperform TS in CIFAR10 tasks. This suggests that the problem of calibration may grow more complex with the number of classes, although the number of datasets included in our experiments is limited and more experiments are required to validate this observation. Interestingly, HnLTS fails in low-data scenarios, even though it could, in theory, recover the HTS solution by zeroing the wL parameter. This suggests that increasing expressiveness can do more harm than good by complicating the training objective. 5 Conclusions We have shown that post-hoc calibration of DNNs can benefit from more expressive models than the widely used Temperature Scaling, especially in tasks with a high Algorithm 2 Procedure to evaluate calibration models on a model-datasetnumber task. of classes. For instance, simply adjusting the temperature factor of TS with a linear combination of the logit prediction improves calibration by taking into account the score assigned to each class. 4.3.1 Results However, more complex models require higher amounts of data to find a good-performing solution. This poses a trade-off between the complexity of the calibration model For the sake of space and simplicity, we depict results and the available data to train the model."
+  },
+  {
+    "id": "g:bondareva2022_tandem_uq:011",
+    "source": "llm_draft",
+    "paper_key": "bondareva2022_tandem_uq",
+    "source_chunk": "bondareva2022_tandem_uq:011",
+    "pages": [
+      4,
+      4
+    ],
+    "question": "What potential benefit does early identification of low-confidence or unknown samples offer in practical clinical workflows?",
+    "answer": "Early detection of low-confidence samples can prompt users to re-record in a quieter setting or adjust stethoscope placement to improve diagnostic accuracy.",
+    "evidence_quote": "Early detection of samples with low model confidence could allow to prompt a user to repeat the recording in a less noisy environment or changing the stethoscope position, leading to a more accurate diagnosis.",
+    "quote_verified": true,
+    "lexical_overlap": 0.333,
+    "passage": "Generally poor unknown sensitivity may have been caused by many “known” samples getting mislabelled as unknown; and, despite high specificity, the errors might have been introduced when combining results per patient. Therefore, future work could focus on exploring what reduces the model certainty on “known” samples, as well as alternative methods for combining results per patient. In the present study, we prioritised identification of unknown samples due to its high value in practical applications. Early detection of samples with low model confidence could allow to prompt a user to repeat the recording in a less noisy environment or changing the stethoscope position, leading to a more accurate diagnosis. The official challenge scores, however, place more weight on murmur detection. As a result, although our approach improved the model performance on the unknown class, the official performance attained by our approach was relatively poor. In addition, we observed notable performance differences between the validation and test sets for our method as well as others’. This might indicate a distribution mismatch between these two sets. In contrast, we performed cross-validation which might give a better insight on how a model would generalise. While the main focus of this challenge was a three-class classification, the dataset’s metadata contains detailed information about the murmurs which could be used for more granular diagnosis. Worth noting that our approach did not use segmentation, errors in which could potentially lead to misdiagnosis upon more granular classification."
+  },
+  {
+    "id": "g:bondareva2022_tandem_uq:006",
+    "source": "llm_draft",
+    "paper_key": "bondareva2022_tandem_uq",
+    "source_chunk": "bondareva2022_tandem_uq:006",
+    "pages": [
+      2,
+      3
+    ],
+    "question": "What threshold of prediction deviation was used during Monte Carlo dropout to categorize a test sample as unknown for murmur detection?",
+    "answer": "Samples where the deviation of predictions exceeded 0.2 were labeled as unknown.",
+    "evidence_quote": "The samples for which deviation exceeded 0.2 were then labelled as unknown, to further boost the model’s sensitivity to murmur.",
+    "quote_verified": true,
+    "lexical_overlap": 0.231,
+    "passage": "The last layer of the network was softmax. Preserving dropout for testing, a number of predictions was obtained on the samples from the test set, and the deviation of the predictions was considered as model uncertainty. We tried various number of predictions starting from 10, but we got the best performance when obtaining 50 predictions per sample. The samples for which deviation exceeded 0.2 were then labelled as unknown, to further boost the model’s sensitivity to murmur. For model comparison we used murmur score, as suggested by the PhysioNet challenge. We also used total accuracy, defined as the number of correctly classified samples divided by the total number of samples, weighted accuracy, which is a sum of sensitivities for individual classes divided by the number of classes, as well as sensitivity and specificity of murmur, sensitivity of normal, and sensitivity of unknown. For performance evaluation we implemented crossvalidation, since the official validation data were not available, and the released data were limited. In hope to further boost the performance of the algorithm for the challenge, we implemented ensemble learning. The DNN model was trained from scratch ten times for each of the validation folds, to account for performance variability induced by random weight initialisation. The three best-performing on validation set models were selected for final classification, using for evaluation the murmur score equation provided by the challenge. Major- Page 2 Samples collected from various auscultatory locations unknown if at least one sample = murmur: final diagnosis = murmur elif at least two samples = unknown: final diagnosis = unknown else: final diagnosis = normal yes"
+  },
+  {
+    "id": "g:desimone2025_uncertainty_edge:027",
+    "source": "llm_draft",
+    "paper_key": "desimone2025_uncertainty_edge",
+    "source_chunk": "desimone2025_uncertainty_edge:027",
+    "pages": [
+      7,
+      7
+    ],
+    "question": "How many parameters does the resource-efficient murmur detection model proposed for the CirCor Digiscope dataset have compared to existing CNN or Transformer approaches?",
+    "answer": "The proposed light model has 23k parameters, which is significantly fewer than existing approaches like Niizumi's Transformer with 85.4M parameters or Guan's CNN with 43.6M parameters.",
+    "evidence_quote": "TABLE VI: Comparison against existing heart murmurs classifiers using CirCor. Reference Niizumi [34] Han [26] McDonald [17] Kalimuthu [29] Guan [21] Safdar [28] Fakhry [20] Morshed [32] Ours (Light) Features 1D segm Mel STFT STFT MFCC STFT Multimodal CWT 1D segm STFT Classifier Transformer CNN RNN+HSMM CNN+attention CRNN CNN CNN+LSTM CNN CNN Params 85.4M 141.5k N/A N/A 43.6M 2.25M 3.4M N/A 23k",
+    "quote_verified": true,
+    "lexical_overlap": 0.235,
+    "passage": "The use of quantization further enhances the model’s edge deployability without negatively impacting its performance: as reported in Table V, quantization has a negligible impact on prediction performance. In particular, all models suffer from a lower Recall value when employing the quantized models, favoring a higher Precision when compared to their native (float32) counterparts. Still, for on-the-edge implementation, the combination of the Light model and quantization represents the optimal solution, providing significant advantages in terms of memory and latency with a minimal sacrifice on predictive performance. We then compared our trade-off model (Light model with quantization) with state-of-the-art cardiac murmurs classifiers. Table VI proposes a summary of existing approaches aiming for a lightweight implementation using the CirCor Digiscope dataset. TABLE VI: Comparison against existing heart murmurs classifiers using CirCor. Reference Niizumi [34] Han [26] McDonald [17] Kalimuthu [29] Guan [21] Safdar [28] Fakhry [20] Morshed [32] Ours (Light) Features 1D segm Mel STFT STFT MFCC STFT Multimodal CWT 1D segm STFT Classifier Transformer CNN RNN+HSMM CNN+attention CRNN CNN CNN+LSTM CNN CNN Params 85.4M 141.5k N/A N/A 43.6M 2.25M 3.4M N/A 23k"
+  },
+  {
+    "id": "g:desimone2025_uncertainty_edge:018",
+    "source": "llm_draft",
+    "paper_key": "desimone2025_uncertainty_edge",
+    "source_chunk": "desimone2025_uncertainty_edge:018",
+    "pages": [
+      4,
+      5
+    ],
+    "question": "How did the confidence score facilitate selective classification during inference for known phonocardiogram samples?",
+    "answer": "The confidence score enabled a selective classification strategy by discarding unreliable predictions whose scores fell below the determined threshold, which ultimately led to enhanced robustness and recall.",
+    "evidence_quote": "During the inference of Known samples, the confidence score enabled a selective classification strategy, in which unreliable predictions (i.e., those with scores below the threshold) were discarded, resulting in improved robustness and recall.",
+    "quote_verified": true,
+    "lexical_overlap": 0.8,
+    "passage": "Higher values of the score indicate greater model confidence and reliability, whereas lower values correspond to uncertain or unreliable predictions. Both uncertainty, coherence, and the overall confidence score were computed on the validation set to characterize the model behavior. The score distributions for correctly classified (CC) and misclassified (MC) samples were then analyzed to determine the decision threshold that best discriminates between the two groups. During the inference of Known samples, the confidence score enabled a selective classification strategy, in which unreliable predictions (i.e., those with scores below the threshold) were discarded, resulting in improved robustness and recall. Indeed, if the ratio of confident segments was found to be less than heavy 0.84 0.82 0.80 F1 acc. 0.78 F1 acc. psd_thr psd_thr psd_thr (a) Nf f t = 64 0.88 light baseline heavy 0.86 0.84 0.82 0.80 0.78 F1 acc. F1 acc. F1 acc. psd_thr psd_thr (b) Nf f t = 128 psd_thr 0.88 0.86 light F1 acc. baseline F1 acc. heavy 0.84 0.82 0.80 F1 acc. 0.78 baseline Average CV metrics F1 acc."
+  },
+  {
+    "id": "g:despotovic2025_cardiophon:009",
+    "source": "llm_draft",
+    "paper_key": "despotovic2025_cardiophon",
+    "source_chunk": "despotovic2025_cardiophon:009",
+    "pages": [
+      5,
+      6
+    ],
+    "question": "What is the source and classification structure of the Open Heart collection of phonocardiogram recordings?",
+    "answer": "The Open Heart collection consists of phonocardiogram recordings gathered from various books and online sources, where each file consists of precisely three heartbeats lasting an average of 2.44 seconds and is categorized into one of five diagnostic classes: normal, aortic stenosis, mitral stenosis, mitral regurgitation, or mitral valve prolapse.",
+    "evidence_quote": "5. Open Heart is a collection of PCG recordings from multiple books and internet sources [29]. Each recording contains exactly three heartbeats (2.44 seconds average length), and is classified into 5 categories (normal, aortic stenosis, mitral stenosis, mitral regurgitation, mitral valve prolapse).",
+    "quote_verified": true,
+    "lexical_overlap": 0.5,
+    "passage": "yes no no yes no Pretraining Pretraining Pretraining Pretraining Pretraining Pretraining Evaluation Quality assessment Dataset usage 5 Open Heart CinC16 CirCor22 CDHS was combined with 3 existing datasets – HSCT11, Pascal, and CinC16, and further underwent manual quality assessment labeling [11]. 4. Ephnogram [28] contains simultaneous PCG and electrocardiogram (ECG) recordings, acquired from young adults (23-29 years) under rest and physical activity (walking, running and biking). ECG signal was excluded from our experiments. 5. Open Heart is a collection of PCG recordings from multiple books and internet sources [29]. Each recording contains exactly three heartbeats (2.44 seconds average length), and is classified into 5 categories (normal, aortic stenosis, mitral stenosis, mitral regurgitation, mitral valve prolapse). 6. CinC16 [30] was used in the PhysioNet/Computing in Cardiology Challenge 2016 and contains PCG recordings from 9 independent databases, collected at different sampling frequencies with multiple devices, and downsampled to 2 kHz. The recordings were acquired from 4 different locations (aortic, pulmonary, tricuspid, and mitral) from both healthy subjects and patients with different CVDs."
+  },
+  {
+    "id": "g:despotovic2025_cardiophon:021",
+    "source": "llm_draft",
+    "paper_key": "despotovic2025_cardiophon",
+    "source_chunk": "despotovic2025_cardiophon:021",
+    "pages": [
+      12,
+      13
+    ],
+    "question": "How are missing values for height, age, and weight handled in the CirCor22 dataset to prevent data loss?",
+    "answer": "Missing values for age, height, and weight in the CirCor22 dataset are treated as a separate category labeled 'None' in the respective categorical variables, which prevents data loss and allows the model to potentially improve predictions by capturing missingness patterns.",
+    "evidence_quote": "Note that CirCor22 dataset contains missing values for age, height and/or weight variables, which are treated as a new separate category (\"None\" in the Age and acBMI categorical variables), thus avoiding data loss, and allowing the model to capture the missingness patterns and potentially improve predictions [40].",
+    "quote_verified": true,
+    "lexical_overlap": 0.818,
+    "passage": "(2.1%) 110 (7.0%) False 719 (88.4%) 739 (97.9%) 1,458 (93.0%) The weight and height were used to calculate the body mass index (BMI), which was then combined with the age category to generate an age-corrected BMI (acBMI) feature. Age-correction is needed in case of using BMI for children or adolescents. As only the age category (neonate, infant, child, adolescent) was available instead of numerical age in years, the age-corrected BMI categories (underweight, normal weight, overweight, obese, none) were calculated using the manually extracted values from the Brazilian national standard and WHO data [39]. At least one of the necessary values for calculating the agecorrected BMI was missing for 11.6% of the participants (see Table 3). Note that CirCor22 dataset contains missing values for age, height and/or weight variables, which are treated as a new separate category (\"None\" in the Age and acBMI categorical variables), thus avoiding data loss, and allowing the model to capture the missingness patterns and potentially improve predictions [40]. The categorical variables for gender and pregnancy status were represented using the simple binary encoding, whereas age and age-corrected BMI were encoded with dummy variables with a missing value indicator represented by a zero vector, leading to 10-dimensional feature vector."
+  },
+  {
+    "id": "g:feng2026_childvox:017",
+    "source": "llm_draft",
+    "paper_key": "feng2026_childvox",
+    "source_chunk": "feng2026_childvox:017",
+    "pages": [
+      5,
+      6
+    ],
+    "question": "What average Macro-F1 scores were achieved by models such as SSAST and WavLM-Large on the ICBHI-wheezes dataset?",
+    "answer": "SSAST, voc2vec-H, WavLM-L, wav2vec-LB, BabyHuBERT, and Whisper-L achieved Macro-F1 scores of 0.644, 0.638, 0.466, 0.448, 0.563, and 0.626 respectively on the ICBHI-wheezes dataset.",
+    "evidence_quote": "Table 3: Benchmark performance across physiological sounds, vocalization, canonical syllables, and speech from children on each complete dataset.",
+    "quote_verified": true,
+    "lexical_overlap": 0.077,
+    "passage": "More details, such as the prompt design for the SFT experiments with LALM and data filtering, are in the Appendix A and C. 5.2 Modeling Details The details of training settings, like learning rate and training epochs, are listed in the Appendix B. Table 3: Benchmark performance across physiological sounds, vocalization, canonical syllables, and speech from children on each complete dataset. voc2vec-H, WavLM-L, Whisper-L are voc2vec-HuBERT, WavLM-Large, Whisper-Large, respectively. SO represents the SpeechOcean dataset. Additional results on Whisper-base and Whisper-small are reported in the Appendix D. We report the average Macro-F1 score (higher the better), and the best and second-best results per row are in bold and underlined, respectively. Task Category Dataset SSAST voc2vec-H WavLM-L wav2vec-LB BabyHuBERT Whisper-L CirCor ICBHI-crackles ICBHI-wheezes ICBHI-Condition SPRSound 0.636 0.644 0.638 0.466 0.448 0.563 0.626 0.592 0.445 0.368 0.643 0.612 0.614 0.392 0.439"
+  },
+  {
+    "id": "g:feng2026_childvox:015",
+    "source": "llm_draft",
+    "paper_key": "feng2026_childvox",
+    "source_chunk": "feng2026_childvox:015",
+    "pages": [
+      5,
+      5
+    ],
+    "question": "Which self-supervised pretrained models evaluated in the benchmark were specifically trained on infant and child-focused audio data?",
+    "answer": "BabyHuBERT and wav2vec-LB are the two pretrained speech models included in the evaluation that were primarily trained on child-centered audio and speech datasets.",
+    "evidence_quote": "Moreover, BabyHuBERT and wav2vec-LB are two pretrained speech models trained primarily on child-centered audio and speech data using HuBERT and wav2vec pretraining, respectively.",
+    "quote_verified": true,
+    "lexical_overlap": 0.462,
+    "passage": "4.2 Benchmark Models In ChildVox, we evaluate several representative audio, speech, and large audio-language models for benchmark experiments. The details of the experimented pre-trained models are listed in Table 2. 4.1 Encoder-based Models Self-supervised Models We evaluate five representative self-supervised audio and speech foundation models: SSAST (Gong et al., 2022), voc2vec (Koudounas et al., 2025), WavLM (Chen et al., 2022), wav2vec-LB (Li et al., 2023), and BabyHuBERT (Charlot et al., 2025). SSAST, voc2vec, and WavLM apply self-supervised learning to learn representations from generic audio events, non-verbal vocalizations, and adultcentered speech data, respectively. These pretrained models have shown strong performance on audio event detection, speech recognition, and speaker diarization tasks. Moreover, BabyHuBERT and wav2vec-LB are two pretrained speech models trained primarily on child-centered audio and speech data using HuBERT and wav2vec pretraining, respectively. ASR Models We primarily evaluate models from the Whisper family, an encoder-decoder architecture trained on large-scale multilingual speech primarily for ASR. Apart from ASR, Whisper encoders have shown strong transferability across Large Audio-Language Model"
+  },
+  {
+    "id": "g:festag2022_outcome_ensemble:009",
+    "source": "llm_draft",
+    "paper_key": "festag2022_outcome_ensemble",
+    "source_chunk": "festag2022_outcome_ensemble:009",
+    "pages": [
+      3,
+      3
+    ],
+    "question": "What loss function and class-specific weights are utilized during the training phase to handle the murmur detection task in the deep learning ensemble network?",
+    "answer": "During training, a focal-like loss function is used where the individual classes are weighted based on the challenge score of the murmur detection task (present: 5, unknown: 3, absent: 1).",
+    "evidence_quote": "Since the challenge score of the murmur detection task weights the correct classification of murmur occurrences higher than the classification of other classes, we weight the individual cf ls similarly during training (present: 5, unknown: 3, absent: 1).",
+    "quote_verified": true,
+    "lexical_overlap": 0.353,
+    "passage": "Conv. (5,1,2) Batch Normal. Max Pool (2,2) Atrous Conv. (5,1,32,2) Batch Normal. Max Pool (2,2) Atrous Conv. (5,1,64,2) Phonocardiogram Figure 1. Topology of one ensemble network. The numbers in the blocks define the size, the stride, the number of filters and the dilation rate (if applicable). ELU activation function is used in all layers except for the decision layers. timizer, where ytr is a one-hot encoding of the true murmur class and γ cf l(ytr , ypr ) = −α (1 − (ytr ◦ ypr )) log(ytr ◦ ypr ) In this formula, “◦” denotes the dot product and α, as well as γ, are hyper-parameters. Since the challenge score of the murmur detection task weights the correct classification of murmur occurrences higher than the classification of other classes, we weight the individual cf ls similarly during training (present: 5, unknown: 3, absent: 1). After the first training phase, the weights that led to a maximum weighted accuracy on the validation set are restored. During the second phase, only the outcome head is updated. It is believed that the early layers can already extract and combine useful features from the phonocardiogram, its spectrogram, and the patient data."
+  },
+  {
+    "id": "g:festag2022_outcome_ensemble:005",
+    "source": "llm_draft",
+    "paper_key": "festag2022_outcome_ensemble",
+    "source_chunk": "festag2022_outcome_ensemble:005",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "How is the short-time Fourier transform parameterized when computing the spectrogram from the preprocessed phonocardiogram?",
+    "answer": "A short-time Fourier transform is applied with a frame length of 0.04 seconds, a frame step of 0.016 seconds, a Fourier transform size of 200, and von-Hann-windowing.",
+    "evidence_quote": "To this end, a short-time Fourier transform with a frame length of 0.04 seconds, a frame step of 0.016 seconds, a Fourier transform with a size of 200, and a von-Hann-windowing is applied to the preprocessed five-second interval of the phonocardiogram.",
+    "quote_verified": true,
+    "lexical_overlap": 0.667,
+    "passage": "Afterwards, the series is downsampled to a sampling frequency of 1 kHz, the systolic peak of the first heart cycle is identified, and an interval of 5 seconds starting at this position is cut out. In the last step, the this 5 second window is normalized by a min-max-normalizer. For the identification of systolic peaks, the following approach is used. At first, another low-pass filter (cutoff frequency 4 Hz) and a min-max-normalizer are applied to obtain the envelope of the rectified signal. Afterwards, the peaks are detected in this low-frequency signal by finding all local maxima that lie at least 0.5 seconds apart from each other. We assume these mark systolic peaks. Moreover, a spectrogram summarizing the changes in the frequency domain of the series is computed. To this end, a short-time Fourier transform with a frame length of 0.04 seconds, a frame step of 0.016 seconds, a Fourier transform with a size of 200, and a von-Hann-windowing is applied to the preprocessed five-second interval of the phonocardiogram. After preprocessing, we end up with an audio signal of 5 seconds, a corresponding spectrogram, and a 4-dimensional feature vector (patient meta data). The topology of a single network is presented in Figure 1."
+  },
+  {
+    "id": "g:golnari2025_qivcnet:014",
+    "source": "llm_draft",
+    "paper_key": "golnari2025_qivcnet",
+    "source_chunk": "golnari2025_qivcnet:014",
+    "pages": [
+      4,
+      5
+    ],
+    "question": "What performance and signal-to-noise ratio improvements are achieved by the evolutionary search-based quantum-inspired graph neural network when applied to phonocardiogram denoising?",
+    "answer": "The sorted-mutation quantum-inspired evolutionary algorithm model achieves a 20 to 100 percent signal-to-noise ratio gain in phonocardiogram denoising along with a clinical fidelity correlation coefficient of approximately 0.99.",
+    "evidence_quote": "Sorted-mutation QiEA-SMGLR [44] evolutionary search over FIR-filter coefficients 20–100% SNR gain in PCG denoising; ρ ≈ 0.99 clinical fidelity",
+    "quote_verified": true,
+    "lexical_overlap": 0.176,
+    "passage": "As QiDL matures, the confluence of Bayesian inference, quantum metaphors, and classical deep learning is poised to deliver robust, sample-efficient solutions for precision medicine and population health analytics. Table 2 summarizes the key quantum-inspired learning paradigms, highlighting their core computational mechanisms, empirical gains across diverse tasks, and the practical bottlenecks reported in the literature. This integrated overview illustrates how different families of models range from tensor-network approaches to quantum-inspired CNNs, DBNs, GNNs, and pre-trained NLP architectures. These models balance theoretical advantages with implementation constraints. The summary provides a foundation for informed selection and further development of QiDL architectures. Table 2: Summary of quantum-inspired models: core mechanisms, empirical gains, and practical bottlenecks. Family Model Core Mechanism Tensor-Network Models MPS/TTN [39] Low-rank tensor contractions emulating exponentially large Hilbert spaces Reported Advantage Polynomial runtime for tasks classically NP-hard; exponential parameter compression Quantum-Inspired CNNs QuCNet [43] Random quantum-circuit filters applied to 2 × 2 quanvolutional patches 97.6% thyroid-nodule accuracy with 5–30% fewer parameters vs. DenseNet121 Quantum-Inspired GNNs Sorted-mutation QiEA-SMGLR [44] evolutionary search over FIR-filter coefficients 20–100% SNR gain in PCG denoising; ρ ≈ 0.99 clinical fidelity Pre-trained NLP"
+  },
+  {
+    "id": "g:golnari2025_qivcnet:004",
+    "source": "llm_draft",
+    "paper_key": "golnari2025_qivcnet",
+    "source_chunk": "golnari2025_qivcnet:004",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "What specific architectural block does QiVC-Net use to capture bidirectional temporal dependencies and improve temporal coherence in noisy phonocardiogram recordings?",
+    "answer": "QiVC-Net integrates a reversal fusion residual (RFR) block designed to model bidirectional temporal dependencies, enhancing the model's temporal coherence and robustness against physiological variability.",
+    "evidence_quote": "To enhance temporal coherence and robustness to physiological variability, QiVC-Net further incorporates a reversal fusion residual (RFR) block that models bidirectional temporal dependencies in PCG recordings.",
+    "quote_verified": true,
+    "lexical_overlap": 0.571,
+    "passage": "In this work, the QiVC framework is instantiated within a convolutional network, referred to as QiVC-Net, and its effectiveness is evaluated in the context of phonocardiogram (PCG) classification. PCG signal analysis plays a vital role in computer-aided auscultation and early detection of cardiovascular diseases. Heart sound recordings provide clinically significant diagnostic cues, yet their interpretation is complicated by low signal-to-noise ratios, high interpatient variability, and environmental artifacts typical of real-world settings [10]. Recent advances in deep learning have improved PCG classification performance through CNNs, RNNs, transformers, and hybrid models [11, 12]. Nevertheless, persistent challenges remain regarding robustness, interpretability, dataset imbalance, and the lack of reliable uncertainty quantification [13–15]. To enhance temporal coherence and robustness to physiological variability, QiVC-Net further incorporates a reversal fusion residual (RFR) block that models bidirectional temporal dependencies in PCG recordings. This combination of geometry-aware probabilistic convolution and temporal symmetry makes QiVC-Net well-suited for biosignal analysis under noisy and heterogeneous conditions."
+  },
+  {
+    "id": "g:guo2017_calibration:005",
+    "source": "llm_draft",
+    "paper_key": "guo2017_calibration",
+    "source_chunk": "guo2017_calibration:005",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "How is perfect calibration formally defined in terms of prediction confidence and correctness for multiclass classification models?",
+    "answer": "Perfect calibration is formally defined as the probability of the predicted label matching the true label, given a confidence level p, being equal to p for all values between 0 and 1.",
+    "evidence_quote": "More formally, we define perfect calibration as     (1) P Ŷ = Y | P̂ = p = p, ∀p ∈ [0, 1] where the probability is over the joint distribution.",
+    "quote_verified": false,
+    "lexical_overlap": 0.273,
+    "passage": "Because this method is straightforward to implement with existing deep learning frameworks, it can be easily adopted in practical settings. 2. Definitions The problem we address in this paper is supervised multiclass classification with neural networks. The input X ∈ X and label Y ∈ Y = {1, . . . , K} are random variables that follow a ground truth joint distribution π(X, Y ) = π(Y |X)π(X). Let h be a neural network with h(X) = (Ŷ , P̂ ), where Ŷ is a class prediction and P̂ is its associated confidence, i.e. probability of correctness. We would like the confidence estimate P̂ to be calibrated, which intuitively means that P̂ represents a true probability. For example, given 100 predictions, each with confidence of 0.8, we expect that 80 should be correctly classified. More formally, we define perfect calibration as \u0010 \u0011 (1) P Ŷ = Y | P̂ = p = p, ∀p ∈ [0, 1] where the probability is over the joint distribution. In all practical settings, achieving perfect calibration is impossible. Additionally, the probability in (1) cannot be computed using finitely many samples since P̂ is a continuous random variable. This motivates the need for empirical approximations that capture the essence of (1). Reliability Diagrams (e.g. Figure 1 bottom) are a visual representation of model calibration (DeGroot & Fienberg, 1983; Niculescu-Mizil & Caruana, 2005)."
+  },
+  {
+    "id": "g:guo2017_calibration:006",
+    "source": "llm_draft",
+    "paper_key": "guo2017_calibration",
+    "source_chunk": "guo2017_calibration:006",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "How are expected sample accuracy and average confidence computed when dividing finite model predictions into interval bins for reliability diagrams?",
+    "answer": "Expected sample accuracy for a given bin is computed as the fraction of correct predictions among the samples whose confidence falls into that interval, while the average confidence is calculated as the mean of the predicted confidences for the samples within that same bin.",
+    "evidence_quote": "To estimate the expected accuracy from finite samples, we group predictions into M interval bins (each of size 1/M ) and calculate the accuracy of each bin.",
+    "quote_verified": true,
+    "lexical_overlap": 0.429,
+    "passage": "Reliability Diagrams (e.g. Figure 1 bottom) are a visual representation of model calibration (DeGroot & Fienberg, 1983; Niculescu-Mizil & Caruana, 2005). These diagrams plot expected sample accuracy as a function of confidence. If the model is perfectly calibrated – i.e. if (1) holds – then the diagram should plot the identity function. Any deviation from a perfect diagonal represents miscalibration. To estimate the expected accuracy from finite samples, we group predictions into M interval bins (each of size 1/M ) and calculate the accuracy of each bin. Let Bm be the set of indices of samples whose prediction confidence falls into m the interval Im = ( m−1 M , M ]. The accuracy of Bm is 1 X acc(Bm ) = 1(ŷi = yi ), |Bm | i∈Bm where ŷi and yi are the predicted and true class labels for sample i. Basic probability tells us that acc(Bm ) is an unbiased and consistent estimator of P(Ŷ = Y | P̂ ∈ Im ). We define the average confidence within bin Bm as 1 X conf(Bm ) = p̂i , |Bm | i∈Bm where p̂i is the confidence for sample i. acc(Bm ) and conf(Bm ) approximate the left-hand and right-hand sides of (1) respectively for bin Bm ."
+  },
+  {
+    "id": "g:ismail2018_pcg_review:006",
+    "source": "llm_draft",
+    "paper_key": "ismail2018_pcg_review",
+    "source_chunk": "ismail2018_pcg_review:006",
+    "pages": [
+      2,
+      3
+    ],
+    "question": "What are the two primary challenges involved in automating the analysis of phonocardiogram signals according to recent technological advancements?",
+    "answer": "The automatic analysis of phonocardiogram signals involves two primary challenges: localization and classification.",
+    "evidence_quote": "The automatic analysis of these signals involves two primary challenges, localization and classification.",
+    "quote_verified": true,
+    "lexical_overlap": 0.417,
+    "passage": "With the advancements in technology as well as different areas of pattern classification and machine learning, efforts have been made to automate the analysis of PCG signals. The automatic analysis of these signals involves two primary challenges, localization and classification. In localization, the objective is to correctly detect the positioning of beats in the signal while classification deals with the categorizing the beats into S1 and S2 in case of normal heart sounds and into S3, S4, and murmurs etc. in case of abnormal sounds. Localization algorithms are generally peak-based algorithms where candidate peaks are localized in a signal and windows are constructed around these potential peaks. Features are then calculated from each window, and the peaks are classified. Another approach is not to precisely localize the peaks for classification. Springer et al. [15] for instance, divides the signal into a sequence of segments Page 3 of 27 Fig. 2 An example of a PCG signal which are classified and later processed for a precise localization. Heart beat is a repetitive or cyclic process (Fig. 2) and a normal PCG signal can be divided into four segments. These include the time window containing S1, the silence window, the segment containing S2, and again the silence window. A normal heart beat can hence be modeled using these states. However, since the sequence and duration of each state within the cycle can vary, probabilistic modeling is better suited for such scenarios as opposed to deterministic approaches."
+  },
+  {
+    "id": "g:jain2025_mysteth:038",
+    "source": "llm_draft",
+    "paper_key": "jain2025_mysteth",
+    "source_chunk": "jain2025_mysteth:038",
+    "pages": [
+      13,
+      14
+    ],
+    "question": "What specific subcategories of murmurs can the MySteth framework identify during the classification of systolic sounds?",
+    "answer": "Systolic murmurs are further categorized into Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM).",
+    "evidence_quote": "Systolic murmurs can also be further classified into two categories: Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM).",
+    "quote_verified": true,
+    "lexical_overlap": 0.273,
+    "passage": "To confirm the models’ long-term dependability and efficacy in practical situations, longitudinal research and comprehensive clinical trials are required (59). The current study utilized uncleaned data recorded from smartphones, which included a significant amount of noise due to breathing artifacts. These artifacts can adversely affect the accuracy of classification. Future research could focus on removing these artifacts to enhance the signal-to-noise ratio, thereby improving the accuracy of murmur classification. Despite the presence of breathing artifacts in the current uncleaned data, the preliminary classification accuracies achieved were promising for screening purposes. This suggests that even without artifact removal, the current results may still offer valuable diagnostic information in a clinical setting. Further investigation is required to explore the potential of this technology as a tool for noninvasive heart screening, particularly in resource-limited settings where access to traditional cardiac diagnostics is limited. 6 Conclusions MySteth is a tool that our study introduces. Using deep learning algorithms and just the sound of a heartbeat recorded using a phone or digital stethoscope, the authors investigated the screening of a broad class of heart disorders. Heartbeats can be categorized by MySteth into three categories: normal, systolic, and diastolic murmurs. Systolic murmurs can also be further classified into two categories: Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM)."
+  },
+  {
+    "id": "g:jain2025_mysteth:039",
+    "source": "llm_draft",
+    "paper_key": "jain2025_mysteth",
+    "source_chunk": "jain2025_mysteth:039",
+    "pages": [
+      14,
+      14
+    ],
+    "question": "What are the two subcategories used for classifying systolic murmurs within the presented home-based diagnostic framework?",
+    "answer": "Systolic murmurs are further categorized into Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM).",
+    "evidence_quote": "Systolic murmurs can also be further classified into two categories: Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM).",
+    "quote_verified": true,
+    "lexical_overlap": 0.273,
+    "passage": "Systolic murmurs can also be further classified into two categories: Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM). In order to keep the condition from getting worse to the point where it becomes fatal or irreversible, this effort can be very helpful in identifying the onset of a wide class of cardiovascular heart diseases (60). MySteth, a tool in the field of heart sound classification, can significantly contribute to preventive healthcare and lower the total burden of cardiovascular illnesses by enabling at-home early screening and precise diagnosis of heart murmurs and other irregularities. Because of its architecture, the instrument can be deployed in a variety of contexts, such as remote and rural locations, allowing disadvantaged groups to benefit from modern diagnostics. The scalable and adaptable nature of MySteth ensures it can be integrated into different healthcare environments, from large urban hospitals to small rural clinics and even home-based care. By addressing both the technological and practical challenges in this domain, MySteth stands out as a viable solution with significant potential for improving global health outcomes. editing, Supervision, Formal Methodology, Investigation. analysis, Conceptualization, Funding The author(s) declare that financial support was received for the research and/or publication of this article. APC will be supported by Molde University College, Norway."
+  },
+  {
+    "id": "g:jobayer2024_funnelnet:027",
+    "source": "llm_draft",
+    "paper_key": "jobayer2024_funnelnet",
+    "source_chunk": "jobayer2024_funnelnet:027",
+    "pages": [
+      12,
+      12
+    ],
+    "question": "What level of accuracy and average processing speed were recorded when executing the TensorFlow Lite version of the framework on a Raspberry Pi 4B board?",
+    "answer": "When deployed on a Raspberry Pi 4B, the TensorFlow Lite model achieved an average accuracy of 0.91 with an average inference time of 9.3 ms.",
+    "evidence_quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "quote_verified": true,
+    "lexical_overlap": 0.333,
+    "passage": "Acc. Avg. Inference Time Min Inference Time Max Inference Time Raspberry PI 4B Android 0.91 0.80 9.3 ms 174 ms 9.1 ms 30 ms 16.3 ms 401 ms without removing outliers caused a severe performance drop, reducing both accuracy and sensitivity to 0.33. This indicates that generating synthetic data from noisy, outlier-ridden samples actively harms the model’s learning process. Finally, combining both outlier removal and SMOTE significantly improved all metrics, yielding an accuracy of 0.85, a sensitivity of 0.85, and a specificity of 0.92. The ablation results confirm that both the preprocessing steps are interdependent and essential for the proposed architecture to achieve optimal performance. 5.2.1. Real-time Inference on Edge Device To demonstrate the practical applicability of our model, we deployed it on two edge devices: a Raspberry Pi 4B and an Android smartphone. We first converted our trained model into the TensorFlow Lite (TFLite) format to ensure efficient real-time inference on these resource-constrained platforms. Table 5 details the performance of the lite model on both devices. On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms."
+  },
+  {
+    "id": "g:jobayer2024_funnelnet:021",
+    "source": "llm_draft",
+    "paper_key": "jobayer2024_funnelnet",
+    "source_chunk": "jobayer2024_funnelnet:021",
+    "pages": [
+      9,
+      10
+    ],
+    "question": "What activation function and kernel dimensions are employed in the squeeze network component of FunnelNet?",
+    "answer": "The squeeze network component utilizes a 2 by 2 kernel size along with the hyperbolic tangent (tanh) activation function.",
+    "evidence_quote": "Like the squeeze net, we have a kernel size of 2 × 2 with an activation function of ‘tanh.",
+    "quote_verified": true,
+    "lexical_overlap": 0.444,
+    "passage": "Like the squeeze net, we have a kernel size of 2 × 2 with an activation function of ‘tanh. Compared with conventional CNN, it significantly reduces parameter count, mitigating overfitting and resulting in smaller model sizes, which is desirable for TinyML models. 3.5.3. Expansion Net The subsequent expanding phase, which works like a decoder, mirrors the squeezing phase but in reverse order, utilizing conventional layers with the same filter and kernel sizes. As a decoder network, the expansion net aims to reconstruct the original input from the compressed representation generated by the encoder or the squeeze net. This way, it tries to recover the spatial details to produce meaningful outputs. After each convolutional layer, including the depthwise separable convolution layer, we apply a maximum pooling layer with a pool size of 2 × 2. This is succeeded by a Flatten layer to linearly represent the data, followed by an FC layer with a depth of 8 and using the ReLU activation function. Finally, we incorporated a fully connected layer with a depth of three and applied a Softmax activation function to classify the three categories of the CirCor dataset. Algorithm 1 explains the workflow of our proposed solution for the automated heart murmur prediction mechanism. Table 2: Bayesian optimization-based Hyperparameter Tuning Parameter Range Best Value Optimizer Learning Rate Batch Size [adam, adamw, sgd, rmsprop] [0.0001:0.01] [32:32:128]"
+  },
+  {
+    "id": "g:khan2020_time_freq_features:021",
+    "source": "llm_draft",
+    "paper_key": "khan2020_time_freq_features",
+    "source_chunk": "khan2020_time_freq_features:021",
+    "pages": [
+      6,
+      6
+    ],
+    "question": "Which specific hidden Markov model extension was utilized for phonocardiogram segmentation in the classification framework?",
+    "answer": "The logistic regression-hidden semi-Markov model (HSMM) proposed by Springer et al. (2015), which extends Schmidt's duration-dependent hidden Markov model, was used for PCG segmentation.",
+    "evidence_quote": "Logistic regression-HSMM-based heart sound segmentation proposed by Springer (David B. Springer et al, 2015) is employed for the PCG segmentation, which is the extended version of duration-dependent hidden Markov model (DHMM) by Schmidt (S E Schmidt et al, 2010).",
+    "quote_verified": true,
+    "lexical_overlap": 0.4,
+    "passage": "Page 5 of 12 Table III: Time and Frequency domain features Time-domain features (1 to 20 features) Features order pt Mean value of RR interval, s1 interval, s2 interval, systole interval and diastole interval Standard deviation (SD) value of RR intervals, s1 interval, s2 interval, systole interval and diastole interval Mean value of the interval ratios between systole and RR, diastole and RR and between systole and diastole in each heartbeat SD value of the interval ratios between systole and RR, diastole and RR and between systole and diastole in each heartbeat Mean value of the mean absolute amplitude ratios between systole period and S1 period and between diastole period and S2 period in each heartbeat SD value of the mean absolute amplitude ratios between systole period and S1 period and between diastole period and S2 period in each heartbeat pte dM an A. Segmentation PCG consists of different states with distinct durations and distances between their envelop signal peaks. Logistic regression-HSMM-based heart sound segmentation proposed by Springer (David B. Springer et al, 2015) is employed for the PCG segmentation, which is the extended version of duration-dependent hidden Markov model (DHMM) by Schmidt (S E Schmidt et al, 2010). The adopted segmentation approach starts with the windowing of PCG signal and then maximum absolute amplitude (MAA) in each window is calculated."
+  },
+  {
+    "id": "g:khan2020_time_freq_features:010",
+    "source": "llm_draft",
+    "paper_key": "khan2020_time_freq_features",
+    "source_chunk": "khan2020_time_freq_features:010",
+    "pages": [
+      4,
+      4
+    ],
+    "question": "What technique did Rompelman and Ros suggest utilizing in order to enhance the signal-to-noise ratio by handling random uncorrelated noise and time-invariant signals?",
+    "answer": "Rompelman and Ros proposed the concept of coherent averaging to improve the signal-to-noise ratio under the assumption of time-invariant and uncorrelated random noise input signals.",
+    "evidence_quote": "O. Rompelman et al, 1986) proposed the concept of coherent averaging to improve signal to noise ratio, assuming time-invariant, and uncorrelated random noise input signal.",
+    "quote_verified": true,
+    "lexical_overlap": 0.5,
+    "passage": "Plesinger et NB al, 2017) (Roilhi IbarraLDA Hernández et al, 2018) (Tanachat Nilanon et al, 2016) (Omer DNN Deperlioglu, 2019) (Yaseen et al, 2018) (Roilhi IbarraLR Hernández et al, 2018) (Simarjot kaur ANN et al, 2015) (Simarjot kaur et al, 2015) (Roilhi IbarraKNN Hernández et al, 2018) (Yaseen et al, 2018) (Tanachat Nilanon et al, 2016) RF (Roilhi IbarraHernández et al, 2018) (Christopher LSTM Sch¨olzel et al, 2016) (Runnan He et AR model al, 2016) (Masun Ensemble Nabhan et al, 2016) dM pte ce Sensitivity (%) Specificity (%) Accuracy (%) 100 83.52 94.60 73.3 83.98 78.64 pt Method an Rompelman and Ros (O. Rompelman et al, 1986) proposed the concept of coherent averaging to improve signal to noise ratio, assuming time-invariant, and uncorrelated random noise input signal. In this method, the algorithm samples the original signal to collect multiple samples of signal and noise."
+  },
+  {
+    "id": "g:mehrtash2020_calibration_segmentation:017",
+    "source": "llm_draft",
+    "paper_key": "mehrtash2020_calibration_segmentation",
+    "source_chunk": "mehrtash2020_calibration_segmentation:017",
+    "pages": [
+      7,
+      8
+    ],
+    "question": "What specific metrics and visual tools are utilized to measure the quality of uncertainty estimation and calibration in segmentation tasks?",
+    "answer": "Negative log-likelihood (NLL), Brier score, reliability diagrams, and Expected Calibration Error (ECE) are used to evaluate calibration quality and predictive uncertainty.",
+    "evidence_quote": "Negative log-likelihood (NLL), and Brier score [49], are both strictly proper scoring rules that have been previously used in several studies for evaluating predictive uncertainty [5], [18], [27].",
+    "quote_verified": true,
+    "lexical_overlap": 0.083,
+    "passage": "Strictly proper scoring rules are used to assess the calibration quality of predictive models [13]. In general, scoring rules assess the quality of uncertainty estimation in models by awarding well-calibrated probabilistic forecasts. Negative log-likelihood (NLL), and Brier score [49], are both strictly proper scoring rules that have been previously used in several studies for evaluating predictive uncertainty [5], [18], [27]. In a segmentation problem, for a collection of N pixels, NLL is calculated as: Page 8 NLL = − N K 1 ∑ ln (p(y i = k ∣ xi, θ)) ⋅ (y i = yk) N i∑ = 1k = 1 (3) Brier score (Br) measures the accuracy of probabilistic predictions: Br = N K 1 1 ∑ [p(y i = yk ∣ xi, θ) − (y i = yk)]2 N i∑ K =1 k=1 (4) In addition to NLL and Brier score, we directly assess the predictive power of a model by analyzing test examples confidence values versus their measured expected accuracy values. To do so, we use reliability diagrams as visual representations of model calibration and Expected Calibration Error (ECE) as summary statistics for calibration [5], [50]. Reliability diagrams plot expected accuracy as a function of class probability (confidence)."
+  },
+  {
+    "id": "g:mehrtash2020_calibration_segmentation:010",
+    "source": "llm_draft",
+    "paper_key": "mehrtash2020_calibration_segmentation",
+    "source_chunk": "mehrtash2020_calibration_segmentation:010",
+    "pages": [
+      5,
+      5
+    ],
+    "question": "What happens to calibration quality when fully convolutional networks are trained using Dice loss instead of cross-entropy loss for medical image segmentation?",
+    "answer": "When fully convolutional networks are trained with Dice loss, they achieve significantly better segmentation performance than when trained with cross-entropy loss, but this comes at the expense of poor calibration.",
+    "evidence_quote": "We observe that FCNs trained with Dice loss perform significantly better segmentation compared to those trained with crossentropy but at the cost of poor calibration.",
+    "quote_verified": true,
+    "lexical_overlap": 0.333,
+    "passage": "Similarly, DeVries and Taylor [39] proposed a hybrid with a confidence term to improve out-of-distribution detection. Shalev et al. [40] used multiple semantic dense representations of the target labels to detect misclassified and adversarial examples. III. Contributions In this work, we study predictive uncertainty estimation for semantic segmentation with FCNs and propose ensembling for confidence calibration and reliable predictive uncertainty estimation of segmented structures. In summary, we make the following contributions: IV. • We analyze the choice of loss function for semantic segmentation in FCNs. We compare the two most commonly used loss functions in training FCNs for semantic segmentation: cross-entropy loss and Dice loss. We train models with these loss functions and compare the resulting segmentation quality and predictive uncertainty estimation. We observe that FCNs trained with Dice loss perform significantly better segmentation compared to those trained with crossentropy but at the cost of poor calibration. • We propose model ensembling [27] for confidence calibration of FCNs trained with Dice loss and batch normalization. By training collections of FCNs with random initialization of parameters and random shuffling of training data, we create an ensemble that improves both segmentation quality and uncertainty estimation. We also compare ensembling with MC dropout [18], [28]. We empirically quantify the effect of the number of models on calibration and segmentation quality. •"
+  },
+  {
+    "id": "g:muna2025_ss_dppn:033",
+    "source": "llm_draft",
+    "paper_key": "muna2025_ss_dppn",
+    "source_chunk": "muna2025_ss_dppn:033",
+    "pages": [
+      17,
+      17
+    ],
+    "question": "How is the high-dimensional output from the ResNet backbone transformed into a lower-dimensional embedding for murmur classification in the dual-path network?",
+    "answer": "The high-dimensional feature vector from the ResNet backbone is processed by a projection head composed of a two-layer Multi-Layer Perceptron equipped with Batch Normalization and Dropout to produce a lower-dimensional embedding.",
+    "evidence_quote": "The high-dimensional feature vector from the ResNet backbone is then passed through a projection head, which consists of a two-layer Multi-Layer Perceptron (MLP) with BatchNorm and Dropout.",
+    "quote_verified": true,
+    "lexical_overlap": 0.308,
+    "passage": "Xl+1 = ReLU(G (Xl , Wi ) + Xl ) (3) where G represents the residual function, which is a stack of 2D convolutions within the block, and Wi are the learnable weights. The high-dimensional feature vector from the ResNet backbone is then passed through a projection head, which consists of a two-layer Multi-Layer Perceptron (MLP) with BatchNorm and Dropout. This head maps the features to the final lower-dimensional embedding, tailoring them for the specific task of murmur detection. The operation of the projection head, P , on an input feature vector h is defined as: P (h) = Wp · ReLU (BN(We h)) (4) where We and Wp are the weight matrices of the two linear layers. The complete forward pass of the encoder to produce the final 2D feature embedding Z2D from an input spectrogram X is given in Equation 5: z2D = P (F ′ ResNet-50(X)) (5) ′ where FResN et−50 () is the modified ResNet-50 feature extractor function. Feature Fusion. The feature fusion mechanism is designed to jointly integrate the complementary representations learned by the parallel 1D temporal and 2D spectrotemporal encoders. The feature vector from the 1D encoder, z1D ∈ RD , and the vector from the 2D encoder, z2D ∈ RD , are first concatenated to form a single vector."
+  },
+  {
+    "id": "g:muna2025_ss_dppn:025",
+    "source": "llm_draft",
+    "paper_key": "muna2025_ss_dppn",
+    "source_chunk": "muna2025_ss_dppn:025",
+    "pages": [
+      13,
+      13
+    ],
+    "question": "What is the total duration and sampling frequency of the phonocardiogram recordings in the patient dataset comprising 942 subjects aged 0-22 years?",
+    "answer": "The recordings are sampled at 4 kHz with variable durations ranging from 4.8 seconds to 80.4 seconds, resulting in more than 33.5 hours of recording.",
+    "evidence_quote": "The recordings are sampled at 4 kHz with variable durations ranging from 4.8 seconds to 80.4 seconds, resulting in more than 33.5 hours of recording.",
+    "quote_verified": true,
+    "lexical_overlap": 0.067,
+    "passage": "The dataset comprises phonocardiogram recordings from 942 patients of age 0-22 years. The dataset includes 5,282 individual heart sound segments with four anatomical auscultation locations, such as the aortic valve (AV), mitral valve (MV), pulmonary valve (PV), and tricuspid valve (TV), from each patient. The recordings are sampled at 4 kHz with variable durations ranging from 4.8 seconds to 80.4 seconds, resulting in more than 33.5 hours of recording. Each segment is annotated with murmur presence labels- ”Present,” ”Absent,” or ”Unknown”—based on expert cardiologist assessments. The dataset exhibits natural class imbalance, with murmur-present cases representing approximately 30% of usable recordings. The PhysioNet/Computing in Cardiology Challenge (CinC) 2016 dataset [40], a collection of 3,126 public phonocardiogram (PCG) recordings. Each file has a duration of 5 to 120 seconds and has been resampled to a frequency of 2,000 Hz. Recordings were from diverse and often noisy environments and were intended for classifying heart sounds as normal or abnormal. The PASCAL Classifying Heart Sounds Challenge 2011 dataset [41] provides noisy, real-world heart sound audio files that are 1–30 seconds long and come from diverse sources for the task of classifying beats into categories such as normal, murmur, artifact, and extrasystole."
+  },
+  {
+    "id": "g:niizumi2024_m2d_murmur:008",
+    "source": "llm_draft",
+    "paper_key": "niizumi2024_m2d_murmur",
+    "source_chunk": "niizumi2024_m2d_murmur:008",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "How many experimental runs were averaged to compute the final evaluation results for each evaluated model?",
+    "answer": "The final evaluation results were obtained by calculating the average across 15 experiments for each model, which consisted of five experiments for each of the three data splits.",
+    "evidence_quote": "We used the final evaluation result of the average of 15 experiments per model (five experiments for each of the three data splits).",
+    "quote_verified": true,
+    "lexical_overlap": 0.364,
+    "passage": "W.acc is a metric weighted to the classes Present and Absence: W.acc = (5cp + 3cu + ca )/(5tp + 3tu + ta ), (1) where ci and ti for i ∈ {p(resent), u(nknown), a(bsent)} are the number of correct results and true labels, respectively. UAR is a metric that reflects performance balance among classes, and it becomes low when the recall performance of some classes is low: X UAR = 1/Nc ri , (2) i∈{p,u,a} where ri is recall, and Nc is the number of classes, i.e., three. Network architecture. We employed the same network architecture as in [7], [9] as illustrated in Fig. 1, which was used for evaluating models on the general audio tasks. The network uses a pre-trained model as a feature extractor and adds a batch normalization layer and a linear layer on top of the pre-trained model. We train all network parameters. Training and test details. We set the network with one of the pre-trained models as a feature extractor and trained it. After the training phase, we tested the best checkpoints on the validation set during the training to obtain the test results for the model. We used the final evaluation result of the average of 15 experiments per model (five experiments for each of the three data splits). All recordings were converted to a sampling rate of 16 kHz to match the model input in advance."
+  },
+  {
+    "id": "g:niizumi2024_m2d_murmur:013",
+    "source": "llm_draft",
+    "paper_key": "niizumi2024_m2d_murmur",
+    "source_chunk": "niizumi2024_m2d_murmur:013",
+    "pages": [
+      3,
+      3
+    ],
+    "question": "What happens to the overall performance metrics when combining a convolutional neural network model with an M2D model for cardiac sound detection?",
+    "answer": "Combining the CNN14 and M2D models improves the detection performance for unknown classes, though the overall performance metrics experience a slight degradation.",
+    "evidence_quote": "The CNN14+M2D and BYOL-A+M2D results show that they can improve the Unkown detection performance, although the overall performance is slightly degraded.",
+    "quote_verified": true,
+    "lexical_overlap": 0.308,
+    "passage": "sequence [21], the task may require better handling of global relationships. Comparing AST and M2D, which share a very close transformer architecture, M2D is an SSL that does not rely on labels, while AST learns AudioSet’s labels. The results suggest that the task differs from the classification task of AudioSet; thus, AST representation is not effective enough, and the M2D representation is effective thanks to the pre-training by a taskagnostic SSL. C. Results: Ensemble of Models We conducted experiments to explore the possibility of improving performance by ensembling the predictions of multiple models. For simplicity, we experimented with ensembles of two models, with M2D fixed as one of them. We used the predictions of each model for each recording obtained from the experiments in Section II-B. Then, we obtained the prediction results using the average class probability of the predictions of each model we ensembled. To obtain the ensembled prediction for each recording, we averaged a total of 25 predictions, which are all combinations of five predictions for each of the two models from the ensemble. The results in Table III show that the AST+M2D ensemble can improve the detection of Unkown and, consequently, the overall metrics W.acc and UAR. The CNN14+M2D and BYOL-A+M2D results show that they can improve the Unkown detection performance, although the overall performance is slightly degraded."
+  },
+  {
+    "id": "g:niizumi2025_foundation_models:005",
+    "source": "llm_draft",
+    "paper_key": "niizumi2025_foundation_models",
+    "source_chunk": "niizumi2025_foundation_models:005",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "What specific dataset and classification categories are utilized when evaluating the audio models on respiratory sound analysis?",
+    "answer": "The ICBHI2017 challenge dataset is used for the respiratory sound classification task, where the goal is to categorize audio into crackles, wheezes, both combined, or normal breathing.",
+    "evidence_quote": "C. Respiratory sound task: ICBHI2017 We use the ICBHI (International Conference on Biomedical and Health Informatics) 2017 Challenge (ICBHI2017) [5] for a respiratory sound classification task and compare the performance of foundation models to the SOTA performance.",
+    "quote_verified": true,
+    "lexical_overlap": 0.364,
+    "passage": "We fixed the weights θ of the foundation model fθ , as shown ‘Frozen’ in Fig. 1, and used its output features to train the weights ϕ of the task-specific network gϕ . Since the features from the foundation model dictate the test results, we treat these results as the model’s performance on the task. For the task network, we used either the multilayer perceptron (MLP) or a more expressive 4-block transformer encoder. As in the previous studies, we utilized the same hyperparameters for training on a task, such as the number of epochs, to facilitate comparison. These hyperparameters and other details are described in the code provided online. C. Respiratory sound task: ICBHI2017 We use the ICBHI (International Conference on Biomedical and Health Informatics) 2017 Challenge (ICBHI2017) [5] for a respiratory sound classification task and compare the performance of foundation models to the SOTA performance. ICBHI 2017 consists of 539 recordings, and the noise level of some recordings is high, reflecting real-life conditions. The task is to classify crackles, wheezes, a combination of them, or normal breathing. We used the same experimental setup as in previous studies (e.g., official data split of the challenge and data augmentation method) [11], [14] and the codebase of [11]. We trained the classifier shown in Fig. 1 using the codebase."
+  },
+  {
+    "id": "g:niizumi2025_foundation_models:011",
+    "source": "llm_draft",
+    "paper_key": "niizumi2025_foundation_models",
+    "source_chunk": "niizumi2025_foundation_models:011",
+    "pages": [
+      2,
+      3
+    ],
+    "question": "Why might the effectiveness of audio foundation models differ between the ICBHI2017 dataset and the SPRS dataset?",
+    "answer": "The difference in performance trends between the datasets is likely due to data characteristics, as SPRS is cleaner while ICBHI2017 features higher noise levels and multiple recording devices, causing foundation models to capture unwanted background sounds like superimposed heart audio.",
+    "evidence_quote": "The difference in performance trend from ICBHI2017 may stem from data, with SPRS being cleaner than ICBHI2017. The ICBHI2017 samples were recorded using multiple recording devices and have a higher noise level, such as heart sounds layered over respiratory sounds.",
+    "quote_verified": true,
+    "lexical_overlap": 0.222,
+    "passage": "Foundation models in (iii), except OPERA-CT and BYOL-A, outperform the baseline in (i). Furthermore, BEATs and M2D (16×4) are comparable to the SOTA performance in (ii). However, as shown in the ablation (iv), the performance score degrades to approximately 76 when using the less expressive MLP as the task network, indicating that, as in ICBHI2017, the effectiveness of the foundation models as they are in this task is not sufficiently high. The difference in performance trend from ICBHI2017 may stem from data, with SPRS being cleaner than ICBHI2017. The ICBHI2017 samples were recorded using multiple recording devices and have a higher noise level, such as heart sounds layered over respiratory sounds. For these noisy data, the audio features of the foundation models are likely to represent these noises as well as respiratory sounds. Therefore, fine-tuning would be more necessary with ICBHI2017 to reduce the impact of sounds other than respiratory ones. TABLE III H EART MURMUR RECOGNITION (C IR C OR ) TASK PERFORMANCE COMPARISON . Recall Model W.acc UAR Present"
+  },
+  {
+    "id": "g:noponen2007_pediatric_murmur:019",
+    "source": "llm_draft",
+    "paper_key": "noponen2007_pediatric_murmur",
+    "source_chunk": "noponen2007_pediatric_murmur:019",
+    "pages": [
+      6,
+      6
+    ],
+    "question": "What methodological limitation is highlighted when calculating the amplitude of a cardiac murmur as a percentage relative to the average amplitudes of the first and second heart sounds?",
+    "answer": "Calculating the murmur volume as a percentage of the mean volumes of S1 and S2 can be misleading, particularly when conditions like valvular stenosis decrease the aortic closure sound, leading to an overestimation of the murmur's volume compared to actual auscultation findings.",
+    "evidence_quote": "The volume of murmur was calculated as a percentage of the volume of murmur compared to the mean volumes of S1 and S2. This may be misleading, as we can see in case 4.",
+    "quote_verified": false,
+    "lexical_overlap": 0.133,
+    "passage": "It is not simple to estimate absolute volume of heart sound. The point of maximal intensity of the murmur and the thickness of the chest vary and affects on the intensities of the sound components. In our study, the sound Figure arteriosus Ductus 6 in a 2.6-year-old Ductus arteriosus in a 2.6-year-old. On auscultation, a fourth-degree continuous murmur with throbbing pulses. Echocardiography showed a large ductus arteriosus but no other defects. The phonogram shows a consistent (systolicdiastolic) murmur that becomes louder towards endsystole and is quieter in diastole. The flow is rapid in systole, which is when the spectrogram shows the highest frequencies. Area of auscultation: left second ic space (LIC2). Pansystolic (duration 100 %) and pandiastolic, peak frequency 786 Hz and volume 150%, both in systole. volume of murmur was calculated as a percentage of the volume of murmur compared to the mean volumes of S1 and S2. This may be misleading, as we can see in case 4. The volume of the aortic closure sound is decreased because of valvular stenosis, and the volume of murmur is over estimated compared to auscultation findings. By analyzing the combined phono-spectrogram, it is possible to achieve the level of an experienced pediatric cardiologist in screening heart murmurs."
+  },
+  {
+    "id": "g:noponen2007_pediatric_murmur:017",
+    "source": "llm_draft",
+    "paper_key": "noponen2007_pediatric_murmur",
+    "source_chunk": "noponen2007_pediatric_murmur:017",
+    "pages": [
+      5,
+      6
+    ],
+    "question": "What sensitivity and specificity levels were attained when combining a relative duration criterion of 80% with a 200 Hz high frequency limit for evaluating pediatric heart murmurs?",
+    "answer": "Combining an 80% relative duration criterion and a 200 Hz high frequency limit achieved a sensitivity approaching 90% and a specificity of 91%.",
+    "evidence_quote": "By combining these two criteria, optimal results were achieved at 80% of the relative duration and with a frequency of 200 Hz as the high frequency limit. Sensitivity approached 90 % and specificity 91 % (Table 7 and Figure 10).",
+    "quote_verified": true,
+    "lexical_overlap": 0.611,
+    "passage": "By combining these two criteria, optimal results were achieved at 80% of the relative duration and with a frequency of 200 Hz as the high frequency limit. Sensitivity approached 90 % and specificity 91 % (Table 7 and Figure 10). There were 5 (10 %) false negative findings and 7 (9 %) false positives. Discussion Over 90 % of heart murmurs in children are physiological. Moreover, 75 % of them are innocent vibratory murmurs (39, 40, 41, 42). The physician needs to quickly Page 5 of 10 Figure 5 stenosis in a 9-year-old Pulmonary Pulmonary stenosis in a 9-year-old. Haemodynamically insignificant pulmonary stenosis, with a 17–22 mmHg flow gradient on echocardiography. On auscultation a seconddegree coarse, low-frequency systolic ejection murmur was heard. The phonogram shows the diamond shape compatible with stenotic murmur. Flow velocity is highest at the beginning of systole, and the peak frequencies also occur in early systole, with a descending frequency contour. The findings resemble ASD, the main difference being that P2 is quieter than normal. Because the stenosis is mild, however, P2 can be heard. Area of auscultation: left second ic space (LIC2). Duration 90%, peak frequency 264 Hz, volume 52 %. confirm the benign nature of the heart murmur and thus to avoid misdiagnosis [25,43]."
+  },
+  {
+    "id": "g:panah2023_wav2vec2:019",
+    "source": "llm_draft",
+    "paper_key": "panah2023_wav2vec2",
+    "source_chunk": "panah2023_wav2vec2:019",
+    "pages": [
+      5,
+      5
+    ],
+    "question": "What modifications to the wav2vec 2.0 architecture are planned for future improvements in heart sound classification?",
+    "answer": "Future modifications to tailor the wav2vec 2.0 model for heart sound classification include altering the receptive field of the feature encoder, revising the context network architecture, and adjusting the size of the model's codebook.",
+    "evidence_quote": "Such modifications can potentially include changing the receptive field of the feature encoder, changing the context network architecture, and modifying the model’s codebook size.",
+    "quote_verified": true,
+    "lexical_overlap": 0.182,
+    "passage": "C ONCLUSION In this study, we showed the feasibility of employing the wav2vec 2.0 model for murmur detection task. We demonstrated that by pre-training and fine-tuning this model on heart sound data, we can achieve competitive murmur detection performance. We saw that including both present and absent classes while at the same time excluding the unknown class (noisier data) in the pre-training phase improves the model’s downstream performance. By fine-tuning the model on different data sizes, we also showed that the wav2vec 2.0 model is robust to small data sizes. In other words, this model can decrease our dependency on large, annotated heart sound datasets without sacrificing much accuracy. This is particularly important in this domain because there is only a limited number of publicly available annotated heart sound datasets. The wav2vec 2.0 SSL model has been originally designed for speech-related tasks. Although we achieved competitive performance on the heart murmur detection task using the original architecture and hyperparameters of the wav2vec 2.0, in the future, we will modify the model to tailor that to the heart sound classification task. Such modifications can potentially include changing the receptive field of the feature encoder, changing the context network architecture, and modifying the model’s codebook size. We will also extend this work by exploring the impact of the size and quality of the data used in the pre-training phase on the downstream performance."
+  },
+  {
+    "id": "g:panah2023_wav2vec2:016",
+    "source": "llm_draft",
+    "paper_key": "panah2023_wav2vec2",
+    "source_chunk": "panah2023_wav2vec2:016",
+    "pages": [
+      4,
+      4
+    ],
+    "question": "How does reducing the fine-tuning dataset size impact the recall rate for the present murmur class when utilizing a self-supervised speech representation architecture for phonocardiogram classification?",
+    "answer": "When the training data is reduced down to 6% of the original size, the recall for the present class drops to 0.48, whereas it remains between 0.60 and 0.68 when using between 100% and 13% of the data.",
+    "evidence_quote": "Present class: Recall fluctuates between 0.60 and 0.68 in the case of the first four scenarios (100% - 13% of the data). For the last scenario (6% of the data), the recall falls to 0.48.",
+    "quote_verified": true,
+    "lexical_overlap": 0.158,
+    "passage": "0.70 0.68 NA NA Recall (absent) 0.83 0.78 NA NA Recall (present) 0.86 0.93 NA NA Recall (unknown) 0.41 0.34 NA NA C. Impact of the Fine-tuning Data Size The train set which is used for fine-tuning contains about 22 hours of heart sounds. Out of these, 17 hours belong to the absent class, 4 hours to the present class, and 1 hour to the unknown class. As discussed in Section II-D, in addition to the entire training set, we fine-tune the model using 1/2 (50%), 1/4 (25%), 1/8 (13%) and 1/16 (6%) of the training set. Fig. 2 shows the evaluation results of the bestperforming configuration (Model 5) fine-tuned on different data sizes. To remove any potential bias due to the aggregation rules employed to produce patient-level results, segment-level results are provided. Following, we analyze the results for each class separately: Absent class: Recall fluctuates slightly for different amounts of data (between 0.82 to 0.89). Present class: Recall fluctuates between 0.60 and 0.68 in the case of the first four scenarios (100% - 13% of the data). For the last scenario (6% of the data), the recall falls to 0.48."
+  },
+  {
+    "id": "g:pedrosa2014_pediatric_segmentation:007",
+    "source": "llm_draft",
+    "paper_key": "pedrosa2014_pediatric_segmentation",
+    "source_chunk": "pedrosa2014_pediatric_segmentation:007",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "Which specific continuous wavelet denoising mother wavelet and frequency range are utilized in the preprocessing routine for phonocardiogram analysis?",
+    "answer": "Continuous wavelet denoising using the Morlet mother wavelet with scales corresponding to frequencies of 15-150 Hz is applied in the preprocessing routine.",
+    "evidence_quote": "First of all, a pre-processing routine is applied composed of continuous wavelet denoising using the Morlet mother wavelet with scales corresponding to frequencies of 15150Hz.",
+    "quote_verified": true,
+    "lexical_overlap": 0.417,
+    "passage": "A. Heart Sound Segmentation As the rest of the detection algorithm is dependent of a precise segmentation, this stage needs to be as robust as possible and not only identify the correct sounds but also correctly classify them as S1 and S2. The segmentation algorithm designed is mainly based in the autocorrelation function to find the periodic components of the PCG signal. First of all, a pre-processing routine is applied composed of continuous wavelet denoising using the Morlet mother wavelet with scales corresponding to frequencies of 15150Hz. This mother wavelet was chosen as it has been proven to be the most effective for continuous wavelet transform for PCG analysis [14]. The remaining signal is converted to its energy envelope, normalized and decimated to obtain a smooth envelope. Secondly, the PCG is divided into 1.5s segments and a mean amplitude criterion is used to discard segments with high amplitude noise. This segment length was chosen to allow for a full heart cycle to be present at every segment. The periodic elements of the remaining segments are then detected using the autocorrelation function and the systole length is estimated according to the ACF A total of 250 features were extracted from each segment to classify as presenting murmur or not. These features were extracted from different analysis domains to ensure the segments were described as thoroughly as possible. Time domain analysis was chosen as it allows the study of the amplitude in the systole, which is altered in the presence of a murmur."
+  },
+  {
+    "id": "g:pedrosa2014_pediatric_segmentation:006",
+    "source": "llm_draft",
+    "paper_key": "pedrosa2014_pediatric_segmentation",
+    "source_chunk": "pedrosa2014_pediatric_segmentation:006",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "What level of accuracy was achieved by Delgado-Trejos using a combination of time, time-frequency, perceptual, and nonlinear features?",
+    "answer": "Delgado-Trejos achieved an overall accuracy of 96.11% by utilizing time domain, time-frequency domain, perceptual, and nonlinear features.",
+    "evidence_quote": "A wider feature analysis was conducted by Delgado-Trejos using time domain, time-frequency domain, perceptual and nonlinear features obtaining an overall accuracy of 96.11% [13].",
+    "quote_verified": true,
+    "lexical_overlap": 0.727,
+    "passage": "A wider feature analysis was conducted by Delgado-Trejos using time domain, time-frequency domain, perceptual and nonlinear features obtaining an overall accuracy of 96.11% [13]. Table II summarizes the results for these references. TABLE II M URMUR DETECTION ALGORITHMS Ref # [10] [11] [12] [13] Analysis Used T; TF NLC TF;NLC TF;P;NLC Results Fig. 1. Example of a summed ACF and segment with identified intervals for an estimation equal to the systole. 86% accuracy 91.09% sensitivity, 95.25% specificity 89.1% sensitivity, 95.5% specificity 96.11% accuracy B. Feature Extraction for Murmur Detection T- time domain; TF- time- frequency domain; P- Perceptual analysis; NLC- nonlinear and chaos based analysis III. M ETHODOLOGY Our approach is composed by two phases: 1) the main heart sounds are identified so that the signal is separated into systolic and diastolic segments; 2) each segment is subjected to a classifier to determine the presence of a murmur. A. Heart Sound Segmentation As the rest of the detection algorithm is dependent of a precise segmentation, this stage needs to be as robust as possible and not only identify the correct sounds but also correctly classify them as S1 and S2."
+  },
+  {
+    "id": "g:reyna2023_physionet_challenge:020",
+    "source": "llm_draft",
+    "paper_key": "reyna2023_physionet_challenge",
+    "source_chunk": "reyna2023_physionet_challenge:020",
+    "pages": [
+      7,
+      7
+    ],
+    "question": "What specific components were required to be included in the algorithmic submissions for the George B. Moody PhysioNet Challenge 2022?",
+    "answer": "Participants were required to submit their complete algorithmic code encompassing preprocessing, training, and inference steps.",
+    "evidence_quote": "For both phases of the Challenge, we required the teams to submit the complete code for their algorithms, including their preprocessing, training, and inference steps.",
+    "quote_verified": true,
+    "lexical_overlap": 0.167,
+    "passage": "We only evaluated one entry from each team to prevent sequential training on the test set. The winners of the Challenge were the teams with the best scores on the test set. We announced the winners at the end of the Computing in Cardiology (CinC) 2022 conference. The teams presented and defended their work at CinC 2022, which was held in Tampere, Finland. As described in the next section, the teams wrote four-page conference proceeding paper describing their work, which we reviewed for accuracy and coherence. The code for their algorithms will be publicly released after the end of the Challenge and the publication of the papers on the Challenge website. Challenge rules and expectations. We encouraged the teams to ask questions, pose concerns, and discuss the Challenge in a public forum, but we prohibited them from discussing or sharing their work during the unofficial phase, hiatus, or official phase of the Challenge to preserve the diversity and uniqueness of their approaches. For both phases of the Challenge, we required the teams to submit the complete code for their algorithms, including their preprocessing, training, and inference steps. We first ran each team’s training code on the public training set to train the models. We then ran the trained models on the hidden validation and test sets to label the data; we ran the trained models on each patient sequentially to reflect the sequential nature of the screening process. We then scored the outputs from the models using the expert annotations on hidden validation and test sets."
+  },
+  {
+    "id": "g:reyna2023_physionet_challenge:011",
+    "source": "llm_draft",
+    "paper_key": "reyna2023_physionet_challenge",
+    "source_chunk": "reyna2023_physionet_challenge:011",
+    "pages": [
+      3,
+      4
+    ],
+    "question": "How were the murmur annotations and their characteristics determined for the CirCor DigiScope dataset used in the PhysioNet Challenge 2022?",
+    "answer": "The murmur annotations and their characteristics were manually identified by a single cardiac physiologist who listened to the audio recordings and visually inspected the corresponding waveforms, working independently of the clinical notes and PCG segmentation.",
+    "evidence_quote": "The murmur annotations and characteristics (location, timing, shape, pitch, quality, and grade) were manually identified by a single cardiac physiologist independently of the available clinical notes and PCG segmentation.",
+    "quote_verified": true,
+    "lexical_overlap": 0.273,
+    "passage": "Each patient’s PCGs and clinical notes were also annotated for murmurs and abnormal cardiac function (described below). These annotations served as the labels for the Challenge. The murmur annotations and characteristics (location, timing, shape, pitch, quality, and grade) were manually identified by a single cardiac physiologist independently of the available clinical notes and PCG segmentation. The cardiac physiologist annotated the PCGs by Fig 1. Auscultation locations for the CirCor DigiScope dataset [6], which was used for the Challenge: Pulmonary valve (PV), aortic valve (AV), mitral valve (MV), and tricuspid valve (TV). https://doi.org/10.1371/journal.pdig.0000324.g001 listening to the audio recordings and by visually inspecting the corresponding waveforms. The murmur annotations indicated whether the annotator could detect the presence or absence of a murmur in a patient from the PCG recordings for the patient or whether the annotator was unsure about the presence or absence of a murmur. The murmur annotations did not indicate whether a murmur was pathological or innocent. The clinical outcome annotations were determined by cardiac physiologists using all available clinical notes, including the socio-demographic questionnaire, clinical examination, nursing assessment, and cardiac investigations. In particular, these notes include reports from an echocardiogram, which is a standard diagnostic tool for characterizing cardiac function."
+  },
+  {
+    "id": "g:rohr2024_mil_explainability:016",
+    "source": "llm_draft",
+    "paper_key": "rohr2024_mil_explainability",
+    "source_chunk": "rohr2024_mil_explainability:016",
+    "pages": [
+      7,
+      7
+    ],
+    "question": "How are true positives and false positives determined when evaluating the instance-level murmur segmentation performance on the CirCor dataset?",
+    "answer": "True positives and false positives are determined by checking whether the network's segmentation overlaps with the expert-annotated murmur phase, assuming a murmur occurs throughout the entire duration of that specific heart phase.",
+    "evidence_quote": "If the segmentation by the network overlaps with the respective murmur phase, we count it as a true positive, otherwise as a false positive.",
+    "quote_verified": true,
+    "lexical_overlap": 0.333,
+    "passage": "Due to the sample-wise output generation of U-Net, the activation of the network varies strongly in relevant areas. Therefore, after applying a sigmoid function, we threshold the signal at 0.6 and find the strongest peaks using a peak-finding algorithm. If the peaks are within a margin of 60 ms they are considered as stemming from the same murmur instance. The peaks are merged, resulting in a segmentation as predicted in Fig 3. 2.3.3 Quantitative explainability analysis. To evaluate the detection performance of MIL-U-Net at the instance level, we first apply it to a selection of murmur and non-murmur recordings from MHSDB. In a second evaluation, we use the CirCor dataset and segment all PCG recordings into the heart phases. To verify the results, we also use reference segmentations from the dataset itself. We assume that if a recording is labeled as “murmur not hearable”, all instances are without murmur and label them as 0. If a recording is labeled as “murmur hearable”, we look at the timing assigned by the doctor, which could mean systolic, diastolic, or both. For simplicity, we also assume, that a murmur occurs in every heart cycle for the whole length of each phase. If the segmentation by the network overlaps with the respective murmur phase, we count it as a true positive, otherwise as a false positive."
+  },
+  {
+    "id": "g:rohr2024_mil_explainability:019",
+    "source": "llm_draft",
+    "paper_key": "rohr2024_mil_explainability",
+    "source_chunk": "rohr2024_mil_explainability:019",
+    "pages": [
+      8,
+      8
+    ],
+    "question": "How many total features are derived from the combination of time-frequency transformations, statistical summaries, and heart phase segmentations in the murmur detection framework?",
+    "answer": "A total of 594 features are computed from the time-frequency transformations, statistical measures over various heart phases and the full cycle, and calculated ratios.",
+    "evidence_quote": "This results in (3 + 15 + 15) × 18 = 594 features.",
+    "quote_verified": true,
+    "lexical_overlap": 0.062,
+    "passage": "The duration features are computed as the averages of the durations of S1, S2, diastole, systole, full heart cycle, and the ratios of all these durations which sums up to 15 features. The time-frequency domain features (Fig 4) rely on the amplitudes of the preprocessed signal, 4 transformations of the signal which are the spectral centroid, spectral bandwidth [34], signal energy computed in a window of 13 ms, and Hilbert envelopes computed for the frequency bands LF (15 to 90 Hz), MF (55 to 150 Hz), HF (100 to 250) Hz, SF (200 to 450 Hz), and UF (400 to 800 Hz) as proposed by Plesinger et al. [28]. Additional signals were generated by dividing the bandlimited Hilbert envelopes by each other, e.g. the envelopes for HF/LF, HF/ MF, MF/LF, SF/MF, SF/LF, UF/LF, and (HF+MF)/LF, resulting in 7 new signal variants. For each of these signal transformations we computed the mean, standard deviation, and maximum value over the whole signal and for each of the four heart phases and full cycle. We compute the ratio of these values. This results in (3 + 15 + 15) × 18 = 594 features. Murmurs show distinct patterns such as slowly increasing or decreasing volume. We model these patterns and due to their appearance in the PCG we call them shape features."
+  },
+  {
+    "id": "g:sondermann2025_cycle_normalization:012",
+    "source": "llm_draft",
+    "paper_key": "sondermann2025_cycle_normalization",
+    "source_chunk": "sondermann2025_cycle_normalization:012",
+    "pages": [
+      3,
+      4
+    ],
+    "question": "What pretrained model weights and classifier type were used in the BEATs zero-shot audio classification pipeline for phonocardiogram analysis?",
+    "answer": "The BEATs zero-shot pipeline utilized BEATs-iter3+-AS2M pretrained weights to extract 768-dimensional embeddings, which were then classified using a k-Nearest-Neighbor (k-NN) classifier with 5 or 7 neighbors depending on whether the input format was fixed-window or cycle-normalized.",
+    "evidence_quote": "The BEATs transformer [3] approach utilizes a zeroshot audio classification pipeline, combining a pre-trained audio transformer for embedding extraction with a k-NearestNeighbor (k-NN) classifier.",
+    "quote_verified": true,
+    "lexical_overlap": 0.385,
+    "passage": "The SiLU activation function was chosen for its ability to mitigate the ’dying ReLU’ problem and provide smooth non-linearities, which can enhance learning performance in deep networks [17]. It is followed by max-pooling for spatial reduction. The classification head employs adaptive average pooling to ensure consistent feature dimensions, followed by three fully connected layers with batch normalization and dropout regularization. This architecture balances feature extraction capacity with computational efficiency, while maintaining robust generalization through systematic regularization techniques [18]. B. BEATs The BEATs transformer [3] approach utilizes a zeroshot audio classification pipeline, combining a pre-trained audio transformer for embedding extraction with a k-NearestNeighbor (k-NN) classifier. The implementation leverages the publicly available BEATs-iter3+-AS2M weights, which were pre-trained by Chen et al. on the AudioSet dataset [19]. These pre-trained weights were used directly to generate fixed-dimensional embeddings without any additional finetuning on the PCG data. TABLE II: BEATs-kNN configuration details. Parameter Fixed Window Cycle Normalized Input format 7.0 s 12 cycles Extractor type BEATs-iter3+-AS2M BEATs-iter3+-AS2M Embedding dim 768 768 Target sample rate 16 kHz 16 kHz Classifier Configuration k-NN neighbors: 5 (fixed), 7 (cycle) Distance metric: Euclidean Weight function: Uniform The implementation, detailed in Tab."
+  },
+  {
+    "id": "g:sondermann2025_cycle_normalization:018",
+    "source": "llm_draft",
+    "paper_key": "sondermann2025_cycle_normalization",
+    "source_chunk": "sondermann2025_cycle_normalization:018",
+    "pages": [
+      5,
+      5
+    ],
+    "question": "How does applying heart cycle normalization affect the AUROC and MCC metrics for the BEATs-kNN model in automated phonocardiogram classification?",
+    "answer": "For the BEATs-kNN approach, cycle normalization improves performance, raising the AUROC from 0.657 to 0.701 and the MCC from 0.322 to 0.362.",
+    "evidence_quote": "Conversely, the BEATs-kNN approach shows improved performance with cycle normalization, increasing AUROC from 0.657 to 0.701 and MCC from 0.322 to 0.362.",
+    "quote_verified": true,
+    "lexical_overlap": 0.429,
+    "passage": "The fixed-length windowing approach may have provided a more consistent input for the CNN to learn from, compared to the variable-length cycles used in the cycle normalization approach and timedomain stretching introduced artifacts that disrupted the CNN’s feature extraction process. Conversely, the BEATs-kNN approach shows improved performance with cycle normalization, increasing AUROC from 0.657 to 0.701 and MCC from 0.322 to 0.362. This divergent behavior suggests that the pre-trained audio representations might better capture physiological patterns when presented with cycle-normalized inputs. Fig. 3 presents a comparison of PCG recordings with varying annotation quality: Red dots indicate annotated S1 peaks. (a) shows a consistently annotated signal with clear, distinguishable heart cycles, (b) shows a signal with noisy segments and incomplete annotations, resulting in missing S1 peaks and less clear heart cycle boundaries. These annotation inconsistencies, including the one mentioned in Fig. 1, directly impact data utilization - segments with insufficient annotated cycles must be discarded to maintain physiological validity. This constraint particularly affects the CNN model’s performance, which benefits from larger training datasets. However, the BEATs model’s improved performance under cycle normalization suggests that maintaining physiological cycle boundaries might enable better feature extraction from the pre-trained audio representations, despite the overall reduced data availability. VI. D ISCUSSION The performance differences between CNN and BEATs architectures highlight several key considerations in the context of heart sound classification."
+  },
+  {
+    "id": "g:taipalmaa2018_cycle_segmentation:004",
+    "source": "llm_draft",
+    "paper_key": "taipalmaa2018_cycle_segmentation",
+    "source_chunk": "taipalmaa2018_cycle_segmentation:004",
+    "pages": [
+      2,
+      2
+    ],
+    "question": "What distinct machine learning algorithms were tested to distinguish S2 peaks from other phonocardiogram data frames during the initial evaluation phase?",
+    "answer": "The classifiers tested for separating S2 peaks included the k-nearest neighbor classifier, Linear Discriminant Analysis, and Neural networks with various structural configurations.",
+    "evidence_quote": "Tested methods included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA) and Neural networks (NN) with different architectures (best results with 2 hidden layers with 25 neurons on both hidden layers).",
+    "quote_verified": true,
+    "lexical_overlap": 0.062,
+    "passage": "2.2. The performances of different classifiers were evaluated in 10-fold cross-validation experimentation. The performance metrics used in the evaluation are average of sensitivity (Se), specificity (Sp) and accuracy (Acc) in all folds. The evaluation metrics are defined as: Se = T P/(T P + F N ), Sp = T N/(T N + F P ) and Acc = (T P + T N )/(T P + T N + F P + F N ), where T/F denotes true/false and P/N denotes positive/negative. In the first phase, the performance was evaluated by separating S2 peaks from the rest of the data. Tested methods included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA) and Neural networks (NN) with different architectures (best results with 2 hidden layers with 25 neurons on both hidden layers). The performance of different classifiers can be seen in Table 1. Feature Engineering In this study, first, the PCG recordings are windowed into non-overlapping frames of 250 samples (125 ms). Then, 66 features in the time, frequency, and timefrequency domains are extracted from each frame."
+  },
+  {
+    "id": "g:taipalmaa2018_cycle_segmentation:010",
+    "source": "llm_draft",
+    "paper_key": "taipalmaa2018_cycle_segmentation",
+    "source_chunk": "taipalmaa2018_cycle_segmentation:010",
+    "pages": [
+      3,
+      3
+    ],
+    "question": "How does the post-processing algorithm leverage peak intervals to correct labels when three consecutive peaks of the same type are encountered?",
+    "answer": "The post-processing algorithm determines peak labels by finding three consecutive peaks with the same label and using the physiological rule that the time distance between the second heart sound and the first heart sound is greater than the distance from the first heart sound to the second.",
+    "evidence_quote": "In this case, we are trying to find three consecutive peaks labeled the same (S1-S1-S1 or S2S2-S2) and determine the labels correctly by using the fact that the distance S2-S1 is greater than the distance S1-S2.",
+    "quote_verified": true,
+    "lexical_overlap": 0.357,
+    "passage": "If the interval between two peaks is longer than the high-level limit, we can assume that there is a missed peak between the two detected peaks. • Determine peak labels by intervals between peaks: The last step of post-processing is to determine the labels of the detected peaks. In this case, we are trying to find three consecutive peaks labeled the same (S1-S1-S1 or S2S2-S2) and determine the labels correctly by using the fact that the distance S2-S1 is greater than the distance S1-S2. 3. 3.1. PP FL No. F1 (O) F1 (S1) F1 (S2) F1 250 2200 0.8859 0.7850 0.7428 0.8046 x 250 2200 0.9769 0.9340 0.8924 0.9345 300 2160 0.8786 0.8122 0.7644 0.8184 x 300 2160 0.9663 0.9289 0.8790 0.9248 350 2082 0.8758 0.8219 0.7704 0.8227 x 350 2082 0.9455 0.9032 0.8322 0.8936 PP = post-processing, FL = frame length, No. = number of signals Figure 1. Detected peaks before and after post-processing. The classified frames are presented in Table 3, where numbers in the confusion matrix denote to the number of frames predicted that belongs in certain reference class."
+  },
+  {
+    "id": "g:xu2024_multitask_grading:017",
+    "source": "llm_draft",
+    "paper_key": "xu2024_multitask_grading",
+    "source_chunk": "xu2024_multitask_grading:017",
+    "pages": [
+      5,
+      6
+    ],
+    "question": "Why is merely detecting the presence of a cardiac sound anomaly insufficient for proper medical decision support regarding heart conditions?",
+    "answer": "Simply determining whether a cardiac murmur is present is inadequate because many low-grade murmurs are benign, functional, or physiological variations lacking clinical significance, highlighting the clinical necessity for scientific murmur grading.",
+    "evidence_quote": "However, many murmurs (especially grade I or II cardiac murmurs) may be physiological or functional rather than pathological and do not have medical significance. Therefore, simply analyzing the presence or absence of cardiac murmurs cannot provide good decision support for the diagnosis of cardiac disease, and a solution that can scientifically grade cardiac murmurs should be proposed.",
+    "quote_verified": true,
+    "lexical_overlap": 0.357,
+    "passage": "S 1 w ... 1 Interpretable Murmur Fragment Recognizer Feature Impact A C1 w CM Risk Assessor Page 6 of 14 outputs the patient’s cardiac risk analysis Ô . Finally, using the multi-task explainable learning module, the results of cardiac murmur identification, grading, and cardiac risk analysis are obtained: Ŷ = {ω̂, Ĝ , Ô, ∫ˆ , C} (3) where ∫ˆ = {∫ˆ 1 , . . . , ∫ˆ c , ...} represents the cardiac auscultation audio from different listening channels annotated with interpretability, and C represents the cardiac disease risk of patients under M decoupled heterogeneous modalities {C1 , C2 , . . . , CM }. Cardiac murmur detection and grading based on hierarchical multi‑task learning (HMT) Most existing research can only solve the problem of whether there is a cardiac murmur and whether it is abnormal in cardiac auscultation monitoring data, but cannot provide a scientific grading of cardiac murmurs. However, many murmurs (especially grade I or II cardiac murmurs) may be physiological or functional rather than pathological and do not have medical significance. Therefore, simply analyzing the presence or absence of cardiac murmurs cannot provide good decision support for the diagnosis of cardiac disease, and a solution that can scientifically grade cardiac murmurs should be proposed. However, performing both classification and grading simultaneously in multi-task learning is challenging as different tasks need to pay attention to different features."
+  },
+  {
+    "id": "g:xu2024_multitask_grading:019",
+    "source": "llm_draft",
+    "paper_key": "xu2024_multitask_grading",
+    "source_chunk": "xu2024_multitask_grading:019",
+    "pages": [
+      6,
+      6
+    ],
+    "question": "How are the frequency domain features extracted for each individual auscultation channel within the HMT framework?",
+    "answer": "The frequency domain feature for the c-th channel, denoted as hc, is transformed, and its feature fc of dimension (h, w) is extracted using a ResNet network.",
+    "evidence_quote": "Then, sc is transformed from the time domain to the frequency domain feature hc = H(sc ), and the feature f c = F (hc ) of the cth channel is extracted using a ResNet network.",
+    "quote_verified": true,
+    "lexical_overlap": 0.364,
+    "passage": "Mask Mask 2 S Mask c Mask S Mask . . . M F C C ResNet Share weighted ResNet Share weighted ResNet . . . Channel Feature F 1 Channel Feature F 2 . . . channel-wise Murmur M1 M2 Channel Feature F c predicter . . . MC Combined Murmur detecter Grading Detecter G Fig. 3 The framework of HMT the original signal in the time and frequency domains can be obtained. Xk (n) = T −1 x(m + nT )w(m)e−j2π km/T (4) m=0 Then, sc is transformed from the time domain to the frequency domain feature hc = H(sc ), and the feature f c = F (hc ) of the cth channel is extracted using a ResNet network. The dimension of feature f c is (h, w), and various channel-specific cardiac murmur category probabili1 ties M c = are obtained by applying an c 1 + e(−f ) activation function (such as sigmoid() or softmax()) to f c , where c ∈ {1, 2, 3, ...C} and C is the number of different cardiac auscultation channels for the patient."
+  },
+  {
+    "id": "g:zhang2024_parallel_attentive_uq:018",
+    "source": "llm_draft",
+    "paper_key": "zhang2024_parallel_attentive_uq",
+    "source_chunk": "zhang2024_parallel_attentive_uq:018",
+    "pages": [
+      4,
+      4
+    ],
+    "question": "What techniques were integrated into the parallel-attentive cardiac murmur detection framework to improve reliability assessment and model calibration?",
+    "answer": "Monte Carlo methods and temperature scaling were utilized to enhance the model's reliability in uncertainty assessment and calibration.",
+    "evidence_quote": "Moreover, the introduction of techniques such as Monte Carlo methods and temperature scaling further enhanced the model’s reliability, yielding more reliable predictions in uncertainty assessment and calibration.",
+    "quote_verified": true,
+    "lexical_overlap": 0.385,
+    "passage": "Additionally, we have visualised representations in the form of graphs to illustrate prediction probabilities (confidence) and reliability diagrams before and after calibration (see Fig. 3 and Fig. 4). By examining these charts, we can see that with this calibration process, the prediction confidence of models aligns more closely with the accuracy, which suggests the effectiveness of our calibration method. 6. CONCLUSION In this paper, we presented a parallel-attentive modelling for cardiac murmur detection. The leading-board results imply the introduced model can efficiently capture local and global context information for such sequential heart sound signals, providing doctors with a more accurate diagnostic tool. Moreover, the introduction of techniques such as Monte Carlo methods and temperature scaling further enhanced the model’s reliability, yielding more reliable predictions in uncertainty assessment and calibration. The application of these methods provides strong support for the accuracy and clinical applicability of cardiac murmur detection. It is anticipated that this achievement will propel the automated murmur detection system closer to being implemented in clinical practice in future."
+  },
+  {
+    "id": "g:zhang2024_parallel_attentive_uq:008",
+    "source": "llm_draft",
+    "paper_key": "zhang2024_parallel_attentive_uq",
+    "source_chunk": "zhang2024_parallel_attentive_uq:008",
+    "pages": [
+      2,
+      3
+    ],
+    "question": "How is Shannon entropy utilized when applying Monte Carlo Dropout for uncertainty estimation?",
+    "answer": "Shannon entropy is used to measure the model's uncertainty by calculating H(p) = minus the sum over K categories of pK log pK, where p is the averaged prediction probability obtained from N forward passes with dropout enabled.",
+    "evidence_quote": "The uncertainty of the model is measured using the following Shannon entropy: H(p) = − K X pK logpK , (2) k=1 where K is the number of categories.",
+    "quote_verified": true,
+    "lexical_overlap": 0.333,
+    "passage": "If the model exhibits a high level of uncertainty for a particular prediction, healthcare professionals may exercise greater caution in considering whether to proceed with further diagnostic or treatment steps. In classification problems, the Softmax function transforms the scores for each category into probabilities, with the probabilities summing to 1. This can sometimes lead to situations where the model’s output is incorrect despite having a high probability value, as the model may output an incorrect value with high confidence. To overcome this problem, research tasks have proposed many methods, such as Bayesian Neural Networks [16], Deep ensembles [17], and Monte Carlo Dropout methods. When the uncertainty of the model is obtained by Monte Carlo Dropout, the dropout layer is turned on during inference and the forward propagation process is performed N times for the same input. The probability of N times prediction is N 1 X p(y = c|x) = softmax(f Ŵn (x)), N n=1 (1) where Ŵt denotes the uncertainty parameter of the model when the dropout layer is turned on. The uncertainty of the model is measured using the following Shannon entropy: H(p) = − K X pK logpK , (2) k=1 where K is the number of categories. 3.3. Calibration with Temperature Scaling Temperature scaling is a parametric calibration method that introduces a temperature coefficient to adjust the output logits of the model, effectively amplifying or dampening them."
+  }
+]

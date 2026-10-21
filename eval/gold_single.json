@@ -1,0 +1,551 @@
+[
+  {
+    "id": "g:althaph2025_ehst:016",
+    "question": "Is there an open heart-sound dataset that grades valvular disease severity, not just presence?",
+    "draft_question": "What electronic phonocardiogram dataset comprising Normal, Mild, and Severe classifications with 845 samples at a 4 kHz sampling rate is detailed in the repository comparison?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "althaph2025_ehst",
+    "evidence_quote": "Heart Sounds Shenzhen (HSS) Normal, Mild, Severe 845 4 kHz (Electronic) Centered on valvular disease severity Table 2. Comparative overview of open-access heart sound datasets.",
+    "relevant_chunks": [
+      "althaph2025_ehst:016"
+    ]
+  },
+  {
+    "id": "g:althaph2025_ehst:029",
+    "question": "What depth, number of attention heads and embedding size does the Explainable HeartSound Transformer (EHST) use?",
+    "draft_question": "What hyperparameter settings and ranges are utilized for the Transformer layers, multi-head attention heads, and model dimensions in the heart sound classification architecture?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "althaph2025_ehst",
+    "evidence_quote": "Transformer Layers (L) 2–4 Typically T < 120 frames/heartbeat Heads (h) 4 or 8 For multi-head attention diversity Model Dimension (dmodel ) 128–256 Embedding dimension",
+    "relevant_chunks": [
+      "althaph2025_ehst:029"
+    ]
+  },
+  {
+    "id": "g:balanya2024_adaptive_temp_scaling:024",
+    "question": "How does Parameterized Temperature Scaling define its temperature function and optimization objective?",
+    "draft_question": "How does Parameterized Temperature Scaling define its temperature function and optimization objective?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "balanya2024_adaptive_temp_scaling",
+    "evidence_quote": "PTS can be expressed as an ATS method with temperature function: TPTS ðzÞ ¼ NNðzs Þ; ð12Þ where NN is the function defined by the neural network. Instead of optimizing the parameters of the NN to minimize some PSR as other methods do, authors propose to minimize an ECE-based loss given by: LECE ¼ M X jBi j i¼1 jDtest j kaccðBi Þ   cofðBi Þk2 ; ð13Þ",
+    "relevant_chunks": [
+      "balanya2024_adaptive_temp_scaling:024"
+    ]
+  },
+  {
+    "id": "g:balanya2024_adaptive_temp_scaling:039",
+    "question": "What happens to the performance of HnLTS when evaluated in data-scarce settings?",
+    "draft_question": "What happens to the performance of HnLTS when evaluated in data-scarce settings?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "balanya2024_adaptive_temp_scaling",
+    "evidence_quote": "Interestingly, HnLTS fails in low-data scenarios, even though it could, in theory, recover the HTS solution by zeroing the wL parameter.",
+    "relevant_chunks": [
+      "balanya2024_adaptive_temp_scaling:039"
+    ]
+  },
+  {
+    "id": "g:bondareva2022_tandem_uq:011",
+    "question": "What potential benefit does early identification of low-confidence or unknown samples offer in practical clinical workflows?",
+    "draft_question": "What potential benefit does early identification of low-confidence or unknown samples offer in practical clinical workflows?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "bondareva2022_tandem_uq",
+    "evidence_quote": "Early detection of samples with low model confidence could allow to prompt a user to repeat the recording in a less noisy environment or changing the stethoscope position, leading to a more accurate diagnosis.",
+    "relevant_chunks": [
+      "bondareva2022_tandem_uq:011"
+    ]
+  },
+  {
+    "id": "g:bondareva2022_tandem_uq:006",
+    "question": "In the tandem-learning approach to uncertainty-aware murmur detection, what MC Dropout deviation threshold marks a recording as unknown?",
+    "draft_question": "What threshold of prediction deviation was used during Monte Carlo dropout to categorize a test sample as unknown for murmur detection?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "bondareva2022_tandem_uq",
+    "evidence_quote": "The samples for which deviation exceeded 0.2 were then labelled as unknown, to further boost the model’s sensitivity to murmur.",
+    "relevant_chunks": [
+      "bondareva2022_tandem_uq:006"
+    ]
+  },
+  {
+    "id": "g:desimone2025_uncertainty_edge:027",
+    "question": "How many parameters does the resource-efficient murmur detection model proposed for the CirCor Digiscope dataset have compared to existing CNN or Transformer approaches?",
+    "draft_question": "How many parameters does the resource-efficient murmur detection model proposed for the CirCor Digiscope dataset have compared to existing CNN or Transformer approaches?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "desimone2025_uncertainty_edge",
+    "evidence_quote": "TABLE VI: Comparison against existing heart murmurs classifiers using CirCor. Reference Niizumi [34] Han [26] McDonald [17] Kalimuthu [29] Guan [21] Safdar [28] Fakhry [20] Morshed [32] Ours (Light) Features 1D segm Mel STFT STFT MFCC STFT Multimodal CWT 1D segm STFT Classifier Transformer CNN RNN+HSMM CNN+attention CRNN CNN CNN+LSTM CNN CNN Params 85.4M 141.5k N/A N/A 43.6M 2.25M 3.4M N/A 23k",
+    "relevant_chunks": [
+      "desimone2025_uncertainty_edge:027"
+    ]
+  },
+  {
+    "id": "g:desimone2025_uncertainty_edge:018",
+    "question": "In the edge-deployable murmur detector, what is done with predictions that get a low confidence score, and what does that gain?",
+    "draft_question": "How did the confidence score facilitate selective classification during inference for known phonocardiogram samples?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "desimone2025_uncertainty_edge",
+    "evidence_quote": "During the inference of Known samples, the confidence score enabled a selective classification strategy, in which unreliable predictions (i.e., those with scores below the threshold) were discarded, resulting in improved robustness and recall.",
+    "relevant_chunks": [
+      "desimone2025_uncertainty_edge:018"
+    ]
+  },
+  {
+    "id": "g:despotovic2025_cardiophon:009",
+    "question": "What is the source and classification structure of the Open Heart collection of phonocardiogram recordings?",
+    "draft_question": "What is the source and classification structure of the Open Heart collection of phonocardiogram recordings?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "despotovic2025_cardiophon",
+    "evidence_quote": "5. Open Heart is a collection of PCG recordings from multiple books and internet sources [29]. Each recording contains exactly three heartbeats (2.44 seconds average length), and is classified into 5 categories (normal, aortic stenosis, mitral stenosis, mitral regurgitation, mitral valve prolapse).",
+    "relevant_chunks": [
+      "despotovic2025_cardiophon:009"
+    ]
+  },
+  {
+    "id": "g:despotovic2025_cardiophon:021",
+    "question": "When CardioPHON adds demographic features, how does it deal with children whose age, height or weight wasn’t recorded?",
+    "draft_question": "How are missing values for height, age, and weight handled in the CirCor22 dataset to prevent data loss?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "despotovic2025_cardiophon",
+    "evidence_quote": "Note that CirCor22 dataset contains missing values for age, height and/or weight variables, which are treated as a new separate category (\"None\" in the Age and acBMI categorical variables), thus avoiding data loss, and allowing the model to capture the missingness patterns and potentially improve predictions [40].",
+    "relevant_chunks": [
+      "despotovic2025_cardiophon:021"
+    ]
+  },
+  {
+    "id": "g:feng2026_childvox:015",
+    "question": "Which self-supervised pretrained models evaluated in the benchmark were specifically trained on infant and child-focused audio data?",
+    "draft_question": "Which self-supervised pretrained models evaluated in the benchmark were specifically trained on infant and child-focused audio data?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "feng2026_childvox",
+    "evidence_quote": "Moreover, BabyHuBERT and wav2vec-LB are two pretrained speech models trained primarily on child-centered audio and speech data using HuBERT and wav2vec pretraining, respectively.",
+    "relevant_chunks": [
+      "feng2026_childvox:015"
+    ]
+  },
+  {
+    "id": "g:festag2022_outcome_ensemble:009",
+    "question": "In the ensemble model that predicts both murmur presence and clinical outcome, what loss is used for the murmur task, and how are the three classes weighted?",
+    "draft_question": "What loss function and class-specific weights are utilized during the training phase to handle the murmur detection task in the deep learning ensemble network?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "festag2022_outcome_ensemble",
+    "evidence_quote": "Since the challenge score of the murmur detection task weights the correct classification of murmur occurrences higher than the classification of other classes, we weight the individual cf ls similarly during training (present: 5, unknown: 3, absent: 1).",
+    "relevant_chunks": [
+      "festag2022_outcome_ensemble:009"
+    ]
+  },
+  {
+    "id": "g:festag2022_outcome_ensemble:005",
+    "question": "What STFT settings does the murmur-and-outcome ensemble use to build its spectrogram input?",
+    "draft_question": "How is the short-time Fourier transform parameterized when computing the spectrogram from the preprocessed phonocardiogram?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "festag2022_outcome_ensemble",
+    "evidence_quote": "To this end, a short-time Fourier transform with a frame length of 0.04 seconds, a frame step of 0.016 seconds, a Fourier transform with a size of 200, and a von-Hann-windowing is applied to the preprocessed five-second interval of the phonocardiogram.",
+    "relevant_chunks": [
+      "festag2022_outcome_ensemble:005"
+    ]
+  },
+  {
+    "id": "g:golnari2025_qivcnet:004",
+    "question": "Which block in QiVC-Net lets it read a heart-sound recording both forwards and backwards in time?",
+    "draft_question": "What specific architectural block does QiVC-Net use to capture bidirectional temporal dependencies and improve temporal coherence in noisy phonocardiogram recordings?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "golnari2025_qivcnet",
+    "evidence_quote": "To enhance temporal coherence and robustness to physiological variability, QiVC-Net further incorporates a reversal fusion residual (RFR) block that models bidirectional temporal dependencies in PCG recordings.",
+    "relevant_chunks": [
+      "golnari2025_qivcnet:004"
+    ]
+  },
+  {
+    "id": "g:guo2017_calibration:005",
+    "question": "How is perfect calibration formally defined in terms of prediction confidence and correctness for multiclass classification models?",
+    "draft_question": "How is perfect calibration formally defined in terms of prediction confidence and correctness for multiclass classification models?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "guo2017_calibration",
+    "evidence_quote": "More formally, we define perfect calibration as     (1) P Ŷ = Y | P̂ = p = p, ∀p ∈ [0, 1] where the probability is over the joint distribution.",
+    "relevant_chunks": [
+      "guo2017_calibration:005"
+    ]
+  },
+  {
+    "id": "g:guo2017_calibration:006",
+    "question": "How are expected sample accuracy and average confidence computed when dividing finite model predictions into interval bins for reliability diagrams?",
+    "draft_question": "How are expected sample accuracy and average confidence computed when dividing finite model predictions into interval bins for reliability diagrams?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "guo2017_calibration",
+    "evidence_quote": "To estimate the expected accuracy from finite samples, we group predictions into M interval bins (each of size 1/M ) and calculate the accuracy of each bin.",
+    "relevant_chunks": [
+      "guo2017_calibration:006"
+    ]
+  },
+  {
+    "id": "g:ismail2018_pcg_review:006",
+    "question": "What are the main sub-problems when automating heart-sound analysis?",
+    "draft_question": "What are the two primary challenges involved in automating the analysis of phonocardiogram signals according to recent technological advancements?",
+    "verdict": "fix",
+    "ambiguous": true,
+    "paper_key": "ismail2018_pcg_review",
+    "evidence_quote": "The automatic analysis of these signals involves two primary challenges, localization and classification.",
+    "relevant_chunks": [
+      "ismail2018_pcg_review:005",
+      "ismail2018_pcg_review:006"
+    ]
+  },
+  {
+    "id": "g:jain2025_mysteth:038",
+    "question": "What specific subcategories of murmurs can the MySteth framework identify during the classification of systolic sounds?",
+    "draft_question": "What specific subcategories of murmurs can the MySteth framework identify during the classification of systolic sounds?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "jain2025_mysteth",
+    "evidence_quote": "Systolic murmurs can also be further classified into two categories: Ejection Systolic Murmur (ESM) and Pansystolic Murmur (PSM).",
+    "relevant_chunks": [
+      "jain2025_mysteth:038",
+      "jain2025_mysteth:039"
+    ]
+  },
+  {
+    "id": "g:jobayer2024_funnelnet:027",
+    "question": "How fast and how accurate is FunnelNet when it runs on a Raspberry Pi?",
+    "draft_question": "What level of accuracy and average processing speed were recorded when executing the TensorFlow Lite version of the framework on a Raspberry Pi 4B board?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "jobayer2024_funnelnet",
+    "evidence_quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "relevant_chunks": [
+      "jobayer2024_funnelnet:027",
+      "jobayer2024_funnelnet:028"
+    ]
+  },
+  {
+    "id": "g:jobayer2024_funnelnet:021",
+    "question": "What activation function and kernel dimensions are employed in the squeeze network component of FunnelNet?",
+    "draft_question": "What activation function and kernel dimensions are employed in the squeeze network component of FunnelNet?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "jobayer2024_funnelnet",
+    "evidence_quote": "Like the squeeze net, we have a kernel size of 2 × 2 with an activation function of ‘tanh.",
+    "relevant_chunks": [
+      "jobayer2024_funnelnet:020",
+      "jobayer2024_funnelnet:021"
+    ]
+  },
+  {
+    "id": "g:khan2020_time_freq_features:021",
+    "question": "What is the standard HMM-based method for splitting heart sounds into S1, systole, S2 and diastole?",
+    "draft_question": "Which specific hidden Markov model extension was utilized for phonocardiogram segmentation in the classification framework?",
+    "verdict": "fix",
+    "ambiguous": true,
+    "paper_key": "khan2020_time_freq_features",
+    "evidence_quote": "Logistic regression-HSMM-based heart sound segmentation proposed by Springer (David B. Springer et al, 2015) is employed for the PCG segmentation, which is the extended version of duration-dependent hidden Markov model (DHMM) by Schmidt (S E Schmidt et al, 2010).",
+    "relevant_chunks": [
+      "khan2020_time_freq_features:021"
+    ]
+  },
+  {
+    "id": "g:mehrtash2020_calibration_segmentation:017",
+    "question": "What specific metrics and visual tools are utilized to measure the quality of uncertainty estimation and calibration in segmentation tasks?",
+    "draft_question": "What specific metrics and visual tools are utilized to measure the quality of uncertainty estimation and calibration in segmentation tasks?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "mehrtash2020_calibration_segmentation",
+    "evidence_quote": "Negative log-likelihood (NLL), and Brier score [49], are both strictly proper scoring rules that have been previously used in several studies for evaluating predictive uncertainty [5], [18], [27].",
+    "relevant_chunks": [
+      "mehrtash2020_calibration_segmentation:017"
+    ]
+  },
+  {
+    "id": "g:mehrtash2020_calibration_segmentation:010",
+    "question": "What happens to calibration quality when fully convolutional networks are trained using Dice loss instead of cross-entropy loss for medical image segmentation?",
+    "draft_question": "What happens to calibration quality when fully convolutional networks are trained using Dice loss instead of cross-entropy loss for medical image segmentation?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "mehrtash2020_calibration_segmentation",
+    "evidence_quote": "We observe that FCNs trained with Dice loss perform significantly better segmentation compared to those trained with crossentropy but at the cost of poor calibration.",
+    "relevant_chunks": [
+      "mehrtash2020_calibration_segmentation:010"
+    ]
+  },
+  {
+    "id": "g:muna2025_ss_dppn:033",
+    "question": "In SS-DPPN’s spectrogram branch, what sits between the ResNet-50 features and the final embedding?",
+    "draft_question": "How is the high-dimensional output from the ResNet backbone transformed into a lower-dimensional embedding for murmur classification in the dual-path network?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "muna2025_ss_dppn",
+    "evidence_quote": "The high-dimensional feature vector from the ResNet backbone is then passed through a projection head, which consists of a two-layer Multi-Layer Perceptron (MLP) with BatchNorm and Dropout.",
+    "relevant_chunks": [
+      "muna2025_ss_dppn:033"
+    ]
+  },
+  {
+    "id": "g:muna2025_ss_dppn:025",
+    "question": "How long are the CirCor recordings, and what sampling rate do they use?",
+    "draft_question": "What is the total duration and sampling frequency of the phonocardiogram recordings in the patient dataset comprising 942 subjects aged 0-22 years?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "muna2025_ss_dppn",
+    "evidence_quote": "The recordings are sampled at 4 kHz with variable durations ranging from 4.8 seconds to 80.4 seconds, resulting in more than 33.5 hours of recording.",
+    "relevant_chunks": [
+      "muna2025_ss_dppn:025"
+    ]
+  },
+  {
+    "id": "g:niizumi2024_m2d_murmur:008",
+    "question": "When benchmarking general-purpose audio models such as M2D for murmur detection, how many runs are averaged per model?",
+    "draft_question": "How many experimental runs were averaged to compute the final evaluation results for each evaluated model?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "niizumi2024_m2d_murmur",
+    "evidence_quote": "We used the final evaluation result of the average of 15 experiments per model (five experiments for each of the three data splits).",
+    "relevant_chunks": [
+      "niizumi2024_m2d_murmur:008",
+      "niizumi2024_m2d_murmur:009"
+    ]
+  },
+  {
+    "id": "g:niizumi2024_m2d_murmur:013",
+    "question": "What happens to the overall performance metrics when combining a convolutional neural network model with an M2D model for cardiac sound detection?",
+    "draft_question": "What happens to the overall performance metrics when combining a convolutional neural network model with an M2D model for cardiac sound detection?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "niizumi2024_m2d_murmur",
+    "evidence_quote": "The CNN14+M2D and BYOL-A+M2D results show that they can improve the Unkown detection performance, although the overall performance is slightly degraded.",
+    "relevant_chunks": [
+      "niizumi2024_m2d_murmur:013",
+      "niizumi2024_m2d_murmur:014"
+    ]
+  },
+  {
+    "id": "g:niizumi2025_foundation_models:011",
+    "question": "Why might the effectiveness of audio foundation models differ between the ICBHI2017 dataset and the SPRS dataset?",
+    "draft_question": "Why might the effectiveness of audio foundation models differ between the ICBHI2017 dataset and the SPRS dataset?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "niizumi2025_foundation_models",
+    "evidence_quote": "The difference in performance trend from ICBHI2017 may stem from data, with SPRS being cleaner than ICBHI2017. The ICBHI2017 samples were recorded using multiple recording devices and have a higher noise level, such as heart sounds layered over respiratory sounds.",
+    "relevant_chunks": [
+      "niizumi2025_foundation_models:011"
+    ]
+  },
+  {
+    "id": "g:noponen2007_pediatric_murmur:019",
+    "question": "What methodological limitation is highlighted when calculating the amplitude of a cardiac murmur as a percentage relative to the average amplitudes of the first and second heart sounds?",
+    "draft_question": "What methodological limitation is highlighted when calculating the amplitude of a cardiac murmur as a percentage relative to the average amplitudes of the first and second heart sounds?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "noponen2007_pediatric_murmur",
+    "evidence_quote": "The volume of murmur was calculated as a percentage of the volume of murmur compared to the mean volumes of S1 and S2. This may be misleading, as we can see in case 4.",
+    "relevant_chunks": [
+      "noponen2007_pediatric_murmur:019"
+    ]
+  },
+  {
+    "id": "g:noponen2007_pediatric_murmur:017",
+    "question": "How accurately can a simple duration-and-frequency rule on phonocardiograms tell innocent from pathological heart murmurs in children?",
+    "draft_question": "What sensitivity and specificity levels were attained when combining a relative duration criterion of 80% with a 200 Hz high frequency limit for evaluating pediatric heart murmurs?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "noponen2007_pediatric_murmur",
+    "evidence_quote": "By combining these two criteria, optimal results were achieved at 80% of the relative duration and with a frequency of 200 Hz as the high frequency limit. Sensitivity approached 90 % and specificity 91 % (Table 7 and Figure 10).",
+    "relevant_chunks": [
+      "noponen2007_pediatric_murmur:017"
+    ]
+  },
+  {
+    "id": "g:panah2023_wav2vec2:019",
+    "question": "What modifications to the wav2vec 2.0 architecture are planned for future improvements in heart sound classification?",
+    "draft_question": "What modifications to the wav2vec 2.0 architecture are planned for future improvements in heart sound classification?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "panah2023_wav2vec2",
+    "evidence_quote": "Such modifications can potentially include changing the receptive field of the feature encoder, changing the context network architecture, and modifying the model’s codebook size.",
+    "relevant_chunks": [
+      "panah2023_wav2vec2:019"
+    ]
+  },
+  {
+    "id": "g:panah2023_wav2vec2:016",
+    "question": "How much does wav2vec 2.0’s recall on murmur-present recordings drop as the fine-tuning data shrinks?",
+    "draft_question": "How does reducing the fine-tuning dataset size impact the recall rate for the present murmur class when utilizing a self-supervised speech representation architecture for phonocardiogram classification?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "panah2023_wav2vec2",
+    "evidence_quote": "Present class: Recall fluctuates between 0.60 and 0.68 in the case of the first four scenarios (100% - 13% of the data). For the last scenario (6% of the data), the recall falls to 0.48.",
+    "relevant_chunks": [
+      "panah2023_wav2vec2:016",
+      "panah2023_wav2vec2:017"
+    ]
+  },
+  {
+    "id": "g:pedrosa2014_pediatric_segmentation:007",
+    "question": "In the autocorrelation-based segmentation method for pediatric heart sounds, how is the signal cleaned up before segmentation?",
+    "draft_question": "Which specific continuous wavelet denoising mother wavelet and frequency range are utilized in the preprocessing routine for phonocardiogram analysis?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "pedrosa2014_pediatric_segmentation",
+    "evidence_quote": "First of all, a pre-processing routine is applied composed of continuous wavelet denoising using the Morlet mother wavelet with scales corresponding to frequencies of 15150Hz.",
+    "relevant_chunks": [
+      "pedrosa2014_pediatric_segmentation:007"
+    ]
+  },
+  {
+    "id": "g:reyna2023_physionet_challenge:020",
+    "question": "What specific components were required to be included in the algorithmic submissions for the George B. Moody PhysioNet Challenge 2022?",
+    "draft_question": "What specific components were required to be included in the algorithmic submissions for the George B. Moody PhysioNet Challenge 2022?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "reyna2023_physionet_challenge",
+    "evidence_quote": "For both phases of the Challenge, we required the teams to submit the complete code for their algorithms, including their preprocessing, training, and inference steps.",
+    "relevant_chunks": [
+      "reyna2023_physionet_challenge:020"
+    ]
+  },
+  {
+    "id": "g:reyna2023_physionet_challenge:011",
+    "question": "How were the murmur annotations and their characteristics determined for the CirCor DigiScope dataset used in the PhysioNet Challenge 2022?",
+    "draft_question": "How were the murmur annotations and their characteristics determined for the CirCor DigiScope dataset used in the PhysioNet Challenge 2022?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "reyna2023_physionet_challenge",
+    "evidence_quote": "The murmur annotations and characteristics (location, timing, shape, pitch, quality, and grade) were manually identified by a single cardiac physiologist independently of the available clinical notes and PCG segmentation.",
+    "relevant_chunks": [
+      "reyna2023_physionet_challenge:011"
+    ]
+  },
+  {
+    "id": "g:rohr2024_mil_explainability:016",
+    "question": "How are true positives and false positives determined when evaluating the instance-level murmur segmentation performance on the CirCor dataset?",
+    "draft_question": "How are true positives and false positives determined when evaluating the instance-level murmur segmentation performance on the CirCor dataset?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "rohr2024_mil_explainability",
+    "evidence_quote": "If the segmentation by the network overlaps with the respective murmur phase, we count it as a true positive, otherwise as a false positive.",
+    "relevant_chunks": [
+      "rohr2024_mil_explainability:016",
+      "rohr2024_mil_explainability:017"
+    ]
+  },
+  {
+    "id": "g:rohr2024_mil_explainability:019",
+    "question": "In the MIL-U-Net murmur framework, how many time-frequency features are computed from the Hilbert envelopes and other signal transforms?",
+    "draft_question": "How many total features are derived from the combination of time-frequency transformations, statistical summaries, and heart phase segmentations in the murmur detection framework?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "rohr2024_mil_explainability",
+    "evidence_quote": "This results in (3 + 15 + 15) × 18 = 594 features.",
+    "relevant_chunks": [
+      "rohr2024_mil_explainability:019",
+      "rohr2024_mil_explainability:020"
+    ]
+  },
+  {
+    "id": "g:sondermann2025_cycle_normalization:012",
+    "question": "What pretrained model weights and classifier type were used in the BEATs zero-shot audio classification pipeline for phonocardiogram analysis?",
+    "draft_question": "What pretrained model weights and classifier type were used in the BEATs zero-shot audio classification pipeline for phonocardiogram analysis?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "sondermann2025_cycle_normalization",
+    "evidence_quote": "The BEATs transformer [3] approach utilizes a zeroshot audio classification pipeline, combining a pre-trained audio transformer for embedding extraction with a k-NearestNeighbor (k-NN) classifier.",
+    "relevant_chunks": [
+      "sondermann2025_cycle_normalization:012"
+    ]
+  },
+  {
+    "id": "g:sondermann2025_cycle_normalization:018",
+    "question": "How does applying heart cycle normalization affect the AUROC and MCC metrics for the BEATs-kNN model in automated phonocardiogram classification?",
+    "draft_question": "How does applying heart cycle normalization affect the AUROC and MCC metrics for the BEATs-kNN model in automated phonocardiogram classification?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "sondermann2025_cycle_normalization",
+    "evidence_quote": "Conversely, the BEATs-kNN approach shows improved performance with cycle normalization, increasing AUROC from 0.657 to 0.701 and MCC from 0.322 to 0.362.",
+    "relevant_chunks": [
+      "sondermann2025_cycle_normalization:018"
+    ]
+  },
+  {
+    "id": "g:taipalmaa2018_cycle_segmentation:004",
+    "question": "In segmentation methods that classify short PCG frames with handcrafted features, which classifiers were compared for picking out S2?",
+    "draft_question": "What distinct machine learning algorithms were tested to distinguish S2 peaks from other phonocardiogram data frames during the initial evaluation phase?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "taipalmaa2018_cycle_segmentation",
+    "evidence_quote": "Tested methods included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA) and Neural networks (NN) with different architectures (best results with 2 hidden layers with 25 neurons on both hidden layers).",
+    "relevant_chunks": [
+      "taipalmaa2018_cycle_segmentation:004"
+    ]
+  },
+  {
+    "id": "g:taipalmaa2018_cycle_segmentation:010",
+    "question": "How can S1 and S2 be told apart using timing alone?",
+    "draft_question": "How does the post-processing algorithm leverage peak intervals to correct labels when three consecutive peaks of the same type are encountered?",
+    "verdict": "fix",
+    "ambiguous": true,
+    "paper_key": "taipalmaa2018_cycle_segmentation",
+    "evidence_quote": "In this case, we are trying to find three consecutive peaks labeled the same (S1-S1-S1 or S2S2-S2) and determine the labels correctly by using the fact that the distance S2-S1 is greater than the distance S1-S2.",
+    "relevant_chunks": [
+      "taipalmaa2018_cycle_segmentation:010"
+    ]
+  },
+  {
+    "id": "g:xu2024_multitask_grading:017",
+    "question": "Why is merely detecting the presence of a cardiac sound anomaly insufficient for proper medical decision support regarding heart conditions?",
+    "draft_question": "Why is merely detecting the presence of a cardiac sound anomaly insufficient for proper medical decision support regarding heart conditions?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "xu2024_multitask_grading",
+    "evidence_quote": "However, many murmurs (especially grade I or II cardiac murmurs) may be physiological or functional rather than pathological and do not have medical significance. Therefore, simply analyzing the presence or absence of cardiac murmurs cannot provide good decision support for the diagnosis of cardiac disease, and a solution that can scientifically grade cardiac murmurs should be proposed.",
+    "relevant_chunks": [
+      "xu2024_multitask_grading:017"
+    ]
+  },
+  {
+    "id": "g:xu2024_multitask_grading:019",
+    "question": "In the HMT framework, how are features extracted from each auscultation location’s recording?",
+    "draft_question": "How are the frequency domain features extracted for each individual auscultation channel within the HMT framework?",
+    "verdict": "fix",
+    "ambiguous": false,
+    "paper_key": "xu2024_multitask_grading",
+    "evidence_quote": "Then, sc is transformed from the time domain to the frequency domain feature hc = H(sc ), and the feature f c = F (hc ) of the cth channel is extracted using a ResNet network.",
+    "relevant_chunks": [
+      "xu2024_multitask_grading:019"
+    ]
+  },
+  {
+    "id": "g:zhang2024_parallel_attentive_uq:018",
+    "question": "What techniques were integrated into the parallel-attentive cardiac murmur detection framework to improve reliability assessment and model calibration?",
+    "draft_question": "What techniques were integrated into the parallel-attentive cardiac murmur detection framework to improve reliability assessment and model calibration?",
+    "verdict": "good",
+    "ambiguous": false,
+    "paper_key": "zhang2024_parallel_attentive_uq",
+    "evidence_quote": "Moreover, the introduction of techniques such as Monte Carlo methods and temperature scaling further enhanced the model’s reliability, yielding more reliable predictions in uncertainty assessment and calibration.",
+    "relevant_chunks": [
+      "zhang2024_parallel_attentive_uq:018"
+    ]
+  },
+  {
+    "id": "g:zhang2024_parallel_attentive_uq:008",
+    "question": "How is Shannon entropy utilized when applying Monte Carlo Dropout for uncertainty estimation?",
+    "draft_question": "How is Shannon entropy utilized when applying Monte Carlo Dropout for uncertainty estimation?",
+    "verdict": "good",
+    "ambiguous": true,
+    "paper_key": "zhang2024_parallel_attentive_uq",
+    "evidence_quote": "The uncertainty of the model is measured using the following Shannon entropy: H(p) = − K X pK logpK , (2) k=1 where K is the number of categories.",
+    "relevant_chunks": [
+      "zhang2024_parallel_attentive_uq:008"
+    ]
+  }
+]

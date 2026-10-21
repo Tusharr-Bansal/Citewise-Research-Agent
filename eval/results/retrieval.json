@@ -1,0 +1,2882 @@
+{
+  "results": {
+    "vector": {
+      "all": {
+        "recall@1": 0.3333333333333333,
+        "recall@5": 0.4888888888888889,
+        "recall@10": 0.6444444444444445,
+        "mrr@10": 0.4129541446208113,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.3142857142857143,
+        "recall@5": 0.5142857142857142,
+        "recall@10": 0.6571428571428571,
+        "mrr@10": 0.4083219954648526,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.4,
+        "recall@5": 0.4,
+        "recall@10": 0.6,
+        "mrr@10": 0.4291666666666667,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.4166666666666667,
+        "recall@5": 0.625,
+        "recall@10": 0.75,
+        "mrr@10": 0.5084986772486773,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.23809523809523808,
+        "recall@5": 0.3333333333333333,
+        "recall@10": 0.5238095238095238,
+        "mrr@10": 0.30376039304610736,
+        "n": 21
+      },
+      "latency_ms_median": 79.5
+    },
+    "vector (no prefix)": {
+      "all": {
+        "recall@1": 0.26666666666666666,
+        "recall@5": 0.4444444444444444,
+        "recall@10": 0.5555555555555556,
+        "mrr@10": 0.3497795414462081,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.2571428571428571,
+        "recall@5": 0.45714285714285713,
+        "recall@10": 0.5428571428571428,
+        "mrr@10": 0.3429705215419501,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.3,
+        "recall@5": 0.4,
+        "recall@10": 0.6,
+        "mrr@10": 0.3736111111111111,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.2916666666666667,
+        "recall@5": 0.5416666666666666,
+        "recall@10": 0.625,
+        "mrr@10": 0.403587962962963,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.23809523809523808,
+        "recall@5": 0.3333333333333333,
+        "recall@10": 0.47619047619047616,
+        "mrr@10": 0.2882842025699168,
+        "n": 21
+      },
+      "latency_ms_median": 71.1
+    },
+    "pg_ts": {
+      "all": {
+        "recall@1": 0.1111111111111111,
+        "recall@5": 0.37777777777777777,
+        "recall@10": 0.4888888888888889,
+        "mrr@10": 0.21243386243386245,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.11428571428571428,
+        "recall@5": 0.34285714285714286,
+        "recall@10": 0.45714285714285713,
+        "mrr@10": 0.2032879818594104,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.1,
+        "recall@5": 0.5,
+        "recall@10": 0.6,
+        "mrr@10": 0.24444444444444446,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.16666666666666666,
+        "recall@5": 0.4583333333333333,
+        "recall@10": 0.6666666666666666,
+        "mrr@10": 0.28581349206349205,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.047619047619047616,
+        "recall@5": 0.2857142857142857,
+        "recall@10": 0.2857142857142857,
+        "mrr@10": 0.1285714285714286,
+        "n": 21
+      },
+      "latency_ms_median": 19.3
+    },
+    "bm25": {
+      "all": {
+        "recall@1": 0.35555555555555557,
+        "recall@5": 0.6444444444444445,
+        "recall@10": 0.7555555555555555,
+        "mrr@10": 0.48218694885361557,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.3142857142857143,
+        "recall@5": 0.6,
+        "recall@10": 0.7142857142857143,
+        "mrr@10": 0.4529705215419501,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.5,
+        "recall@5": 0.8,
+        "recall@10": 0.9,
+        "mrr@10": 0.5844444444444444,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.5416666666666666,
+        "recall@5": 0.8333333333333334,
+        "recall@10": 0.9166666666666666,
+        "mrr@10": 0.669212962962963,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.14285714285714285,
+        "recall@5": 0.42857142857142855,
+        "recall@10": 0.5714285714285714,
+        "mrr@10": 0.26844293272864705,
+        "n": 21
+      },
+      "latency_ms_median": 3.0
+    },
+    "hybrid_pg": {
+      "all": {
+        "recall@1": 0.26666666666666666,
+        "recall@5": 0.5555555555555556,
+        "recall@10": 0.6888888888888889,
+        "mrr@10": 0.40338624338624335,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.2,
+        "recall@5": 0.5428571428571428,
+        "recall@10": 0.7142857142857143,
+        "mrr@10": 0.36149659863945577,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.5,
+        "recall@5": 0.6,
+        "recall@10": 0.6,
+        "mrr@10": 0.55,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.3333333333333333,
+        "recall@5": 0.6666666666666666,
+        "recall@10": 0.7916666666666666,
+        "mrr@10": 0.4797288359788359,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.19047619047619047,
+        "recall@5": 0.42857142857142855,
+        "recall@10": 0.5714285714285714,
+        "mrr@10": 0.31613756613756616,
+        "n": 21
+      },
+      "latency_ms_median": 101.3
+    },
+    "hybrid_bm25": {
+      "all": {
+        "recall@1": 0.4666666666666667,
+        "recall@5": 0.6222222222222222,
+        "recall@10": 0.7777777777777778,
+        "mrr@10": 0.5377601410934745,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.45714285714285713,
+        "recall@5": 0.6285714285714286,
+        "recall@10": 0.7714285714285715,
+        "mrr@10": 0.5339909297052154,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.5,
+        "recall@5": 0.6,
+        "recall@10": 0.8,
+        "mrr@10": 0.550952380952381,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.5833333333333334,
+        "recall@5": 0.75,
+        "recall@10": 0.9583333333333334,
+        "mrr@10": 0.667228835978836,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.3333333333333333,
+        "recall@5": 0.47619047619047616,
+        "recall@10": 0.5714285714285714,
+        "mrr@10": 0.3897959183673469,
+        "n": 21
+      },
+      "latency_ms_median": 88.6
+    },
+    "hybrid_bm25 (no prefix)": {
+      "all": {
+        "recall@1": 0.4222222222222222,
+        "recall@5": 0.5777777777777777,
+        "recall@10": 0.7555555555555555,
+        "mrr@10": 0.49641093474426806,
+        "n": 45
+      },
+      "unambiguous": {
+        "recall@1": 0.4,
+        "recall@5": 0.5714285714285714,
+        "recall@10": 0.7428571428571429,
+        "mrr@10": 0.48149659863945576,
+        "n": 35
+      },
+      "ambiguous": {
+        "recall@1": 0.5,
+        "recall@5": 0.6,
+        "recall@10": 0.8,
+        "mrr@10": 0.548611111111111,
+        "n": 10
+      },
+      "kept as drafted": {
+        "recall@1": 0.5416666666666666,
+        "recall@5": 0.6666666666666666,
+        "recall@10": 0.9583333333333334,
+        "mrr@10": 0.626901455026455,
+        "n": 24
+      },
+      "rewritten by Tushar": {
+        "recall@1": 0.2857142857142857,
+        "recall@5": 0.47619047619047616,
+        "recall@10": 0.5238095238095238,
+        "mrr@10": 0.34727891156462587,
+        "n": 21
+      },
+      "latency_ms_median": 73.8
+    }
+  },
+  "per_question": {
+    "g:althaph2025_ehst:016": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "althaph2025_ehst:016",
+          "althaph2025_ehst:040",
+          "sondermann2025_cycle_normalization:002"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "althaph2025_ehst:016",
+          "althaph2025_ehst:040",
+          "sondermann2025_cycle_normalization:002"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:007",
+          "despotovic2025_cardiophon:006",
+          "althaph2025_ehst:040"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "althaph2025_ehst:018",
+          "althaph2025_ehst:016",
+          "althaph2025_ehst:040"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "althaph2025_ehst:040",
+          "althaph2025_ehst:016",
+          "ismail2018_pcg_review:039"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "althaph2025_ehst:016",
+          "althaph2025_ehst:018",
+          "althaph2025_ehst:040"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "althaph2025_ehst:016",
+          "althaph2025_ehst:040",
+          "althaph2025_ehst:018"
+        ]
+      }
+    },
+    "g:althaph2025_ehst:029": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:044",
+          "althaph2025_ehst:064",
+          "althaph2025_ehst:063"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:064",
+          "althaph2025_ehst:044",
+          "althaph2025_ehst:063"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:042",
+          "althaph2025_ehst:062",
+          "zhang2024_parallel_attentive_uq:011"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:062",
+          "althaph2025_ehst:038",
+          "althaph2025_ehst:043"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:064",
+          "althaph2025_ehst:062",
+          "althaph2025_ehst:028"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:062",
+          "althaph2025_ehst:064",
+          "althaph2025_ehst:063"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:064",
+          "althaph2025_ehst:062",
+          "althaph2025_ehst:063"
+        ]
+      }
+    },
+    "g:balanya2024_adaptive_temp_scaling:024": {
+      "vector": {
+        "rank": 2,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:009",
+          "balanya2024_adaptive_temp_scaling:024",
+          "balanya2024_adaptive_temp_scaling:026"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 5,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:026",
+          "balanya2024_adaptive_temp_scaling:017",
+          "balanya2024_adaptive_temp_scaling:020"
+        ]
+      },
+      "pg_ts": {
+        "rank": 7,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:018",
+          "guo2017_calibration:031",
+          "balanya2024_adaptive_temp_scaling:020"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:024",
+          "balanya2024_adaptive_temp_scaling:007",
+          "guo2017_calibration:031"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 4,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:026",
+          "balanya2024_adaptive_temp_scaling:020",
+          "zhang2024_parallel_attentive_uq:009"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:024",
+          "guo2017_calibration:024",
+          "balanya2024_adaptive_temp_scaling:026"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:024",
+          "balanya2024_adaptive_temp_scaling:026",
+          "balanya2024_adaptive_temp_scaling:007"
+        ]
+      }
+    },
+    "g:balanya2024_adaptive_temp_scaling:039": {
+      "vector": {
+        "rank": 9,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:035",
+          "balanya2024_adaptive_temp_scaling:041",
+          "balanya2024_adaptive_temp_scaling:034"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:035",
+          "balanya2024_adaptive_temp_scaling:041",
+          "balanya2024_adaptive_temp_scaling:036"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "khan2020_time_freq_features:031",
+          "panah2023_wav2vec2:008",
+          "reyna2023_physionet_challenge:036"
+        ]
+      },
+      "bm25": {
+        "rank": 9,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:023",
+          "balanya2024_adaptive_temp_scaling:036",
+          "balanya2024_adaptive_temp_scaling:035"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:035",
+          "balanya2024_adaptive_temp_scaling:033",
+          "balanya2024_adaptive_temp_scaling:041"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 5,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:035",
+          "balanya2024_adaptive_temp_scaling:036",
+          "balanya2024_adaptive_temp_scaling:023"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 6,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:035",
+          "balanya2024_adaptive_temp_scaling:036",
+          "balanya2024_adaptive_temp_scaling:023"
+        ]
+      }
+    },
+    "g:bondareva2022_tandem_uq:011": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "desimone2025_uncertainty_edge:008"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "reyna2023_physionet_challenge:049"
+        ]
+      },
+      "pg_ts": {
+        "rank": 3,
+        "top3": [
+          "bondareva2022_tandem_uq:006",
+          "bondareva2022_tandem_uq:007",
+          "bondareva2022_tandem_uq:011"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "jain2025_mysteth:039"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "bondareva2022_tandem_uq:007"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "desimone2025_uncertainty_edge:008"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "bondareva2022_tandem_uq:011",
+          "desimone2025_uncertainty_edge:029",
+          "desimone2025_uncertainty_edge:008"
+        ]
+      }
+    },
+    "g:bondareva2022_tandem_uq:006": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:000",
+          "bondareva2022_tandem_uq:009",
+          "desimone2025_uncertainty_edge:000"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:000",
+          "desimone2025_uncertainty_edge:000",
+          "desimone2025_uncertainty_edge:004"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:010",
+          "reyna2023_physionet_challenge:014",
+          "bondareva2022_tandem_uq:000"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:010",
+          "bondareva2022_tandem_uq:000",
+          "bondareva2022_tandem_uq:003"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 6,
+        "top3": [
+          "bondareva2022_tandem_uq:000",
+          "bondareva2022_tandem_uq:003",
+          "bondareva2022_tandem_uq:010"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 7,
+        "top3": [
+          "bondareva2022_tandem_uq:000",
+          "bondareva2022_tandem_uq:003",
+          "bondareva2022_tandem_uq:010"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:000",
+          "desimone2025_uncertainty_edge:000",
+          "bondareva2022_tandem_uq:010"
+        ]
+      }
+    },
+    "g:desimone2025_uncertainty_edge:027": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "reyna2023_physionet_challenge:001",
+          "zhang2024_parallel_attentive_uq:010"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "reyna2023_physionet_challenge:001",
+          "desimone2025_uncertainty_edge:003",
+          "desimone2025_uncertainty_edge:028"
+        ]
+      },
+      "pg_ts": {
+        "rank": 3,
+        "top3": [
+          "jobayer2024_funnelnet:004",
+          "althaph2025_ehst:042",
+          "desimone2025_uncertainty_edge:027"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "desimone2025_uncertainty_edge:000",
+          "desimone2025_uncertainty_edge:027",
+          "jobayer2024_funnelnet:004"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "desimone2025_uncertainty_edge:028",
+          "desimone2025_uncertainty_edge:027",
+          "jobayer2024_funnelnet:004"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 3,
+        "top3": [
+          "desimone2025_uncertainty_edge:000",
+          "desimone2025_uncertainty_edge:028",
+          "desimone2025_uncertainty_edge:027"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 6,
+        "top3": [
+          "desimone2025_uncertainty_edge:000",
+          "desimone2025_uncertainty_edge:028",
+          "jobayer2024_funnelnet:001"
+        ]
+      }
+    },
+    "g:desimone2025_uncertainty_edge:018": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:009",
+          "desimone2025_uncertainty_edge:003",
+          "bondareva2022_tandem_uq:006"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "bondareva2022_tandem_uq:009",
+          "bondareva2022_tandem_uq:006"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "reyna2023_physionet_challenge:014",
+          "desimone2025_uncertainty_edge:017",
+          "desimone2025_uncertainty_edge:025"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "desimone2025_uncertainty_edge:026",
+          "desimone2025_uncertainty_edge:007"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "desimone2025_uncertainty_edge:025",
+          "bondareva2022_tandem_uq:006"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "desimone2025_uncertainty_edge:000",
+          "desimone2025_uncertainty_edge:025"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "desimone2025_uncertainty_edge:007",
+          "desimone2025_uncertainty_edge:025"
+        ]
+      }
+    },
+    "g:despotovic2025_cardiophon:009": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "muna2025_ss_dppn:025",
+          "althaph2025_ehst:017",
+          "despotovic2025_cardiophon:006"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "muna2025_ss_dppn:025",
+          "althaph2025_ehst:017",
+          "muna2025_ss_dppn:026"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:007",
+          "despotovic2025_cardiophon:006",
+          "rohr2024_mil_explainability:003"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:009",
+          "althaph2025_ehst:018",
+          "reyna2023_physionet_challenge:006"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:006",
+          "muna2025_ss_dppn:025",
+          "althaph2025_ehst:040"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "muna2025_ss_dppn:025",
+          "althaph2025_ehst:018",
+          "despotovic2025_cardiophon:006"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "muna2025_ss_dppn:025",
+          "althaph2025_ehst:018",
+          "despotovic2025_cardiophon:006"
+        ]
+      }
+    },
+    "g:despotovic2025_cardiophon:021": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:021",
+          "despotovic2025_cardiophon:038",
+          "xu2024_multitask_grading:007"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:021",
+          "despotovic2025_cardiophon:038",
+          "reyna2023_physionet_challenge:051"
+        ]
+      },
+      "pg_ts": {
+        "rank": 2,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "despotovic2025_cardiophon:021",
+          "rohr2024_mil_explainability:017"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "rohr2024_mil_explainability:018",
+          "despotovic2025_cardiophon:021",
+          "despotovic2025_cardiophon:010"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:021",
+          "xu2024_multitask_grading:007",
+          "despotovic2025_cardiophon:038"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:021",
+          "xu2024_multitask_grading:007",
+          "xu2024_multitask_grading:014"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "despotovic2025_cardiophon:021",
+          "xu2024_multitask_grading:007",
+          "xu2024_multitask_grading:014"
+        ]
+      }
+    },
+    "g:feng2026_childvox:015": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:021",
+          "feng2026_childvox:014"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:001",
+          "feng2026_childvox:005"
+        ]
+      },
+      "pg_ts": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:016",
+          "niizumi2025_foundation_models:003"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:004",
+          "feng2026_childvox:003"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:014",
+          "feng2026_childvox:003"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:005",
+          "feng2026_childvox:004"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "feng2026_childvox:015",
+          "feng2026_childvox:005",
+          "feng2026_childvox:004"
+        ]
+      }
+    },
+    "g:festag2022_outcome_ensemble:009": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:006",
+          "festag2022_outcome_ensemble:012",
+          "rohr2024_mil_explainability:025"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "bondareva2022_tandem_uq:006",
+          "rohr2024_mil_explainability:033",
+          "festag2022_outcome_ensemble:010"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "panah2023_wav2vec2:013",
+          "panah2023_wav2vec2:011"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "festag2022_outcome_ensemble:001",
+          "rohr2024_mil_explainability:006",
+          "festag2022_outcome_ensemble:000"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "bondareva2022_tandem_uq:006",
+          "panah2023_wav2vec2:011"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "festag2022_outcome_ensemble:010",
+          "festag2022_outcome_ensemble:000"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "festag2022_outcome_ensemble:010",
+          "festag2022_outcome_ensemble:000"
+        ]
+      }
+    },
+    "g:festag2022_outcome_ensemble:005": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:010",
+          "festag2022_outcome_ensemble:010",
+          "desimone2025_uncertainty_edge:012"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:010",
+          "festag2022_outcome_ensemble:010",
+          "muna2025_ss_dppn:035"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "khan2020_time_freq_features:031",
+          "noponen2007_pediatric_murmur:001",
+          "festag2022_outcome_ensemble:010"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:006",
+          "khan2020_time_freq_features:033",
+          "festag2022_outcome_ensemble:007"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "festag2022_outcome_ensemble:010",
+          "festag2022_outcome_ensemble:011",
+          "bondareva2022_tandem_uq:006"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "festag2022_outcome_ensemble:010",
+          "zhang2024_parallel_attentive_uq:006",
+          "desimone2025_uncertainty_edge:010"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "festag2022_outcome_ensemble:010",
+          "desimone2025_uncertainty_edge:010",
+          "noponen2007_pediatric_murmur:009"
+        ]
+      }
+    },
+    "g:golnari2025_qivcnet:004": {
+      "vector": {
+        "rank": 2,
+        "top3": [
+          "golnari2025_qivcnet:034",
+          "golnari2025_qivcnet:004",
+          "golnari2025_qivcnet:033"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "golnari2025_qivcnet:004",
+          "golnari2025_qivcnet:034",
+          "golnari2025_qivcnet:033"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:022",
+          "despotovic2025_cardiophon:007",
+          "ismail2018_pcg_review:048"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "golnari2025_qivcnet:004",
+          "golnari2025_qivcnet:033",
+          "golnari2025_qivcnet:034"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 4,
+        "top3": [
+          "golnari2025_qivcnet:033",
+          "golnari2025_qivcnet:034",
+          "muna2025_ss_dppn:026"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "golnari2025_qivcnet:004",
+          "golnari2025_qivcnet:034",
+          "golnari2025_qivcnet:033"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "golnari2025_qivcnet:004",
+          "golnari2025_qivcnet:034",
+          "golnari2025_qivcnet:033"
+        ]
+      }
+    },
+    "g:guo2017_calibration:005": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "guo2017_calibration:001",
+          "balanya2024_adaptive_temp_scaling:016"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "balanya2024_adaptive_temp_scaling:016",
+          "guo2017_calibration:001"
+        ]
+      },
+      "pg_ts": {
+        "rank": 9,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:013",
+          "balanya2024_adaptive_temp_scaling:015",
+          "desimone2025_uncertainty_edge:026"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:001"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "balanya2024_adaptive_temp_scaling:013",
+          "balanya2024_adaptive_temp_scaling:015"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "guo2017_calibration:001",
+          "balanya2024_adaptive_temp_scaling:015"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:005",
+          "guo2017_calibration:001",
+          "balanya2024_adaptive_temp_scaling:015"
+        ]
+      }
+    },
+    "g:guo2017_calibration:006": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      },
+      "pg_ts": {
+        "rank": 2,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:006",
+          "xu2024_multitask_grading:033"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "guo2017_calibration:006",
+          "mehrtash2020_calibration_segmentation:018",
+          "guo2017_calibration:007"
+        ]
+      }
+    },
+    "g:ismail2018_pcg_review:006": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "althaph2025_ehst:002",
+          "xu2024_multitask_grading:035",
+          "sondermann2025_cycle_normalization:003"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:002",
+          "sondermann2025_cycle_normalization:003",
+          "bondareva2022_tandem_uq:001"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:048",
+          "ismail2018_pcg_review:064",
+          "ismail2018_pcg_review:022"
+        ]
+      },
+      "bm25": {
+        "rank": 9,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:001",
+          "althaph2025_ehst:006",
+          "jobayer2024_funnelnet:003"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:006",
+          "sondermann2025_cycle_normalization:003",
+          "reyna2023_physionet_challenge:007"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "sondermann2025_cycle_normalization:003",
+          "althaph2025_ehst:006",
+          "bondareva2022_tandem_uq:001"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "sondermann2025_cycle_normalization:003",
+          "althaph2025_ehst:006",
+          "bondareva2022_tandem_uq:001"
+        ]
+      }
+    },
+    "g:jain2025_mysteth:038": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "jain2025_mysteth:039",
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:002"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:039",
+          "jain2025_mysteth:002"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "jain2025_mysteth:021",
+          "reyna2023_physionet_challenge:014",
+          "jain2025_mysteth:002"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:039",
+          "jain2025_mysteth:002"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 7,
+        "top3": [
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:002",
+          "jain2025_mysteth:021"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "jain2025_mysteth:039",
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:002"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "jain2025_mysteth:010",
+          "jain2025_mysteth:039",
+          "jain2025_mysteth:002"
+        ]
+      }
+    },
+    "g:jobayer2024_funnelnet:027": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:028",
+          "jobayer2024_funnelnet:023"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:023",
+          "jobayer2024_funnelnet:028"
+        ]
+      },
+      "pg_ts": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:017",
+          "jobayer2024_funnelnet:028"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:028",
+          "jobayer2024_funnelnet:017",
+          "jobayer2024_funnelnet:027"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:028",
+          "jobayer2024_funnelnet:023"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:028",
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:023"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:027",
+          "jobayer2024_funnelnet:028",
+          "jobayer2024_funnelnet:023"
+        ]
+      }
+    },
+    "g:jobayer2024_funnelnet:021": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:018",
+          "jobayer2024_funnelnet:021"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:018",
+          "jobayer2024_funnelnet:021"
+        ]
+      },
+      "pg_ts": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:021",
+          "jain2025_mysteth:019"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:021",
+          "jobayer2024_funnelnet:017"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:021",
+          "jobayer2024_funnelnet:018"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:021",
+          "jobayer2024_funnelnet:018"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "jobayer2024_funnelnet:020",
+          "jobayer2024_funnelnet:021",
+          "jobayer2024_funnelnet:018"
+        ]
+      }
+    },
+    "g:khan2020_time_freq_features:021": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "jain2025_mysteth:003",
+          "ismail2018_pcg_review:005",
+          "muna2025_ss_dppn:026"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "muna2025_ss_dppn:026",
+          "golnari2025_qivcnet:026",
+          "jain2025_mysteth:033"
+        ]
+      },
+      "pg_ts": {
+        "rank": 4,
+        "top3": [
+          "ismail2018_pcg_review:011",
+          "ismail2018_pcg_review:064",
+          "ismail2018_pcg_review:048"
+        ]
+      },
+      "bm25": {
+        "rank": 5,
+        "top3": [
+          "ismail2018_pcg_review:020",
+          "ismail2018_pcg_review:011",
+          "ismail2018_pcg_review:064"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:005",
+          "ismail2018_pcg_review:064",
+          "ismail2018_pcg_review:011"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:005",
+          "ismail2018_pcg_review:064",
+          "jobayer2024_funnelnet:003"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:064",
+          "ismail2018_pcg_review:012",
+          "ismail2018_pcg_review:051"
+        ]
+      }
+    },
+    "g:mehrtash2020_calibration_segmentation:017": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:024",
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:030"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:024",
+          "mehrtash2020_calibration_segmentation:011",
+          "mehrtash2020_calibration_segmentation:034"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:010",
+          "mehrtash2020_calibration_segmentation:011"
+        ]
+      },
+      "bm25": {
+        "rank": 3,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:009",
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:017"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:011",
+          "mehrtash2020_calibration_segmentation:009"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 6,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:009",
+          "mehrtash2020_calibration_segmentation:030"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 9,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:011",
+          "mehrtash2020_calibration_segmentation:030"
+        ]
+      }
+    },
+    "g:mehrtash2020_calibration_segmentation:010": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:003",
+          "mehrtash2020_calibration_segmentation:001"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:001",
+          "mehrtash2020_calibration_segmentation:003"
+        ]
+      },
+      "pg_ts": {
+        "rank": 5,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:026",
+          "mehrtash2020_calibration_segmentation:029",
+          "mehrtash2020_calibration_segmentation:034"
+        ]
+      },
+      "bm25": {
+        "rank": 6,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:001",
+          "mehrtash2020_calibration_segmentation:029",
+          "mehrtash2020_calibration_segmentation:004"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 9,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:029",
+          "mehrtash2020_calibration_segmentation:001"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 9,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:001",
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:029"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 7,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:001",
+          "mehrtash2020_calibration_segmentation:034",
+          "mehrtash2020_calibration_segmentation:029"
+        ]
+      }
+    },
+    "g:muna2025_ss_dppn:033": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "muna2025_ss_dppn:033",
+          "muna2025_ss_dppn:032",
+          "muna2025_ss_dppn:020"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "muna2025_ss_dppn:033",
+          "muna2025_ss_dppn:032",
+          "muna2025_ss_dppn:020"
+        ]
+      },
+      "pg_ts": {
+        "rank": 4,
+        "top3": [
+          "rohr2024_mil_explainability:033",
+          "muna2025_ss_dppn:032",
+          "khan2020_time_freq_features:031"
+        ]
+      },
+      "bm25": {
+        "rank": 4,
+        "top3": [
+          "muna2025_ss_dppn:029",
+          "muna2025_ss_dppn:014",
+          "muna2025_ss_dppn:015"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "muna2025_ss_dppn:032",
+          "muna2025_ss_dppn:033",
+          "muna2025_ss_dppn:005"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "muna2025_ss_dppn:033",
+          "muna2025_ss_dppn:029",
+          "muna2025_ss_dppn:032"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "muna2025_ss_dppn:033",
+          "muna2025_ss_dppn:029",
+          "muna2025_ss_dppn:032"
+        ]
+      }
+    },
+    "g:muna2025_ss_dppn:025": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "golnari2025_qivcnet:017",
+          "desimone2025_uncertainty_edge:009",
+          "jobayer2024_funnelnet:022"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "desimone2025_uncertainty_edge:009",
+          "panah2023_wav2vec2:007",
+          "golnari2025_qivcnet:017"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "xu2024_multitask_grading:033",
+          "niizumi2024_m2d_murmur:006",
+          "althaph2025_ehst:040"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "khan2020_time_freq_features:025",
+          "sondermann2025_cycle_normalization:010",
+          "rohr2024_mil_explainability:015"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "golnari2025_qivcnet:017",
+          "desimone2025_uncertainty_edge:009",
+          "panah2023_wav2vec2:007"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:007",
+          "jobayer2024_funnelnet:022",
+          "rohr2024_mil_explainability:015"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:007",
+          "jobayer2024_funnelnet:022",
+          "rohr2024_mil_explainability:015"
+        ]
+      }
+    },
+    "g:niizumi2024_m2d_murmur:008": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "althaph2025_ehst:039",
+          "panah2023_wav2vec2:012"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "zhang2024_parallel_attentive_uq:003",
+          "panah2023_wav2vec2:012"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "feng2026_childvox:015",
+          "niizumi2024_m2d_murmur:004"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "niizumi2024_m2d_murmur:004",
+          "niizumi2024_m2d_murmur:003"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "niizumi2024_m2d_murmur:004",
+          "xu2024_multitask_grading:030"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "niizumi2024_m2d_murmur:004",
+          "niizumi2024_m2d_murmur:011"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:000",
+          "niizumi2024_m2d_murmur:011",
+          "niizumi2024_m2d_murmur:007"
+        ]
+      }
+    },
+    "g:niizumi2024_m2d_murmur:013": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "niizumi2024_m2d_murmur:014",
+          "sondermann2025_cycle_normalization:020",
+          "niizumi2024_m2d_murmur:000"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "jain2025_mysteth:036",
+          "althaph2025_ehst:008",
+          "sondermann2025_cycle_normalization:020"
+        ]
+      },
+      "pg_ts": {
+        "rank": 9,
+        "top3": [
+          "xu2024_multitask_grading:033",
+          "niizumi2024_m2d_murmur:012",
+          "niizumi2025_foundation_models:003"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "niizumi2024_m2d_murmur:013",
+          "xu2024_multitask_grading:012",
+          "niizumi2024_m2d_murmur:014"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "niizumi2024_m2d_murmur:014",
+          "niizumi2024_m2d_murmur:012",
+          "panah2023_wav2vec2:005"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "niizumi2024_m2d_murmur:014",
+          "niizumi2024_m2d_murmur:013",
+          "niizumi2024_m2d_murmur:000"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 3,
+        "top3": [
+          "althaph2025_ehst:003",
+          "niizumi2024_m2d_murmur:000",
+          "niizumi2024_m2d_murmur:014"
+        ]
+      }
+    },
+    "g:niizumi2025_foundation_models:011": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "niizumi2025_foundation_models:011",
+          "niizumi2025_foundation_models:010",
+          "niizumi2025_foundation_models:019"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "niizumi2025_foundation_models:011",
+          "niizumi2025_foundation_models:010",
+          "niizumi2025_foundation_models:000"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "niizumi2025_foundation_models:003",
+          "niizumi2025_foundation_models:019",
+          "niizumi2025_foundation_models:001"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "niizumi2025_foundation_models:019",
+          "niizumi2025_foundation_models:011",
+          "niizumi2025_foundation_models:010"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 7,
+        "top3": [
+          "niizumi2025_foundation_models:019",
+          "niizumi2025_foundation_models:001",
+          "niizumi2025_foundation_models:003"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "niizumi2025_foundation_models:011",
+          "niizumi2025_foundation_models:019",
+          "niizumi2025_foundation_models:010"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "niizumi2025_foundation_models:011",
+          "niizumi2025_foundation_models:010",
+          "niizumi2025_foundation_models:019"
+        ]
+      }
+    },
+    "g:noponen2007_pediatric_murmur:019": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:023",
+          "noponen2007_pediatric_murmur:011"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:025",
+          "noponen2007_pediatric_murmur:011"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:064",
+          "xu2024_multitask_grading:004",
+          "xu2024_multitask_grading:005"
+        ]
+      },
+      "bm25": {
+        "rank": 4,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "noponen2007_pediatric_murmur:026",
+          "taipalmaa2018_cycle_segmentation:009"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "noponen2007_pediatric_murmur:026",
+          "xu2024_multitask_grading:005",
+          "noponen2007_pediatric_murmur:011"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 4,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "noponen2007_pediatric_murmur:023",
+          "noponen2007_pediatric_murmur:026"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 4,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "noponen2007_pediatric_murmur:026",
+          "noponen2007_pediatric_murmur:023"
+        ]
+      }
+    },
+    "g:noponen2007_pediatric_murmur:017": {
+      "vector": {
+        "rank": 9,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:020",
+          "noponen2007_pediatric_murmur:001"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 10,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:020"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:013"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:013"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 9,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:013"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 7,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:013"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 7,
+        "top3": [
+          "noponen2007_pediatric_murmur:002",
+          "noponen2007_pediatric_murmur:001",
+          "noponen2007_pediatric_murmur:011"
+        ]
+      }
+    },
+    "g:panah2023_wav2vec2:019": {
+      "vector": {
+        "rank": 2,
+        "top3": [
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:000"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:000"
+        ]
+      },
+      "pg_ts": {
+        "rank": 3,
+        "top3": [
+          "panah2023_wav2vec2:001",
+          "ismail2018_pcg_review:048",
+          "panah2023_wav2vec2:019"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:003",
+          "panah2023_wav2vec2:004"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "panah2023_wav2vec2:001",
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:004"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:000"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:000"
+        ]
+      }
+    },
+    "g:panah2023_wav2vec2:016": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:005"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:015"
+        ]
+      },
+      "pg_ts": {
+        "rank": 5,
+        "top3": [
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:010",
+          "panah2023_wav2vec2:001"
+        ]
+      },
+      "bm25": {
+        "rank": 10,
+        "top3": [
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:015"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 9,
+        "top3": [
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:004",
+          "panah2023_wav2vec2:001"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:004"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": null,
+        "top3": [
+          "panah2023_wav2vec2:018",
+          "panah2023_wav2vec2:019",
+          "panah2023_wav2vec2:004"
+        ]
+      }
+    },
+    "g:pedrosa2014_pediatric_segmentation:007": {
+      "vector": {
+        "rank": 3,
+        "top3": [
+          "pedrosa2014_pediatric_segmentation:000",
+          "rohr2024_mil_explainability:011",
+          "pedrosa2014_pediatric_segmentation:007"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 5,
+        "top3": [
+          "pedrosa2014_pediatric_segmentation:000",
+          "khan2020_time_freq_features:047",
+          "golnari2025_qivcnet:026"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:048",
+          "ismail2018_pcg_review:064",
+          "ismail2018_pcg_review:039"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "pedrosa2014_pediatric_segmentation:000",
+          "pedrosa2014_pediatric_segmentation:007",
+          "ismail2018_pcg_review:041"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "rohr2024_mil_explainability:011",
+          "pedrosa2014_pediatric_segmentation:007",
+          "pedrosa2014_pediatric_segmentation:000"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 2,
+        "top3": [
+          "pedrosa2014_pediatric_segmentation:000",
+          "pedrosa2014_pediatric_segmentation:007",
+          "rohr2024_mil_explainability:011"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "pedrosa2014_pediatric_segmentation:000",
+          "pedrosa2014_pediatric_segmentation:007",
+          "rohr2024_mil_explainability:011"
+        ]
+      }
+    },
+    "g:reyna2023_physionet_challenge:020": {
+      "vector": {
+        "rank": 7,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006",
+          "balanya2024_adaptive_temp_scaling:028"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 9,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006",
+          "reyna2023_physionet_challenge:032"
+        ]
+      },
+      "pg_ts": {
+        "rank": 10,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "festag2022_outcome_ensemble:002",
+          "reyna2023_physionet_challenge:006"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "festag2022_outcome_ensemble:002",
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 5,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006",
+          "festag2022_outcome_ensemble:001"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 7,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006",
+          "festag2022_outcome_ensemble:001"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 8,
+        "top3": [
+          "reyna2023_physionet_challenge:018",
+          "reyna2023_physionet_challenge:006",
+          "festag2022_outcome_ensemble:001"
+        ]
+      }
+    },
+    "g:reyna2023_physionet_challenge:011": {
+      "vector": {
+        "rank": 6,
+        "top3": [
+          "reyna2023_physionet_challenge:002",
+          "desimone2025_uncertainty_edge:009",
+          "golnari2025_qivcnet:018"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 8,
+        "top3": [
+          "desimone2025_uncertainty_edge:009",
+          "reyna2023_physionet_challenge:001",
+          "reyna2023_physionet_challenge:002"
+        ]
+      },
+      "pg_ts": {
+        "rank": 1,
+        "top3": [
+          "reyna2023_physionet_challenge:011",
+          "ismail2018_pcg_review:010",
+          "reyna2023_physionet_challenge:051"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "reyna2023_physionet_challenge:011",
+          "muna2025_ss_dppn:009",
+          "golnari2025_qivcnet:017"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "reyna2023_physionet_challenge:011",
+          "zhang2024_parallel_attentive_uq:010",
+          "muna2025_ss_dppn:009"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "reyna2023_physionet_challenge:011",
+          "muna2025_ss_dppn:009",
+          "zhang2024_parallel_attentive_uq:010"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "reyna2023_physionet_challenge:011",
+          "muna2025_ss_dppn:009",
+          "zhang2024_parallel_attentive_uq:010"
+        ]
+      }
+    },
+    "g:rohr2024_mil_explainability:016": {
+      "vector": {
+        "rank": 4,
+        "top3": [
+          "muna2025_ss_dppn:048",
+          "desimone2025_uncertainty_edge:003",
+          "zhang2024_parallel_attentive_uq:010"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 4,
+        "top3": [
+          "desimone2025_uncertainty_edge:003",
+          "rohr2024_mil_explainability:037",
+          "reyna2023_physionet_challenge:001"
+        ]
+      },
+      "pg_ts": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:016",
+          "muna2025_ss_dppn:048",
+          "muna2025_ss_dppn:049"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:016",
+          "golnari2025_qivcnet:031",
+          "rohr2024_mil_explainability:041"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "muna2025_ss_dppn:048",
+          "rohr2024_mil_explainability:016",
+          "zhang2024_parallel_attentive_uq:010"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:016",
+          "muna2025_ss_dppn:048",
+          "golnari2025_qivcnet:031"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:016",
+          "rohr2024_mil_explainability:041",
+          "muna2025_ss_dppn:048"
+        ]
+      }
+    },
+    "g:rohr2024_mil_explainability:019": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:019",
+          "ismail2018_pcg_review:066",
+          "desimone2025_uncertainty_edge:012"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "muna2025_ss_dppn:035",
+          "rohr2024_mil_explainability:019",
+          "desimone2025_uncertainty_edge:006"
+        ]
+      },
+      "pg_ts": {
+        "rank": 2,
+        "top3": [
+          "ismail2018_pcg_review:008",
+          "rohr2024_mil_explainability:019",
+          "ismail2018_pcg_review:012"
+        ]
+      },
+      "bm25": {
+        "rank": 3,
+        "top3": [
+          "rohr2024_mil_explainability:041",
+          "rohr2024_mil_explainability:039",
+          "rohr2024_mil_explainability:019"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:019",
+          "ismail2018_pcg_review:009",
+          "rohr2024_mil_explainability:027"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:019",
+          "rohr2024_mil_explainability:027",
+          "rohr2024_mil_explainability:039"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "rohr2024_mil_explainability:019",
+          "rohr2024_mil_explainability:039",
+          "rohr2024_mil_explainability:027"
+        ]
+      }
+    },
+    "g:sondermann2025_cycle_normalization:012": {
+      "vector": {
+        "rank": 5,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:017",
+          "sondermann2025_cycle_normalization:013"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:006",
+          "sondermann2025_cycle_normalization:019"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "xu2024_multitask_grading:033",
+          "feng2026_childvox:015",
+          "jain2025_mysteth:025"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:017",
+          "sondermann2025_cycle_normalization:001"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 3,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:013",
+          "sondermann2025_cycle_normalization:012"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 6,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:017",
+          "sondermann2025_cycle_normalization:019"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 8,
+        "top3": [
+          "despotovic2025_cardiophon:015",
+          "despotovic2025_cardiophon:017",
+          "sondermann2025_cycle_normalization:021"
+        ]
+      }
+    },
+    "g:sondermann2025_cycle_normalization:018": {
+      "vector": {
+        "rank": 3,
+        "top3": [
+          "sondermann2025_cycle_normalization:017",
+          "sondermann2025_cycle_normalization:000",
+          "sondermann2025_cycle_normalization:018"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "sondermann2025_cycle_normalization:000",
+          "sondermann2025_cycle_normalization:018",
+          "muna2025_ss_dppn:008"
+        ]
+      },
+      "pg_ts": {
+        "rank": 3,
+        "top3": [
+          "sondermann2025_cycle_normalization:017",
+          "sondermann2025_cycle_normalization:000",
+          "sondermann2025_cycle_normalization:018"
+        ]
+      },
+      "bm25": {
+        "rank": 2,
+        "top3": [
+          "sondermann2025_cycle_normalization:017",
+          "sondermann2025_cycle_normalization:018",
+          "sondermann2025_cycle_normalization:016"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 3,
+        "top3": [
+          "sondermann2025_cycle_normalization:017",
+          "sondermann2025_cycle_normalization:000",
+          "sondermann2025_cycle_normalization:018"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 2,
+        "top3": [
+          "sondermann2025_cycle_normalization:017",
+          "sondermann2025_cycle_normalization:018",
+          "sondermann2025_cycle_normalization:000"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "sondermann2025_cycle_normalization:018",
+          "sondermann2025_cycle_normalization:000",
+          "sondermann2025_cycle_normalization:017"
+        ]
+      }
+    },
+    "g:taipalmaa2018_cycle_segmentation:004": {
+      "vector": {
+        "rank": 6,
+        "top3": [
+          "khan2020_time_freq_features:039",
+          "taipalmaa2018_cycle_segmentation:011",
+          "ismail2018_pcg_review:008"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 7,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:011",
+          "khan2020_time_freq_features:039",
+          "ismail2018_pcg_review:008"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:002",
+          "khan2020_time_freq_features:039",
+          "pedrosa2014_pediatric_segmentation:008"
+        ]
+      },
+      "bm25": {
+        "rank": 7,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:002",
+          "khan2020_time_freq_features:025",
+          "taipalmaa2018_cycle_segmentation:003"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "khan2020_time_freq_features:039",
+          "taipalmaa2018_cycle_segmentation:002",
+          "khan2020_time_freq_features:043"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 5,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:011",
+          "taipalmaa2018_cycle_segmentation:003",
+          "taipalmaa2018_cycle_segmentation:002"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 5,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:011",
+          "taipalmaa2018_cycle_segmentation:002",
+          "taipalmaa2018_cycle_segmentation:003"
+        ]
+      }
+    },
+    "g:taipalmaa2018_cycle_segmentation:010": {
+      "vector": {
+        "rank": 8,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "ismail2018_pcg_review:004",
+          "noponen2007_pediatric_murmur:010"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 9,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "sondermann2025_cycle_normalization:009",
+          "taipalmaa2018_cycle_segmentation:009"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:012",
+          "ismail2018_pcg_review:020",
+          "ismail2018_pcg_review:042"
+        ]
+      },
+      "bm25": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:020",
+          "ismail2018_pcg_review:005",
+          "ismail2018_pcg_review:017"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:010",
+          "ismail2018_pcg_review:040",
+          "noponen2007_pediatric_murmur:011"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 5,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "taipalmaa2018_cycle_segmentation:009",
+          "ismail2018_pcg_review:005"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 4,
+        "top3": [
+          "noponen2007_pediatric_murmur:011",
+          "taipalmaa2018_cycle_segmentation:009",
+          "ismail2018_pcg_review:051"
+        ]
+      }
+    },
+    "g:xu2024_multitask_grading:017": {
+      "vector": {
+        "rank": null,
+        "top3": [
+          "reyna2023_physionet_challenge:003",
+          "rohr2024_mil_explainability:003",
+          "althaph2025_ehst:002"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "reyna2023_physionet_challenge:003",
+          "rohr2024_mil_explainability:003",
+          "reyna2023_physionet_challenge:052"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "ismail2018_pcg_review:064",
+          "panah2023_wav2vec2:001",
+          "reyna2023_physionet_challenge:007"
+        ]
+      },
+      "bm25": {
+        "rank": 5,
+        "top3": [
+          "althaph2025_ehst:002",
+          "taipalmaa2018_cycle_segmentation:001",
+          "xu2024_multitask_grading:002"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": null,
+        "top3": [
+          "reyna2023_physionet_challenge:003",
+          "reyna2023_physionet_challenge:007",
+          "xu2024_multitask_grading:003"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 7,
+        "top3": [
+          "althaph2025_ehst:002",
+          "taipalmaa2018_cycle_segmentation:001",
+          "despotovic2025_cardiophon:000"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 8,
+        "top3": [
+          "althaph2025_ehst:002",
+          "taipalmaa2018_cycle_segmentation:001",
+          "rohr2024_mil_explainability:004"
+        ]
+      }
+    },
+    "g:xu2024_multitask_grading:019": {
+      "vector": {
+        "rank": 7,
+        "top3": [
+          "xu2024_multitask_grading:015",
+          "xu2024_multitask_grading:016",
+          "niizumi2024_m2d_murmur:013"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": null,
+        "top3": [
+          "niizumi2024_m2d_murmur:013",
+          "xu2024_multitask_grading:015",
+          "desimone2025_uncertainty_edge:012"
+        ]
+      },
+      "pg_ts": {
+        "rank": null,
+        "top3": [
+          "rohr2024_mil_explainability:017",
+          "despotovic2025_cardiophon:011",
+          "khan2020_time_freq_features:031"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "xu2024_multitask_grading:019",
+          "reyna2023_physionet_challenge:010",
+          "althaph2025_ehst:000"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "taipalmaa2018_cycle_segmentation:005",
+          "xu2024_multitask_grading:019",
+          "desimone2025_uncertainty_edge:010"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "xu2024_multitask_grading:019",
+          "xu2024_multitask_grading:015",
+          "taipalmaa2018_cycle_segmentation:005"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 5,
+        "top3": [
+          "xu2024_multitask_grading:015",
+          "taipalmaa2018_cycle_segmentation:005",
+          "desimone2025_uncertainty_edge:010"
+        ]
+      }
+    },
+    "g:zhang2024_parallel_attentive_uq:018": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "zhang2024_parallel_attentive_uq:000",
+          "zhang2024_parallel_attentive_uq:004"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "zhang2024_parallel_attentive_uq:000",
+          "zhang2024_parallel_attentive_uq:001"
+        ]
+      },
+      "pg_ts": {
+        "rank": 9,
+        "top3": [
+          "xu2024_multitask_grading:004",
+          "xu2024_multitask_grading:008",
+          "xu2024_multitask_grading:030"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "zhang2024_parallel_attentive_uq:000",
+          "zhang2024_parallel_attentive_uq:005"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "xu2024_multitask_grading:029",
+          "zhang2024_parallel_attentive_uq:000"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "zhang2024_parallel_attentive_uq:000",
+          "zhang2024_parallel_attentive_uq:004"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:018",
+          "zhang2024_parallel_attentive_uq:000",
+          "zhang2024_parallel_attentive_uq:001"
+        ]
+      }
+    },
+    "g:zhang2024_parallel_attentive_uq:008": {
+      "vector": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:006",
+          "balanya2024_adaptive_temp_scaling:008"
+        ]
+      },
+      "vector (no prefix)": {
+        "rank": 2,
+        "top3": [
+          "balanya2024_adaptive_temp_scaling:008",
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:006"
+        ]
+      },
+      "pg_ts": {
+        "rank": 4,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:006",
+          "mehrtash2020_calibration_segmentation:008",
+          "mehrtash2020_calibration_segmentation:005"
+        ]
+      },
+      "bm25": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:006",
+          "zhang2024_parallel_attentive_uq:004"
+        ]
+      },
+      "hybrid_pg": {
+        "rank": 2,
+        "top3": [
+          "mehrtash2020_calibration_segmentation:006",
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:008"
+        ]
+      },
+      "hybrid_bm25": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:006",
+          "desimone2025_uncertainty_edge:008"
+        ]
+      },
+      "hybrid_bm25 (no prefix)": {
+        "rank": 1,
+        "top3": [
+          "zhang2024_parallel_attentive_uq:008",
+          "mehrtash2020_calibration_segmentation:006",
+          "mehrtash2020_calibration_segmentation:005"
+        ]
+      }
+    }
+  }
+}

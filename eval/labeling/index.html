@@ -1,0 +1,631 @@
+<title>PCG Gold Set Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single review column (question, then evidence) with a slim queue rail on wide screens. */
+:root {
+  --bg: #f5f6f9;
+  --surface: #ffffff;
+  --ink: #18202f;
+  --muted: #5b6577;
+  --line: #dde1e9;
+  --accent: #2c4c8c;
+  --accent-ink: #ffffff;
+  --mark: #fde9a6;
+  --good: #1f7a4d;
+  --fix: #a8650a;
+  --drop: #b3362d;
+  --good-bg: #e3f3ea;
+  --fix-bg: #fbf0dc;
+  --drop-bg: #f9e3e1;
+  --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-read: "Literata", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151d; --surface: #191f2a; --ink: #e6e9f0; --muted: #9aa3b4; --line: #2b3342;
+    --accent: #8fb0f0; --accent-ink: #0d1320; --mark: #5a4a12;
+    --good: #6fcf9c; --fix: #e8b25a; --drop: #f08a80;
+    --good-bg: #183327; --fix-bg: #352a14; --drop-bg: #3a1d1b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151d; --surface: #191f2a; --ink: #e6e9f0; --muted: #9aa3b4; --line: #2b3342;
+  --accent: #8fb0f0; --accent-ink: #0d1320; --mark: #5a4a12;
+  --good: #6fcf9c; --fix: #e8b25a; --drop: #f08a80;
+  --good-bg: #183327; --fix-bg: #352a14; --drop-bg: #3a1d1b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 48px;
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
+h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 2px 0 0; font-size: 14px; }
+.tabs { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 3px; }
+.tabs button { border: 0; background: transparent; color: var(--muted); font: 600 13px var(--font-ui); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+.progress { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: 13px; color: var(--muted); }
+.bar { flex: 1 1 240px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; display: flex; }
+.bar span { display: block; height: 100%; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--font-ui); padding: 2px 8px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.chip.good { background: var(--good-bg); color: var(--good); }
+.chip.fix { background: var(--fix-bg); color: var(--fix); }
+.chip.drop { background: var(--drop-bg); color: var(--drop); }
+.chip.todo { background: var(--line); color: var(--muted); }
+.guide { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 14px; }
+.guide summary { cursor: pointer; font-weight: 600; }
+.guide dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 10px 0 2px; }
+.guide dt { font-weight: 600; }
+.guide dd { margin: 0; color: var(--muted); }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 18px; align-items: start; }
+@media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } .rail { order: 2; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.mono { font-family: var(--font-mono); font-size: 12px; }
+.label { font: 600 11px var(--font-ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
+.question { font-size: 20px; font-weight: 600; line-height: 1.35; margin: 0; text-wrap: balance; }
+.answer { margin: 0; }
+.passage { font-family: var(--font-read); font-size: 15.5px; line-height: 1.65; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; max-height: 340px; overflow: auto; overflow-wrap: anywhere; }
+.passage mark { background: var(--mark); color: inherit; padding: 1px 0; border-radius: 2px; }
+.warn { color: var(--fix); font-size: 13px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { font: 600 14px var(--font-ui); border-radius: 8px; padding: 9px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.btn kbd { font: 500 11px var(--font-mono); color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.btn.good[aria-pressed="true"] { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.btn.fix[aria-pressed="true"] { background: var(--fix-bg); border-color: var(--fix); color: var(--fix); }
+.btn.drop[aria-pressed="true"] { background: var(--drop-bg); border-color: var(--drop); color: var(--drop); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:focus-visible, .tabs button:focus-visible, textarea:focus-visible, select:focus-visible, input:focus-visible, .rail button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+.toggle { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; cursor: pointer; }
+.spacer { flex: 1; }
+textarea, select, input[type="text"] { width: 100%; font: 15px var(--font-ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; }
+textarea { resize: vertical; min-height: 70px; }
+.fixbox { display: flex; flex-direction: column; gap: 8px; }
+.rail { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rail .filters { display: flex; gap: 6px; }
+.rail .filters button { flex: 1; font: 600 12px var(--font-ui); border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 6px; padding: 5px; cursor: pointer; }
+.rail .filters button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.queue { list-style: none; margin: 0; padding: 0; max-height: 560px; overflow: auto; display: flex; flex-direction: column; gap: 2px; }
+.queue button { width: 100%; text-align: left; border: 0; background: transparent; color: var(--ink); padding: 6px 8px; border-radius: 6px; cursor: pointer; display: grid; grid-template-columns: 10px minmax(0, 1fr); gap: 8px; align-items: center; font: 13px var(--font-ui); }
+.queue button[aria-current="true"] { background: var(--bg); outline: 1px solid var(--line); }
+.queue .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.queue .dot.good { background: var(--good); } .queue .dot.fix { background: var(--fix); } .queue .dot.drop { background: var(--drop); }
+.queue .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.empty { color: var(--muted); padding: 28px 8px; text-align: center; }
+.mine-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 860px) { .mine-grid { grid-template-columns: minmax(0, 1fr); } }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-weight: 600; font-size: 13px; }
+.field .hint { color: var(--muted); font-size: 12px; }
+.own-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.own-list li { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+.own-list .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.linkbtn { border: 0; background: none; color: var(--drop); font: 600 12px var(--font-ui); cursor: pointer; padding: 2px 0; }
+.status { font-size: 13px; color: var(--muted); min-height: 1.5em; }
+.notice { background: var(--fix-bg); color: var(--ink); border: 1px solid var(--fix); border-radius: 10px; padding: 12px 16px; }
+.answer-text { font-size: 16px; line-height: 1.6; margin: 0; white-space: pre-wrap; }
+.cite { font: 600 11px var(--font-mono); color: var(--accent); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; white-space: nowrap; }
+.sources { display: flex; flex-direction: column; gap: 10px; }
+.source { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--bg); }
+.source .head { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.source .txt { font-family: var(--font-read); font-size: 14.5px; line-height: 1.6; max-height: 220px; overflow: auto; overflow-wrap: anywhere; }
+.btn.v-supported[aria-pressed="true"] { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.btn.v-partly[aria-pressed="true"] { background: var(--fix-bg); border-color: var(--fix); color: var(--fix); }
+.btn.v-unsupported[aria-pressed="true"] { background: var(--drop-bg); border-color: var(--drop); color: var(--drop); }
+.btn.v-no_claims[aria-pressed="true"] { background: var(--line); border-color: var(--muted); color: var(--ink); }
+.queue .dot.supported { background: var(--good); } .queue .dot.partly { background: var(--fix); } .queue .dot.unsupported { background: var(--drop); } .queue .dot.no_claims { background: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>PCG Gold Set Review</h1>
+      <p class="sub">Test questions and answers for the PCG research agent. Your verdicts decide what it is graded on.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button id="tab-review" role="tab" aria-selected="true">Review drafts</button>
+      <button id="tab-mine" role="tab" aria-selected="false">Your questions</button>
+      <button id="tab-judge" role="tab" aria-selected="false">Judge answers</button>
+    </div>
+  </header>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <section id="view-review">
+    <div class="progress" id="progress">
+      <span id="progress-text">Loading the drafted questions…</span>
+      <div class="bar" id="bar" aria-hidden="true"></div>
+      <span class="chip good" id="c-good">0 good</span>
+      <span class="chip fix" id="c-fix">0 fixed</span>
+      <span class="chip drop" id="c-drop">0 dropped</span>
+    </div>
+
+    <details class="guide" style="margin-top:14px" id="guide">
+      <summary>How to judge a draft</summary>
+      <dl>
+        <dt>Good</dt><dd>A researcher could plausibly ask it, and the highlighted quote answers it.</dd>
+        <dt>Fix</dt><dd>Right idea, but the wording is off (too vague, copies the passage, leaks the answer). Rewrite it.</dd>
+        <dt>Drop</dt><dd>Trivial, unanswerable from the quote, or not something anyone would ask.</dd>
+        <dt>Ambiguous</dt><dd>Tick it when several papers in the corpus would answer this too, for example a question about the CirCor dataset's size. It still counts, but it's scored separately.</dd>
+      </dl>
+    </details>
+
+    <div class="layout" style="margin-top:14px">
+      <article class="card" id="card">
+        <div class="empty" id="card-empty">The drafted questions will appear here once they are loaded.</div>
+        <div id="card-body" hidden>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="meta">
+              <span id="m-pos" class="mono"></span>
+              <span id="m-paper"></span>
+              <span id="m-pages" class="mono"></span>
+            </div>
+            <div>
+              <p class="label">Question</p>
+              <p class="question" id="q"></p>
+            </div>
+            <div>
+              <p class="label">Drafted answer</p>
+              <p class="answer" id="a"></p>
+            </div>
+            <div>
+              <p class="label">Source passage (evidence highlighted)</p>
+              <div class="passage" id="passage"></div>
+              <p class="warn" id="quote-warn" hidden></p>
+            </div>
+            <div class="actions">
+              <button class="btn good" id="b-good" aria-pressed="false">Good <kbd>G</kbd></button>
+              <button class="btn fix" id="b-fix" aria-pressed="false">Fix <kbd>F</kbd></button>
+              <button class="btn drop" id="b-drop" aria-pressed="false">Drop <kbd>D</kbd></button>
+              <label class="toggle"><input type="checkbox" id="amb"> Ambiguous <span class="mono" style="color:var(--muted)">A</span></label>
+              <span class="spacer"></span>
+              <button class="btn" id="b-prev">← Prev</button>
+              <button class="btn" id="b-next">Next →</button>
+            </div>
+            <div class="fixbox" id="fixbox" hidden>
+              <label for="fixed" class="label" style="margin:0">Rewritten question</label>
+              <textarea id="fixed" rows="3"></textarea>
+              <div class="actions"><button class="btn primary" id="b-savefix">Save fix and continue</button><span class="status" id="fix-status"></span></div>
+            </div>
+            <div class="status" id="save-status" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="rail">
+        <div class="filters">
+          <button id="f-todo" aria-pressed="true">To review</button>
+          <button id="f-all" aria-pressed="false">All</button>
+        </div>
+        <ul class="queue" id="queue"></ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-mine" hidden>
+    <div class="mine-grid">
+      <form class="card" id="own-form">
+        <div>
+          <p class="label">Add a question you would actually ask</p>
+          <p class="sub" style="margin:0">These are the unbiased part of the test: you wrote them without looking at a passage. Aim for about 10.</p>
+        </div>
+        <div class="field">
+          <label for="own-q">Question</label>
+          <textarea id="own-q" rows="3" required placeholder="e.g. Which papers report expected calibration error for murmur detection, and how large was it?"></textarea>
+        </div>
+        <div class="field">
+          <label for="own-paper">Paper that answers it</label>
+          <select id="own-paper"><option value="">Several papers / not sure</option></select>
+        </div>
+        <div class="field">
+          <label for="own-where">Where the answer is (optional)</label>
+          <input type="text" id="own-where" placeholder="e.g. Table 3, or the Results section">
+          <span class="hint">Helps me find the right passage to grade search against.</span>
+        </div>
+        <div class="actions"><button class="btn primary" type="submit" id="own-submit">Add question</button><span class="status" id="own-status" aria-live="polite"></span></div>
+      </form>
+      <div class="card">
+        <p class="label" style="margin:0" id="own-count">Your questions</p>
+        <ul class="own-list" id="own-list"><li class="empty" style="border:0">None yet. Questions you add appear here.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-judge" hidden>
+    <div class="progress">
+      <span id="j-progress-text">Loading answers…</span>
+      <div class="bar" id="j-bar" aria-hidden="true"></div>
+    </div>
+    <details class="guide" style="margin-top:14px" open>
+      <summary>How to judge an answer</summary>
+      <p style="margin:8px 0 0;color:var(--muted)">Judge one thing only: <strong>is every factual claim backed by the passage it cites?</strong> Don't judge whether the answer is complete, or whether it's true outside these passages. You won't see which system wrote it.</p>
+      <dl>
+        <dt>Supported <kbd>1</kbd></dt><dd>Every factual claim is backed by its cited passage(s).</dd>
+        <dt>Partly <kbd>2</kbd></dt><dd>At least one claim is unsupported, overstated, or cites the wrong passage, but most are backed.</dd>
+        <dt>Unsupported <kbd>3</kbd></dt><dd>The main claims aren't backed by the cited passages, or claims have no citation.</dd>
+        <dt>No claims <kbd>4</kbd></dt><dd>The answer only says the information wasn't found.</dd>
+      </dl>
+    </details>
+    <div class="layout" style="margin-top:14px">
+      <article class="card">
+        <div class="empty" id="j-empty">Answers to judge will appear here once they are loaded.</div>
+        <div id="j-body" hidden style="display:flex;flex-direction:column;gap:16px">
+          <div class="meta"><span id="j-pos" class="mono"></span></div>
+          <div><p class="label">Question</p><p class="question" id="j-q"></p></div>
+          <div><p class="label">Answer</p><p class="answer-text" id="j-a"></p></div>
+          <div class="actions">
+            <button class="btn v-supported" data-v="supported" aria-pressed="false">Supported <kbd>1</kbd></button>
+            <button class="btn v-partly" data-v="partly" aria-pressed="false">Partly <kbd>2</kbd></button>
+            <button class="btn v-unsupported" data-v="unsupported" aria-pressed="false">Unsupported <kbd>3</kbd></button>
+            <button class="btn v-no_claims" data-v="no_claims" aria-pressed="false">No claims <kbd>4</kbd></button>
+            <span class="spacer"></span>
+            <button class="btn" id="j-prev">← Prev</button>
+            <button class="btn" id="j-next">Next →</button>
+          </div>
+          <div class="field">
+            <label for="j-note">Note (optional): which claim isn't backed?</label>
+            <input type="text" id="j-note" placeholder="e.g. the 0.2 threshold isn't in S4">
+          </div>
+          <div class="status" id="j-status" aria-live="polite"></div>
+          <div><p class="label">Cited passages</p><div class="sources" id="j-sources"></div></div>
+        </div>
+      </article>
+      <aside class="rail">
+        <div class="filters">
+          <button id="jf-todo" aria-pressed="true">To judge</button>
+          <button id="jf-all" aria-pressed="false">All</button>
+        </div>
+        <ul class="queue" id="j-queue"></ul>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const state = { items: [], labels: {}, own: [], papers: [], idx: 0, filter: "todo", db: null, saving: false };
+
+  // ---------- tabs ----------
+  function showTab(which) {
+    for (const t of ["review", "mine", "judge"]) {
+      $("tab-" + t).setAttribute("aria-selected", String(t === which));
+      $("view-" + t).hidden = t !== which;
+    }
+  }
+  $("tab-review").onclick = () => showTab("review");
+  $("tab-mine").onclick = () => showTab("mine");
+  $("tab-judge").onclick = () => showTab("judge");
+
+  // ---------- helpers ----------
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function highlight(passage, quote) {
+    const words = String(quote || "").trim().split(/\s+/).filter(Boolean);
+    if (!words.length) return { html: esc(passage), found: false };
+    const re = new RegExp(words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s+"), "i");
+    const m = re.exec(passage);
+    if (!m) return { html: esc(passage), found: false };
+    return { html: esc(passage.slice(0, m.index)) + "<mark>" + esc(m[0]) + "</mark>" + esc(passage.slice(m.index + m[0].length)), found: true };
+  }
+  const verdictOf = (id) => state.labels[id]?.verdict || null;
+  function visible() {
+    return state.filter === "todo" ? state.items.filter((it) => !verdictOf(it.id)) : state.items;
+  }
+
+  // ---------- render ----------
+  function renderProgress() {
+    const n = state.items.length;
+    const c = { good: 0, fix: 0, drop: 0 };
+    for (const it of state.items) { const v = verdictOf(it.id); if (v) c[v]++; }
+    const done = c.good + c.fix + c.drop;
+    $("progress-text").textContent = n ? `${done} of ${n} reviewed` : "No drafted questions yet";
+    $("c-good").textContent = `${c.good} good`;
+    $("c-fix").textContent = `${c.fix} fixed`;
+    $("c-drop").textContent = `${c.drop} dropped`;
+    const bar = $("bar");
+    bar.innerHTML = "";
+    if (n) for (const k of ["good", "fix", "drop"]) {
+      const s = document.createElement("span");
+      s.style.width = (100 * c[k] / n) + "%";
+      s.style.background = `var(--${k})`;
+      bar.appendChild(s);
+    }
+  }
+
+  function renderQueue() {
+    const list = visible();
+    const q = $("queue");
+    q.innerHTML = "";
+    if (!list.length) {
+      q.innerHTML = `<li class="empty">${state.items.length ? "All reviewed. Switch to “All” to revisit." : "Nothing loaded yet."}</li>`;
+      return;
+    }
+    const cur = state.items[state.idx]?.id;
+    for (const it of list) {
+      const li = document.createElement("li");
+      const b = document.createElement("button");
+      const v = verdictOf(it.id);
+      b.innerHTML = `<span class="dot ${v || ""}"></span><span class="t">${esc(it.question)}</span>`;
+      b.title = it.question;
+      if (it.id === cur) b.setAttribute("aria-current", "true");
+      b.onclick = () => { state.idx = state.items.findIndex((x) => x.id === it.id); renderCard(); renderQueue(); };
+      li.appendChild(b);
+      q.appendChild(li);
+    }
+  }
+
+  function renderCard() {
+    const it = state.items[state.idx];
+    $("card-empty").hidden = !!it;
+    $("card-body").hidden = !it;
+    if (!it) return;
+    const lab = state.labels[it.id] || {};
+    $("m-pos").textContent = `${state.idx + 1} / ${state.items.length}`;
+    $("m-paper").textContent = it.paper_title || it.paper_key;
+    $("m-pages").textContent = `${it.paper_key} · ${it.pages?.[0] === it.pages?.[1] ? "p. " + it.pages?.[0] : "pp. " + it.pages?.[0] + "–" + it.pages?.[1]}`;
+    $("q").textContent = it.question;
+    $("a").textContent = it.answer;
+    const h = highlight(it.passage, it.evidence_quote);
+    $("passage").innerHTML = h.html;
+    $("quote-warn").hidden = h.found;
+    $("quote-warn").textContent = h.found ? "" : `Evidence quote not found verbatim in the passage: “${it.evidence_quote}”`;
+    for (const k of ["good", "fix", "drop"]) $("b-" + k).setAttribute("aria-pressed", String(lab.verdict === k));
+    $("amb").checked = !!lab.ambiguous;
+    $("fixbox").hidden = lab.verdict !== "fix";
+    $("fixed").value = lab.fixed_question || it.question;
+    $("b-prev").disabled = state.idx <= 0;
+    $("b-next").disabled = state.idx >= state.items.length - 1;
+    $("save-status").textContent = lab.verdict ? `Saved as ${lab.verdict}${lab.ambiguous ? " · ambiguous" : ""}.` : "";
+    $("passage").scrollTop = 0;
+    const mark = $("passage").querySelector("mark");
+    if (mark) $("passage").scrollTop = Math.max(0, mark.offsetTop - $("passage").offsetTop - 40);
+  }
+
+  function renderAll() { renderProgress(); renderQueue(); renderCard(); }
+
+  // ---------- actions ----------
+  function nextTodo(fromIdx) {
+    for (let i = fromIdx + 1; i < state.items.length; i++) if (!verdictOf(state.items[i].id)) return i;
+    for (let i = 0; i < fromIdx; i++) if (!verdictOf(state.items[i].id)) return i;
+    return Math.min(fromIdx + 1, state.items.length - 1);
+  }
+
+  async function save(patch, advance) {
+    const it = state.items[state.idx];
+    if (!it || !state.db || state.saving) return;
+    const prev = state.labels[it.id] || {};
+    const body = {
+      item_id: it.id,
+      verdict: patch.verdict ?? prev.verdict ?? null,
+      ambiguous: patch.ambiguous ?? prev.ambiguous ?? false,
+      fixed_question: (patch.verdict ?? prev.verdict) === "fix" ? (patch.fixed_question ?? prev.fixed_question ?? it.question) : null,
+      updated_at: new Date().toISOString(),
+    };
+    state.saving = true;
+    $("save-status").textContent = "Saving…";
+    try {
+      await state.db.collection("labels").doc(it.id).set(body);
+      state.labels[it.id] = body;
+      if (advance) state.idx = nextTodo(state.idx);
+      renderAll();
+    } catch (e) {
+      $("save-status").textContent = e?.code === "invalid_argument"
+        ? "Only the owner of this page can save labels."
+        : "Couldn't save. Check your connection and try again.";
+    } finally {
+      state.saving = false;
+    }
+  }
+
+  $("b-good").onclick = () => save({ verdict: "good" }, true);
+  $("b-drop").onclick = () => save({ verdict: "drop" }, true);
+  $("b-fix").onclick = () => { $("fixbox").hidden = false; $("fixed").focus(); $("fixed").select(); };
+  $("b-savefix").onclick = () => {
+    const text = $("fixed").value.trim();
+    if (!text) { $("fix-status").textContent = "Write the rewritten question first."; return; }
+    $("fix-status").textContent = "";
+    save({ verdict: "fix", fixed_question: text }, true);
+  };
+  $("amb").onchange = () => {
+    const it = state.items[state.idx];
+    if (!it) return;
+    if (verdictOf(it.id)) save({ ambiguous: $("amb").checked }, false);
+    else state.labels[it.id] = { ...(state.labels[it.id] || {}), ambiguous: $("amb").checked };
+  };
+  $("b-prev").onclick = () => { if (state.idx > 0) { state.idx--; renderCard(); renderQueue(); } };
+  $("b-next").onclick = () => { if (state.idx < state.items.length - 1) { state.idx++; renderCard(); renderQueue(); } };
+  $("f-todo").onclick = () => { state.filter = "todo"; $("f-todo").setAttribute("aria-pressed", "true"); $("f-all").setAttribute("aria-pressed", "false"); renderQueue(); };
+  $("f-all").onclick = () => { state.filter = "all"; $("f-all").setAttribute("aria-pressed", "true"); $("f-todo").setAttribute("aria-pressed", "false"); renderQueue(); };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = (e.target.tagName || "").toLowerCase();
+    if (!$("view-judge").hidden && t !== "textarea" && t !== "input" && t !== "select") {
+      const map = { "1": "supported", "2": "partly", "3": "unsupported", "4": "no_claims" };
+      if (map[e.key]) judgeSave(map[e.key]);
+      else if (e.key === "ArrowRight" || e.key.toLowerCase() === "j") $("j-next").click();
+      else if (e.key === "ArrowLeft" || e.key.toLowerCase() === "k") $("j-prev").click();
+      return;
+    }
+    if ($("view-review").hidden) return;
+    const tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "textarea" || tag === "input" || tag === "select") return;
+    const k = e.key.toLowerCase();
+    if (k === "g") $("b-good").click();
+    else if (k === "d") $("b-drop").click();
+    else if (k === "f") { e.preventDefault(); $("b-fix").click(); }
+    else if (k === "a") { $("amb").checked = !$("amb").checked; $("amb").onchange(); }
+    else if (k === "arrowright" || k === "j") $("b-next").click();
+    else if (k === "arrowleft" || k === "k") $("b-prev").click();
+  });
+
+  // ---------- your questions ----------
+  function renderOwn() {
+    const list = $("own-list");
+    $("own-count").textContent = `Your questions (${state.own.length})`;
+    if (!state.own.length) { list.innerHTML = `<li class="empty" style="border:0">None yet. Questions you add appear here.</li>`; return; }
+    list.innerHTML = "";
+    const title = (k) => state.papers.find((p) => p.key === k)?.title || k || "Several papers / not sure";
+    for (const q of state.own) {
+      const li = document.createElement("li");
+      li.innerHTML = `<div>${esc(q.question)}</div>
+        <div class="row" style="color:var(--muted);font-size:12px"><span>${esc(title(q.paper_key))}</span>${q.where ? `<span>· ${esc(q.where)}</span>` : ""}<span class="spacer"></span><button class="linkbtn" type="button">Delete</button></div>`;
+      const del = li.querySelector(".linkbtn");
+      del.onclick = async () => {
+        if (del.dataset.armed !== "1") { del.dataset.armed = "1"; del.textContent = "Confirm delete"; return; }
+        try { await state.db.collection("own_questions").doc(q._id).delete(); }
+        catch { del.textContent = "Couldn't delete"; }
+      };
+      list.appendChild(li);
+    }
+  }
+  function renderPaperSelect() {
+    const sel = $("own-paper");
+    const keep = sel.value;
+    sel.innerHTML = `<option value="">Several papers / not sure</option>` +
+      state.papers.map((p) => `<option value="${esc(p.key)}">${esc(p.title)}</option>`).join("");
+    sel.value = keep;
+  }
+  $("own-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const question = $("own-q").value.trim();
+    if (!question) { $("own-status").textContent = "Write a question first."; return; }
+    if (!state.db) return;
+    $("own-submit").disabled = true;
+    $("own-status").textContent = "Adding…";
+    try {
+      await state.db.collection("own_questions").add({
+        question, paper_key: $("own-paper").value || null, where: $("own-where").value.trim() || null,
+        created_at: new Date().toISOString(),
+      });
+      $("own-q").value = ""; $("own-where").value = "";
+      $("own-status").textContent = "Added.";
+    } catch (err) {
+      $("own-status").textContent = err?.code === "invalid_argument" ? "Only the owner of this page can add questions." : "Couldn't add it. Try again.";
+    } finally { $("own-submit").disabled = false; }
+  });
+
+  // ---------- judge answers ----------
+  const J = { items: [], labels: {}, idx: 0, filter: "todo", saving: false };
+  const jVerdict = (id) => J.labels[id]?.verdict || null;
+  function renderAnswer(text) {
+    return esc(text).replace(/\[(S\d+(?:\s*[,;]\s*S\d+)*)\]/g, (m) => `<span class="cite">${m}</span>`);
+  }
+  function jRender() {
+    const n = J.items.length, done = J.items.filter((x) => jVerdict(x.id)).length;
+    $("j-progress-text").textContent = n ? `${done} of ${n} judged` : "No answers loaded yet";
+    const bar = $("j-bar"); bar.innerHTML = "";
+    if (n) { const s = document.createElement("span"); s.style.width = (100 * done / n) + "%"; s.style.background = "var(--accent)"; bar.appendChild(s); }
+    const q = $("j-queue"); q.innerHTML = "";
+    const list = J.filter === "todo" ? J.items.filter((x) => !jVerdict(x.id)) : J.items;
+    if (!list.length) q.innerHTML = `<li class="empty">${n ? "All judged. Switch to “All” to revisit." : "Nothing loaded yet."}</li>`;
+    const cur = J.items[J.idx]?.id;
+    for (const it of list) {
+      const li = document.createElement("li"), b = document.createElement("button");
+      b.innerHTML = `<span class="dot ${jVerdict(it.id) || ""}"></span><span class="t">${esc(it.question)}</span>`;
+      if (it.id === cur) b.setAttribute("aria-current", "true");
+      b.onclick = () => { J.idx = J.items.findIndex((x) => x.id === it.id); jRender(); };
+      li.appendChild(b); q.appendChild(li);
+    }
+    const it = J.items[J.idx];
+    $("j-empty").hidden = !!it; $("j-body").hidden = !it;
+    if (!it) return;
+    const lab = J.labels[it.id] || {};
+    $("j-pos").textContent = `${J.idx + 1} / ${n}`;
+    $("j-q").textContent = it.question;
+    $("j-a").innerHTML = renderAnswer(it.answer);
+    for (const b of document.querySelectorAll("#j-body [data-v]")) b.setAttribute("aria-pressed", String(lab.verdict === b.dataset.v));
+    if (document.activeElement !== $("j-note")) $("j-note").value = lab.note || "";
+    $("j-status").textContent = lab.verdict ? `Saved as ${lab.verdict.replace("_", " ")}.` : "";
+    $("j-prev").disabled = J.idx <= 0; $("j-next").disabled = J.idx >= n - 1;
+    const src = $("j-sources"); src.innerHTML = "";
+    if (!it.passages?.length) src.innerHTML = `<p class="sub" style="margin:0">The answer cites no passages.</p>`;
+    for (const p of it.passages || []) {
+      const d = document.createElement("div"); d.className = "source";
+      d.innerHTML = `<div class="head"><span class="cite">[${esc(p.label)}]</span><span>${esc(p.citation)}</span></div><div class="txt">${esc(p.text)}</div>`;
+      src.appendChild(d);
+    }
+  }
+  function jNext(from) {
+    for (let i = from + 1; i < J.items.length; i++) if (!jVerdict(J.items[i].id)) return i;
+    for (let i = 0; i < from; i++) if (!jVerdict(J.items[i].id)) return i;
+    return Math.min(from + 1, J.items.length - 1);
+  }
+  async function judgeSave(verdict) {
+    const it = J.items[J.idx];
+    if (!it || !state.db || J.saving) return;
+    J.saving = true; $("j-status").textContent = "Saving…";
+    const body = { item_id: it.id, verdict, note: $("j-note").value.trim() || null, updated_at: new Date().toISOString() };
+    try {
+      await state.db.collection("faith_labels").doc(it.id).set(body);
+      J.labels[it.id] = body; J.idx = jNext(J.idx); $("j-note").value = ""; jRender();
+    } catch (e) {
+      $("j-status").textContent = e?.code === "invalid_argument" ? "Only the owner of this page can save labels." : "Couldn't save. Check your connection and try again.";
+    } finally { J.saving = false; }
+  }
+  for (const b of document.querySelectorAll("#j-body [data-v]")) b.onclick = () => judgeSave(b.dataset.v);
+  $("j-prev").onclick = () => { if (J.idx > 0) { J.idx--; jRender(); } };
+  $("j-next").onclick = () => { if (J.idx < J.items.length - 1) { J.idx++; jRender(); } };
+  $("jf-todo").onclick = () => { J.filter = "todo"; $("jf-todo").setAttribute("aria-pressed", "true"); $("jf-all").setAttribute("aria-pressed", "false"); jRender(); };
+  $("jf-all").onclick = () => { J.filter = "all"; $("jf-all").setAttribute("aria-pressed", "true"); $("jf-todo").setAttribute("aria-pressed", "false"); jRender(); };
+
+  // ---------- data ----------
+  (async () => {
+    const db = await window.claude?.use?.("db");
+    if (!db) {
+      $("notice").hidden = false;
+      $("notice").textContent = "Labels can't be saved in this view. Open the page from Claude while signed in to review the questions.";
+      $("progress-text").textContent = "Not connected";
+      for (const id of ["b-good", "b-fix", "b-drop", "own-submit"]) $(id).disabled = true;
+      for (const btn of document.querySelectorAll("#j-body [data-v]")) btn.disabled = true;
+      return;
+    }
+    state.db = db;
+    db.collection("items").orderBy("order").onSnapshot((snap) => {
+      const curId = state.items[state.idx]?.id;
+      state.items = snap.docs.map((d) => d.data());
+      const keep = state.items.findIndex((x) => x.id === curId);
+      state.idx = keep >= 0 ? keep : Math.max(0, state.items.findIndex((x) => !verdictOf(x.id)));
+      renderAll();
+    }, () => { $("progress-text").textContent = "Couldn't load the questions. Reload the page."; });
+    db.collection("labels").onSnapshot((snap) => {
+      const next = {};
+      for (const d of snap.docs) next[d.id] = d.data();
+      state.labels = next;
+      renderProgress(); renderQueue();
+      if (!state.saving) renderCard();
+    });
+    db.collection("own_questions").orderBy("created_at").onSnapshot((snap) => {
+      state.own = snap.docs.map((d) => ({ _id: d.id, ...d.data() }));
+      renderOwn();
+    });
+    db.collection("answers").orderBy("order").onSnapshot((snap) => {
+      const curId = J.items[J.idx]?.id;
+      J.items = snap.docs.map((d) => d.data());
+      const keep = J.items.findIndex((x) => x.id === curId);
+      J.idx = keep >= 0 ? keep : Math.max(0, J.items.findIndex((x) => !jVerdict(x.id)));
+      jRender();
+    });
+    db.collection("faith_labels").onSnapshot((snap) => {
+      const next = {}; for (const d of snap.docs) next[d.id] = d.data();
+      J.labels = next; if (!J.saving) jRender();
+    });
+    db.doc("meta/corpus").onSnapshot((snap) => {
+      state.papers = (snap.exists && snap.data().papers) || [];
+      renderPaperSelect(); renderOwn();
+    });
+  })();
+})();
+</script>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "own:ahccqxv3hz2m4fy51dx2",
+    "question": "Which methods have been used to assess the signal quality of phonocardiogram recordings, and how do they handle noisy or diagnostically unusable signals?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:6zs2pl55mu4au3hhiq5t",
+    "question": "How do existing cardiac auscultation models handle recordings labelled as “Unknown” or diagnostically ambiguous, and what limitations do the authors report?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:f1ibcu9fwaz5b4qa4ztt",
+    "question": "Does self-supervised pretraining improve cardiac murmur classification compared with supervised learning from scratch? What experimental evidence supports the comparison?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:dwjrnxcewyw95zajrs4w",
+    "question": "How do the papers estimate predictive uncertainty, and what evidence do they provide that their uncertainty estimates distinguish correct predictions from incorrect ones?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:w5vxgtivrq099qmlw7u2",
+    "question": "What is temperature scaling, how is its calibration parameter learned, and how much improvement in calibration do the authors report compared with the original model?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:flpo22kjnd9k389re5zl",
+    "question": "Does confidence-based rejection improve a model's reliability, or can it simply improve reported accuracy by excluding difficult cases? What metrics do the papers use to evaluate this trade-off?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:kdf3c0chci972a6wo5ls",
+    "question": "How do the studies evaluate generalization across datasets, recording devices, patient populations, or other sources of distribution shift?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:s5f9tln46brzi1owfnze",
+    "question": "What are the main limitations of using attention maps, Grad-CAM, or other explainability techniques to justify predictions in cardiac auscultation systems?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:lmslt4jjbqrpkpsja6zu",
+    "question": "How do published methods aggregate multiple phonocardiogram recordings from the same patient into a single patient-level prediction, and how do the authors evaluate the effect of aggregation?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:33g1eby4skql5fhrq3j9",
+    "question": "What evidence exists that combining signal-quality assessment, predictive uncertainty, and explainability produces a more trustworthy cardiac screening system than using these components independently?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:dw0pc5zk9ju8641fjskp",
+    "question": "Does leaving noisy recordings out of pretraining help self-supervised heart-sound models?",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:svqmmp8yvn19i2vmf63h",
+    "question": "Which papers use MC Dropout for murmur uncertainty, and how do they measure it (entropy vs standard deviation)",
+    "paper_key": null,
+    "where": null
+  },
+  {
+    "id": "own:7a2kvfcchpngm978x45r",
+    "question": "How do the papers disagree on CirCor’s size, and why?",
+    "paper_key": null,
+    "where": null
+  }
+]
