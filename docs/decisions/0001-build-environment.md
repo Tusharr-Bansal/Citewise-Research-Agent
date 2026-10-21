@@ -41,3 +41,15 @@ Outbound network access is restricted by an account-level domain allowlist ("Pac
 ## Update (2026-10-22): local working copy
 
 The workspace's shared output folder is a network-synced filesystem (rclone FUSE). SQLite, used for the LLM response cache, failed there with `attempt to write a readonly database` midway through a run, because SQLite's file locking doesn't work reliably on network filesystems. The working copy now lives on the workspace's local disk, and files are copied to the output folder only to hand them to Tushar's folder.
+
+## Addendum (2026-10-22): verify every sync to Tushar's computer by checksum
+
+Files reach Tushar's computer by being staged in the cloud workspace and copied over by the desktop bridge. On 2026-10-22, **re-copying a file to a path that had been copied before sometimes delivered the previous version** while still reporting success. Three files were affected: `index.html` (the header fix), `app.py` (the 7-day expiry server code) and `eval_agent.py`. They were committed and deployed stale, and the site showed the header bug "still not fixed".
+
+**Found by:** comparing MD5 checksums of all 57 project files on both sides.
+
+**Now:**
+- Each sync stages files in a **fresh, uniquely named folder**, so a cached copy can't be reused.
+- After every sync, **all files are checksum-compared** on Tushar's computer before he's told to commit.
+
+**Lesson:** "written" from a tool is not the same as "has the right content". Verify the outcome, not the report.

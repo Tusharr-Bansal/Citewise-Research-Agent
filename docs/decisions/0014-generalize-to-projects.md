@@ -67,6 +67,8 @@ On the free host a paper takes minutes, and a "Processing" label alone looked fr
 
 Below the bar is Tushar's note that the demo runs on free services and is slow.
 
+**Bug shipped and fixed:** the bar's style was first named `.bar`, but the page header already used `class="bar"`. The header inherited `height: 6px; overflow: hidden; border-radius: 999px` and was drawn as a clipped pill on the live site (Tushar spotted it). The browser test had only photographed the papers section. Renamed to `.progress-track`, and the check now photographs every page (home, demo, a project mid-upload) and asserts the header's height. **Lesson:** global class names in one stylesheet collide; check the whole page after a CSS change, not just the part you changed.
+
 **Schema change on a live database:** `CREATE TABLE IF NOT EXISTS` never adds columns to an existing table, so the new columns use `ALTER TABLE … ADD COLUMN IF NOT EXISTS`, which runs safely on every start. Verified on the local database, which had the old table: the columns were added and the upload test passed.
 
 **Tested:** two PDFs uploaded through the API (stages and percentages moved as expected, both reached "ready"); browser runs at 1280 px (light) and 390 px (dark): the bar went from "Paper 1 of 2 · Embedding passages (0 of 48)" to "Done: 2 ready 100%", with no horizontal overflow.

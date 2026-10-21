@@ -128,10 +128,10 @@ ul.plain { list-style: none; margin: 0; padding: 0; display: flex; flex-directio
 .upload-progress .row { font-size: 14px; flex-wrap: nowrap; align-items: baseline; }
 #up-label { min-width: 0; }
 .upload-progress .pct { font: 500 13px var(--font-mono); color: var(--muted); }
-.bar { height: 6px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 6px; }
-.bar > span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 999px; transition: width .4s ease; }
+.progress-track { height: 6px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+.progress-track > span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 999px; transition: width .4s ease; }
 .upload-progress .note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
-@media (prefers-reduced-motion: reduce) { .bar > span { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .progress-track > span { transition: none; } }
 .error { color: var(--no); }
 .answer .text { font-size: 16.5px; line-height: 1.65; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .sec-h { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin: 0; }
@@ -239,7 +239,7 @@ footer { color: var(--muted); font-size: 13px; }
         <div class="status" id="upload-status" aria-live="polite"></div>
         <div class="upload-progress" id="upload-progress" hidden>
           <div class="row"><span id="up-label"></span><span class="spacer"></span><span class="pct" id="up-pct"></span></div>
-          <div class="bar" id="up-bar" role="progressbar" aria-label="Upload progress" aria-valuemin="0" aria-valuemax="100"><span id="up-fill"></span></div>
+          <div class="progress-track" id="up-bar" role="progressbar" aria-label="Upload progress" aria-valuemin="0" aria-valuemax="100"><span id="up-fill"></span></div>
           <p class="note">Please note: this demo works with free services, hence they are slow. Thank you for showing patience and support.</p>
         </div>
       </div>

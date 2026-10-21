@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from citewise.agent import AgentResult, ResearchAgent  # noqa: E402
 from citewise.ingest import DEMO_PROJECT_ID  # noqa: E402
-from citewise.llm import LLM  # noqa: E402
+from citewise.llm import LLM, DailyQuotaExhausted  # noqa: E402
 
 HERE = Path(__file__).parent
 JUDGE_MODEL = "gemma-4-26b-a4b-it"  # 3.6-flash free tier = 20 requests/day; see docs/decisions/0014
@@ -111,13 +111,21 @@ def main() -> None:
 
     # Pass 1: answers (resumable). Agent and judge are independent passes, so an
     # overloaded judge model can't stop answer generation.
+    # If the answer model's daily quota runs out, stop answering but still judge what exists;
+    # the next run (after the quota resets) picks up where this one stopped.
+    quota_hit = False
     for i, (kind, q) in enumerate(questions, 1):
         for system in ("single_shot", "agent"):
             key = f"{q['id']}|{system}"
-            if key in rows:
+            if key in rows or quota_hit:
                 continue
-            r = (agent.single_shot(DEMO_PROJECT_ID, q["question"]) if system == "single_shot"
-                 else agent.run(DEMO_PROJECT_ID, q["question"]))
+            try:
+                r = (agent.single_shot(DEMO_PROJECT_ID, q["question"]) if system == "single_shot"
+                     else agent.run(DEMO_PROJECT_ID, q["question"]))
+            except DailyQuotaExhausted as e:
+                quota_hit = True
+                print(f"[answer] stopping: {e}. Re-run after the quota resets to finish.", flush=True)
+                continue
             row = {"id": q["id"], "kind": kind, "system": system, "question": q["question"], **record(r)}
             row["cited_passages_text"] = cited_passages(r)
             if kind == "single":
@@ -155,6 +163,7 @@ def main() -> None:
             failed += 1
             print(f"[judge] {key[:60]} FAILED ({type(e).__name__}); will retry on next run", flush=True)
     print(f"\njudge failures this run: {failed}")
+    print(f"answered {len(rows)}/{2 * len(questions)} question-system pairs")
     summarize({k: r for k, r in rows.items() if "faithfulness" in r and (r["kind"] != "single" or "correctness" in r)})
 
 

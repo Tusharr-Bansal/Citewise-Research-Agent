@@ -33,6 +33,8 @@ MAX_QUESTION_CHARS = 500
 MAX_PDF_MB = 25
 MAX_PAPERS_PER_PROJECT = 40
 MAX_PROJECTS = int(os.environ.get("CITEWISE_MAX_PROJECTS", "300"))
+PROJECT_TTL_DAYS = int(os.environ.get("CITEWISE_PROJECT_TTL_DAYS", "7"))  # uploaded projects only; the demo is kept
+CLEANUP_EVERY_S = 3600
 PER_IP_PER_MINUTE = int(os.environ.get("CITEWISE_PER_IP_PER_MINUTE", "5"))
 PER_IP_PER_DAY = int(os.environ.get("CITEWISE_PER_IP_PER_DAY", "30"))
 # The answer model's free tier allows 500 requests/day; a question takes ~3 (up to 6), and each upload 1.
@@ -55,6 +57,7 @@ def state() -> dict:
             # Uploads that were mid-flight when the server stopped will never finish: say so.
             conn.execute("UPDATE papers SET status = 'failed', error = 'Interrupted by a server restart. "
                          "Please upload it again.' WHERE status IN ('queued', 'processing')")
+            delete_expired_projects(conn)
         _state.update(agent=ResearchAgent(), jobs=queue.Queue())
         threading.Thread(target=_ingest_worker, daemon=True).start()
     return _state
@@ -129,18 +132,52 @@ def conn():
     return db.connect()
 
 
+# --- expiry: uploaded projects are deleted PROJECT_TTL_DAYS after creation --------------
+# Deletion runs only when a request is already using the database, at most once an hour, so it never
+# wakes the (auto-suspending, compute-metered) database on its own. Expired projects are hidden at
+# once by the filter in get_project, so a late cleanup is invisible to users.
+_last_cleanup = float("-inf")  # "never"; time.monotonic() can be small on a freshly booted host
+_cleanup_lock = threading.Lock()
+
+
+def delete_expired_projects(c) -> int:
+    """Delete expired non-demo projects; their papers and chunks go with them (ON DELETE CASCADE)."""
+    global _last_cleanup
+    _last_cleanup = time.monotonic()
+    n = c.execute("DELETE FROM projects WHERE NOT is_demo AND created_at < now() - make_interval(days => %s)",
+                  (PROJECT_TTL_DAYS,)).rowcount
+    if n:
+        print(f"[cleanup] deleted {n} expired project(s)", flush=True)
+    return n
+
+
+def maybe_cleanup(c) -> None:
+    if time.monotonic() - _last_cleanup < CLEANUP_EVERY_S or not _cleanup_lock.acquire(blocking=False):
+        return
+    try:
+        delete_expired_projects(c)
+    except Exception as e:  # noqa: BLE001 - housekeeping must never break a request
+        print(f"[cleanup] failed: {e}", flush=True)
+    finally:
+        _cleanup_lock.release()
+
+
 def get_project(project_id: str) -> dict:
     if not _PROJECT_ID.match(project_id):
         raise HTTPException(status_code=404, detail="Project not found.")
     with conn() as c:
+        maybe_cleanup(c)
         row = c.execute(
-            "SELECT id, name, description, is_demo, created_at FROM projects WHERE id = %s", (project_id,)
+            "SELECT id, name, description, is_demo, created_at, "
+            "CASE WHEN is_demo THEN NULL ELSE created_at + make_interval(days => %s) END "
+            "FROM projects WHERE id = %s AND (is_demo OR created_at >= now() - make_interval(days => %s))",
+            (PROJECT_TTL_DAYS, project_id, PROJECT_TTL_DAYS),
         ).fetchone()
     if row is None:
-        raise HTTPException(status_code=404, detail="Project not found. Check the link, or the project may "
-                                                    "have been deleted.")
+        raise HTTPException(status_code=404, detail="Project not found. Check the link; projects are deleted "
+                                                    f"automatically {PROJECT_TTL_DAYS} days after they're created.")
     return {"id": row[0], "name": row[1], "description": row[2], "is_demo": row[3],
-            "created_at": row[4].isoformat()}
+            "created_at": row[4].isoformat(), "expires_at": row[5].isoformat() if row[5] else None}
 
 
 def list_papers(project_id: str) -> list[dict]:
@@ -198,6 +235,7 @@ def create_project(body: NewProject, request: Request) -> dict:
     limiter.take([(("project", ip), PROJECTS_PER_IP_PER_DAY, 86400,
                    "You've created the maximum number of projects for today.")])
     with conn() as c:
+        maybe_cleanup(c)
         if c.execute("SELECT count(*) FROM projects").fetchone()[0] >= MAX_PROJECTS:
             raise HTTPException(status_code=503, detail="The demo server is full. Please try again later.")
         pid = secrets.token_urlsafe(12)  # ~96 random bits: the link is the key (docs/decisions/0014)
