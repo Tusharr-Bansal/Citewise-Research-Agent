@@ -1,6 +1,6 @@
 # 0012 — Agent: a hand-written plan → search → check → answer loop with guards
 
-**Date:** 2026-10-22 · **Status:** Accepted (behaviour to be measured in the agent evaluation)
+**Date:** 2026-10-22 · **Status:** Accepted; first-round search amended by [0016](0016-search-the-original-question.md) (the question as typed is always searched)
 
 ## Context
 

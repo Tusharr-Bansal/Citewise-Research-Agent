@@ -60,3 +60,24 @@ Options as of late Sept 2026 (from providers' own pages, collected by snapdeploy
 While writing the README's local-setup steps, I noticed the new Dockerfile installed only `postgresql-client`. Every upload calls the `pdftotext` binary (decision 0007), so **every upload would have failed in production** while the demo (pre-ingested) worked, which makes it easy to miss. Fixed: the image now installs `poppler-utils`. The image couldn't be built in the development workspace (Docker Hub is outside its network allowlist), so the check is: Render's first build succeeds, then one PDF is uploaded on the live site and reaches "ready".
 
 **Lesson:** a smoke test of the deployed app must exercise every external binary, not just the happy path that pre-loaded data allows.
+
+## Addendum: the first upload on Render ran out of memory
+
+**What happened:** the first PDF uploaded on the live site crashed the instance ("exceeded its memory limit", 512 MB). The startup recovery worked as designed: the paper was marked "Interrupted by a server restart. Please upload it again."
+
+**Measured locally**, in a process holding the same state as the app (model loaded, demo search index built, 1 ONNX thread), embedding 64 new chunks of one paper:
+
+| Embedding batch size | Peak memory | Speed |
+|---|---|---|
+| 32 (the old default) | **634 MB** | 0.64 s/chunk |
+| 8 | 387 MB | 0.60 s/chunk |
+| **4 (chosen)** | **309 MB** | 0.56 s/chunk |
+| 2 | 278 MB | 0.56 s/chunk |
+
+The idle app is ~240 MB, so a batch of 32 passages of up to 350 tokens added ~400 MB of transformer activations, and ONNX Runtime's memory arena keeps the largest allocation it has seen. `pdftotext` itself peaks at under 20 MB, even on the largest corpus PDF (12 MB file).
+
+**Fix:** batch size 4. That leaves ~200 MB of headroom, and it's faster per chunk on one thread, because a smaller batch pads less to its longest passage (batching only pays off with several threads).
+
+**Also learned:** that the crash happened at the embedding step implies `pdftotext` ran, which is indirect evidence the poppler fix above is working. The direct check is still an upload reaching "ready".
+
+**Lesson:** the earlier memory measurement (280 MB) was of an idle app answering questions, which isn't the worst case. Measure peak memory on the heaviest path (here, ingestion), not the common one.

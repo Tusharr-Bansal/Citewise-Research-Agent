@@ -28,5 +28,6 @@ Entries are never rewritten after the fact. If a decision changes, a new entry s
 | [0013](0013-deployment.md) | Deployment guardrails; single container on Hugging Face Spaces | Hosting superseded by 0015 |
 | [0014](0014-generalize-to-projects.md) | Citewise: projects, uploads, any field; the MySteth corpus becomes the demo | Accepted |
 | [0015](0015-hosting-render-neon.md) | Hosting: Render (app) + Neon (Postgres), DB-free keep-alive ping, free-tier quota handling | Accepted |
+| [0016](0016-search-the-original-question.md) | The agent always searches the user's question as typed (half the evidence budget) | Accepted; amends 0012 |
 
 Records 0001–0013 were written when the project was the PCG-only "PCG Research Agent" (package `pcg_agent`); their file paths now live under `src/citewise/`. They're left as written, because they record what was true then.

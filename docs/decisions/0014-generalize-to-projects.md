@@ -42,7 +42,7 @@ Per visitor per day: 10 projects, 120 uploads, 30 questions (5/minute). Global: 
 ## Consequences
 
 - **Per-request database connections:** a shared connection across request threads would let one request's statements run inside another's transaction.
-- **The evaluation must be re-run** with the generalized prompts, because the shipped system must be the measured system (results in 0016).
+- **The evaluation must be re-run** with the generalized prompts, because the shipped system must be the measured system (results in 0017).
 
 ## Be ready to explain
 

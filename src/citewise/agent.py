@@ -24,6 +24,9 @@ MAX_ROUNDS = 3            # search rounds, including the first
 MAX_LLM_CALLS = 6         # plan + up to 3 checks + answer, with headroom
 HITS_PER_QUERY = 6        # passages kept per query
 MAX_EVIDENCE = 14         # passages shown to the answer step
+# The user's question, searched exactly as typed, always gets half the evidence budget, so the
+# agent never sees less than a plain search's top results (decision 0016).
+ORIGINAL_QUERY_HITS = MAX_EVIDENCE // 2
 
 SYSTEM_TEMPLATE = (
     "You are a research assistant for the project \"{name}\": a collection of research papers "
@@ -126,6 +129,19 @@ def interleave(ranked_lists: list[list[Hit]], limit: int) -> list[Hit]:
                 out.append(lst[rank])
                 if len(out) == limit:
                     return out
+    return out
+
+
+def anchored(anchor: list[Hit], ranked_lists: list[list[Hit]], limit: int) -> list[Hit]:
+    """The anchor list first, in full (up to `limit`), then the other queries' results, interleaved."""
+    out = list(anchor[:limit])
+    seen = {h.chunk_id for h in out}
+    for h in interleave(ranked_lists, limit + len(out)):
+        if len(out) == limit:
+            break
+        if h.chunk_id not in seen:
+            seen.add(h.chunk_id)
+            out.append(h)
     return out
 
 
@@ -236,23 +252,29 @@ class ResearchAgent:
             res.answer = "This project has no processed papers yet. Upload PDFs first."
             res.latency_s = round(time.perf_counter() - t0, 2)
             return res
-        ranked_lists: list[list[Hit]] = []   # one ranked list per query, in search order
-        past_queries: list[str] = []
+        # The question as typed: a free search (no LLM call) that the agent's own queries can only add to.
+        original = self.retriever.search(project, question, k=ORIGINAL_QUERY_HITS, method=self.method)
+        res.trace.append({"step": "search", "round": 1, "query": question, "paper": None, "original": True,
+                          "hits": [h.chunk_id for h in original], "new": [h.chunk_id for h in original]})
+        ranked_lists: list[list[Hit]] = []   # one ranked list per agent-written query, in search order
+        past_queries: list[str] = [question]
 
         plan = self._call(res, system, "plan", PLAN_PROMPT.format(question=question), PLAN_SCHEMA)
-        queries: list[tuple[str, str | None]] = [(q, None) for q in plan["queries"][:3]]
+        queries: list[tuple[str, str | None]] = [
+            (q, None) for q in plan["queries"][:3] if q.strip().lower() != question.strip().lower()
+        ]
         for round_no in range(1, MAX_ROUNDS + 1):
             for q, paper in queries:
                 past_queries.append(q)
                 hits = self.retriever.search(project, q, k=HITS_PER_QUERY, method=self.method, paper=paper)
-                seen_ids = {h.chunk_id for lst in ranked_lists for h in lst}
+                seen_ids = {h.chunk_id for lst in [original, *ranked_lists] for h in lst}
                 new = [h.chunk_id for h in hits if h.chunk_id not in seen_ids]
                 ranked_lists.append(hits)
                 res.trace.append({"step": "search", "round": round_no, "query": q, "paper": paper,
                                   "hits": [h.chunk_id for h in hits], "new": new})
             if round_no == MAX_ROUNDS:
                 break
-            evidence = interleave(ranked_lists, MAX_EVIDENCE)
+            evidence = anchored(original, ranked_lists, MAX_EVIDENCE)
             check = self._call(res, system, "check", CHECK_PROMPT.format(
                 question=question, evidence=self._format(evidence, papers),
                 past_queries="; ".join(past_queries)), CHECK_SCHEMA)
@@ -264,5 +286,5 @@ class ResearchAgent:
             if check["sufficient"] or not queries:
                 break
 
-        self._finish(res, question, interleave(ranked_lists, MAX_EVIDENCE), t0, system, papers)
+        self._finish(res, question, anchored(original, ranked_lists, MAX_EVIDENCE), t0, system, papers)
         return res
