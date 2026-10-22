@@ -1,0 +1,362 @@
+[
+ {
+  "blind_id": "a_2bddbc9c6a62",
+  "row": "own:kdf3c0chci972a6wo5ls|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_3d571bd7de60",
+  "row": "g:festag2022_outcome_ensemble:009|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_16c4868d5a74",
+  "row": "g:rohr2024_mil_explainability:019|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_a226d993fe58",
+  "row": "g:noponen2007_pediatric_murmur:017|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_aea2326e0ac0",
+  "row": "own:svqmmp8yvn19i2vmf63h|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_e0f76f3b487f",
+  "row": "g:khan2020_time_freq_features:021|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_4de9e01ad53b",
+  "row": "g:bondareva2022_tandem_uq:006|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_28a499648d20",
+  "row": "own:dw0pc5zk9ju8641fjskp|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_c0b50ee5bafa",
+  "row": "own:33g1eby4skql5fhrq3j9|agent",
+  "system": "agent",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_90ac00b57afc",
+  "row": "own:lmslt4jjbqrpkpsja6zu|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_5166133d2123",
+  "row": "g:despotovic2025_cardiophon:009|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_8b8d51ae99b1",
+  "row": "own:w5vxgtivrq099qmlw7u2|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_e9aaa3fe779c",
+  "row": "g:zhang2024_parallel_attentive_uq:008|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_33ae6517d056",
+  "row": "g:taipalmaa2018_cycle_segmentation:004|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_4217874dcdec",
+  "row": "g:jain2025_mysteth:038|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_956f46079452",
+  "row": "g:reyna2023_physionet_challenge:020|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_3256cf7edef2",
+  "row": "g:xu2024_multitask_grading:017|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_79b61e459031",
+  "row": "g:despotovic2025_cardiophon:009|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_2cebc7d28c4a",
+  "row": "g:jobayer2024_funnelnet:027|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_812ce3f3ad38",
+  "row": "own:s5f9tln46brzi1owfnze|agent",
+  "system": "agent",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_0c8777b66dba",
+  "row": "own:w5vxgtivrq099qmlw7u2|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_03927335489c",
+  "row": "own:dwjrnxcewyw95zajrs4w|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_445428da8415",
+  "row": "g:panah2023_wav2vec2:016|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_664c44552f60",
+  "row": "own:f1ibcu9fwaz5b4qa4ztt|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_92c6d80aadc6",
+  "row": "own:6zs2pl55mu4au3hhiq5t|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_75cbd2874b80",
+  "row": "own:7a2kvfcchpngm978x45r|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_6d9a6bbae644",
+  "row": "g:niizumi2024_m2d_murmur:008|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_5cde631f9850",
+  "row": "g:mehrtash2020_calibration_segmentation:010|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_550b74e2e3d3",
+  "row": "own:f1ibcu9fwaz5b4qa4ztt|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_b4713a73bd17",
+  "row": "own:lmslt4jjbqrpkpsja6zu|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_7c780fd8fa1e",
+  "row": "own:6zs2pl55mu4au3hhiq5t|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_a398eccb337b",
+  "row": "g:noponen2007_pediatric_murmur:019|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_631f4057918a",
+  "row": "own:svqmmp8yvn19i2vmf63h|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_1d9e8710ac91",
+  "row": "g:althaph2025_ehst:029|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_0b70902b1285",
+  "row": "g:jobayer2024_funnelnet:021|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_912077d70e85",
+  "row": "g:golnari2025_qivcnet:004|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_40e0bfc54de5",
+  "row": "g:khan2020_time_freq_features:021|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_9316be543115",
+  "row": "g:rohr2024_mil_explainability:016|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_035f258a2a63",
+  "row": "g:guo2017_calibration:005|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_1efa29fc3b99",
+  "row": "g:niizumi2025_foundation_models:011|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_ec3f6879bcfd",
+  "row": "g:ismail2018_pcg_review:006|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_349599a8fe9b",
+  "row": "g:balanya2024_adaptive_temp_scaling:024|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_758d882566fb",
+  "row": "g:taipalmaa2018_cycle_segmentation:004|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_7bdbe6229ea9",
+  "row": "own:dw0pc5zk9ju8641fjskp|agent",
+  "system": "agent",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_ccac28219be2",
+  "row": "g:jobayer2024_funnelnet:021|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_5c46fb36b8ac",
+  "row": "g:zhang2024_parallel_attentive_uq:018|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_477d070b3d27",
+  "row": "g:feng2026_childvox:015|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_7e70d405b68b",
+  "row": "g:muna2025_ss_dppn:025|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_a682d43d7d45",
+  "row": "g:desimone2025_uncertainty_edge:018|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_c53db49aacb1",
+  "row": "g:balanya2024_adaptive_temp_scaling:039|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_2e495d5476a8",
+  "row": "g:festag2022_outcome_ensemble:005|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "no_claims"
+ },
+ {
+  "blind_id": "a_1879a181357f",
+  "row": "g:reyna2023_physionet_challenge:020|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_1339c442d951",
+  "row": "g:rohr2024_mil_explainability:016|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_fe68a3ef485d",
+  "row": "g:niizumi2024_m2d_murmur:013|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_a1c8ebd190e6",
+  "row": "g:althaph2025_ehst:016|agent",
+  "system": "agent",
+  "judge_verdict": "partly"
+ },
+ {
+  "blind_id": "a_c4376aeb994f",
+  "row": "g:reyna2023_physionet_challenge:011|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_44a4866ef859",
+  "row": "g:mehrtash2020_calibration_segmentation:017|single_shot",
+  "system": "single_shot",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_4f5f9ac6797a",
+  "row": "g:niizumi2025_foundation_models:011|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_86ed6619b7fd",
+  "row": "g:desimone2025_uncertainty_edge:027|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ },
+ {
+  "blind_id": "a_1e8af20f144f",
+  "row": "g:festag2022_outcome_ensemble:005|agent",
+  "system": "agent",
+  "judge_verdict": "supported"
+ }
+]

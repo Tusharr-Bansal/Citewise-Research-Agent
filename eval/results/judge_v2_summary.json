@@ -1,0 +1,88 @@
+{
+ "n_judged": 59,
+ "judge_failures": [
+  "own:svqmmp8yvn19i2vmf63h|single_shot"
+ ],
+ "old_judge": {
+  "kappa": 0.414,
+  "ci95": [
+   0.124,
+   0.673
+  ],
+  "raw": 0.814,
+  "kappa_binary": 0.156,
+  "caught": 1,
+  "of_flagged": 10,
+  "false_alarms": 0,
+  "of_clean": 49,
+  "counts": {
+   "supported": 52,
+   "no_claims": 6,
+   "partly": 1
+  }
+ },
+ "judge_v2": {
+  "kappa": 0.198,
+  "ci95": [
+   -0.032,
+   0.421
+  ],
+  "raw": 0.729,
+  "kappa_binary": -0.047,
+  "caught": 1,
+  "of_flagged": 10,
+  "false_alarms": 7,
+  "of_clean": 49,
+  "counts": {
+   "supported": 50,
+   "unsupported": 3,
+   "no_claims": 1,
+   "partly": 5
+  }
+ },
+ "judge_v2_no_quote_check": {
+  "kappa": 0.285,
+  "ci95": [
+   0.06,
+   0.511
+  ],
+  "raw": 0.78,
+  "kappa_binary": 0.023,
+  "caught": 1,
+  "of_flagged": 10,
+  "false_alarms": 4,
+  "of_clean": 49,
+  "counts": {
+   "supported": 53,
+   "unsupported": 3,
+   "no_claims": 1,
+   "partly": 2
+  }
+ },
+ "judge_v2_confusion_human_rows": {
+  "supported": {
+   "supported": 41,
+   "partly": 4,
+   "unsupported": 0,
+   "no_claims": 0
+  },
+  "partly": {
+   "supported": 9,
+   "partly": 1,
+   "unsupported": 0,
+   "no_claims": 0
+  },
+  "unsupported": {
+   "supported": 0,
+   "partly": 0,
+   "unsupported": 0,
+   "no_claims": 0
+  },
+  "no_claims": {
+   "supported": 0,
+   "partly": 0,
+   "unsupported": 3,
+   "no_claims": 1
+  }
+ }
+}

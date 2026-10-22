@@ -1,0 +1,242 @@
+{
+ "a_6d9a6bbae644": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_1e8af20f144f": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_2cebc7d28c4a": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_2e495d5476a8": {
+  "verdict": "no_claims",
+  "note": null
+ },
+ "a_4217874dcdec": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_ec3f6879bcfd": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_a398eccb337b": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_4f5f9ac6797a": {
+  "verdict": "partly",
+  "note": "S1 says the difference “may” stem from noise and features are “likely” to capture it; the answer states both as certain."
+ },
+ "a_33ae6517d056": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_758d882566fb": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_912077d70e85": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_5c46fb36b8ac": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_ccac28219be2": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_2bddbc9c6a62": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_1879a181357f": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_b4713a73bd17": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_40e0bfc54de5": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_c4376aeb994f": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_75cbd2874b80": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_5cde631f9850": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_c0b50ee5bafa": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_477d070b3d27": {
+  "verdict": "partly",
+  "note": "S1 says “primarily child-centered”, not “specifically” or “infant”."
+ },
+ "a_4de9e01ad53b": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_a1c8ebd190e6": {
+  "verdict": "partly",
+  "note": "S1/S3 list Normal/Mild/Severe; S2/S5 list mild/moderate/severe. The combined list hides that conflict. Only one open dataset is named."
+ },
+ "a_44a4866ef859": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_956f46079452": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_3d571bd7de60": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_664c44552f60": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_79b61e459031": {
+  "verdict": "partly",
+  "note": "S10: short recordings are insufficient to evaluate heart conditions (not quality); concatenation was for stable quality-feature extraction (not pretraining)."
+ },
+ "a_c53db49aacb1": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_035f258a2a63": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_5166133d2123": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_1339c442d951": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_0b70902b1285": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_7bdbe6229ea9": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_03927335489c": {
+  "verdict": "no_claims",
+  "note": null
+ },
+ "a_7e70d405b68b": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_8b8d51ae99b1": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_7c780fd8fa1e": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_16c4868d5a74": {
+  "verdict": "partly",
+  "note": "594 is the time-frequency count alone; it doesn’t include duration or shape features"
+ },
+ "a_9316be543115": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_445428da8415": {
+  "verdict": "partly",
+  "note": "“segment-level” isn’t stated in S9."
+ },
+ "a_92c6d80aadc6": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_a226d993fe58": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_90ac00b57afc": {
+  "verdict": "partly",
+  "note": "S2 (Zhang) uses majority voting for record predictions, not averaged probabilities."
+ },
+ "a_1efa29fc3b99": {
+  "verdict": "partly",
+  "note": "S1 says the difference “may” stem from noise; S3 says only “some” models reach SOTA on SPRS."
+ },
+ "a_0c8777b66dba": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_3256cf7edef2": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_28a499648d20": {
+  "verdict": "no_claims",
+  "note": null
+ },
+ "a_86ed6619b7fd": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_a682d43d7d45": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_e9aaa3fe779c": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_550b74e2e3d3": {
+  "verdict": "partly",
+  "note": "S9 doesn’t name CirCor as the primary dataset; S4/S6/S7 are motivation, not evidence of improvement."
+ },
+ "a_631f4057918a": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_349599a8fe9b": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_e0f76f3b487f": {
+  "verdict": "partly",
+  "note": "S14 only says Springer used logistic-HSMM for segmentation; “standard” and the four named states aren’t in the passage."
+ },
+ "a_1d9e8710ac91": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_812ce3f3ad38": {
+  "verdict": "no_claims",
+  "note": null
+ },
+ "a_aea2326e0ac0": {
+  "verdict": "supported",
+  "note": null
+ },
+ "a_fe68a3ef485d": {
+  "verdict": "supported",
+  "note": null
+ }
+}

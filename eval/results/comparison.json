@@ -1,0 +1,264 @@
+{
+ "n_single": 45,
+ "n_all": 58,
+ "metrics": {
+  "single search v4 (default)": {
+   "evidence": {
+    "mean": 0.8,
+    "n": 45
+   },
+   "correct": {
+    "mean": 0.909,
+    "n": 44
+   },
+   "credit": {
+    "mean": 0.932,
+    "n": 44
+   },
+   "no_unsupported": {
+    "mean": 0.982,
+    "n": 56
+   }
+  },
+  "single search": {
+   "evidence": {
+    "mean": 0.822,
+    "n": 45
+   },
+   "correct": {
+    "mean": 0.867,
+    "n": 45
+   },
+   "credit": {
+    "mean": 0.9,
+    "n": 45
+   },
+   "no_unsupported": {
+    "mean": 1.0,
+    "n": 58
+   }
+  },
+  "agent v3 (shipped)": {
+   "evidence": {
+    "mean": 0.889,
+    "n": 45
+   },
+   "correct": {
+    "mean": 0.867,
+    "n": 45
+   },
+   "credit": {
+    "mean": 0.911,
+    "n": 45
+   },
+   "no_unsupported": {
+    "mean": 0.983,
+    "n": 58
+   }
+  },
+  "agent v2a (before fix)": {
+   "evidence": {
+    "mean": 0.707,
+    "n": 41
+   },
+   "correct": {
+    "mean": 0.78,
+    "n": 41
+   },
+   "credit": {
+    "mean": 0.817,
+    "n": 41
+   },
+   "no_unsupported": {
+    "mean": 1.0,
+    "n": 40
+   }
+  },
+  "agent v1 (PCG prompts)": {
+   "evidence": {
+    "mean": 0.822,
+    "n": 45
+   },
+   "correct": {
+    "mean": 0.886,
+    "n": 44
+   },
+   "credit": {
+    "mean": 0.92,
+    "n": 44
+   },
+   "no_unsupported": {
+    "mean": 0.982,
+    "n": 56
+   }
+  }
+ },
+ "paired": {
+  "agent v3 (shipped) - single search | evidence": {
+   "n": 45,
+   "diff": 0.067,
+   "ci95": [
+    -0.044,
+    0.178
+   ]
+  },
+  "agent v3 (shipped) - single search | credit": {
+   "n": 45,
+   "diff": 0.011,
+   "ci95": [
+    -0.089,
+    0.111
+   ]
+  },
+  "agent v3 (shipped) - single search | no_unsupported": {
+   "n": 58,
+   "diff": -0.017,
+   "ci95": [
+    -0.052,
+    0.0
+   ]
+  },
+  "agent v3 (shipped) - agent v2a (before fix) | evidence": {
+   "n": 41,
+   "diff": 0.171,
+   "ci95": [
+    0.049,
+    0.317
+   ]
+  },
+  "agent v3 (shipped) - agent v2a (before fix) | credit": {
+   "n": 41,
+   "diff": 0.098,
+   "ci95": [
+    -0.012,
+    0.22
+   ]
+  },
+  "agent v3 (shipped) - agent v2a (before fix) | no_unsupported": {
+   "n": 40,
+   "diff": -0.025,
+   "ci95": [
+    -0.075,
+    0.0
+   ]
+  },
+  "agent v3 (shipped) - agent v1 (PCG prompts) | evidence": {
+   "n": 45,
+   "diff": 0.067,
+   "ci95": [
+    0.0,
+    0.156
+   ]
+  },
+  "agent v3 (shipped) - agent v1 (PCG prompts) | credit": {
+   "n": 44,
+   "diff": 0.0,
+   "ci95": [
+    -0.034,
+    0.034
+   ]
+  },
+  "agent v3 (shipped) - agent v1 (PCG prompts) | no_unsupported": {
+   "n": 56,
+   "diff": 0.0,
+   "ci95": [
+    -0.054,
+    0.054
+   ]
+  },
+  "agent v2a (before fix) - single search | evidence": {
+   "n": 41,
+   "diff": -0.098,
+   "ci95": [
+    -0.244,
+    0.024
+   ]
+  },
+  "agent v2a (before fix) - single search | credit": {
+   "n": 41,
+   "diff": -0.085,
+   "ci95": [
+    -0.195,
+    0.012
+   ]
+  },
+  "agent v2a (before fix) - single search | no_unsupported": {
+   "n": 40,
+   "diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "single search v4 (default) - single search | evidence": {
+   "n": 45,
+   "diff": -0.022,
+   "ci95": [
+    -0.067,
+    0.0
+   ]
+  },
+  "single search v4 (default) - single search | credit": {
+   "n": 44,
+   "diff": 0.011,
+   "ci95": [
+    -0.057,
+    0.08
+   ]
+  },
+  "single search v4 (default) - single search | no_unsupported": {
+   "n": 56,
+   "diff": -0.018,
+   "ci95": [
+    -0.054,
+    0.0
+   ]
+  },
+  "single search v4 (default) - agent v3 (shipped) | evidence": {
+   "n": 45,
+   "diff": -0.089,
+   "ci95": [
+    -0.222,
+    0.022
+   ]
+  },
+  "single search v4 (default) - agent v3 (shipped) | credit": {
+   "n": 44,
+   "diff": 0.023,
+   "ci95": [
+    -0.068,
+    0.114
+   ]
+  },
+  "single search v4 (default) - agent v3 (shipped) | no_unsupported": {
+   "n": 56,
+   "diff": 0.0,
+   "ci95": [
+    -0.054,
+    0.054
+   ]
+  }
+ },
+ "cost": {
+  "single search v4 (default)": {
+   "llm_calls": 1.0,
+   "input_tokens": 5159.0,
+   "latency_s": 4.025
+  },
+  "single search": {
+   "llm_calls": 1.0,
+   "input_tokens": 5128.0,
+   "latency_s": 4.02
+  },
+  "agent v3 (shipped)": {
+   "llm_calls": 3.0,
+   "input_tokens": 8656.5,
+   "latency_s": 8.365
+  }
+ },
+ "synthesis_papers_cited": {
+  "n": 13,
+  "single": 2.31,
+  "agent": 2.62
+ }
+}

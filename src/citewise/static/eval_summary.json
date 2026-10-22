@@ -1,0 +1,14 @@
+{
+ "html": "<p style=\"margin:10px 0 0\">Measured on this demo project with a hand-verified test set\n(45 single-passage and 13 multi-paper questions).</p>\n<div class=\"tablewrap\"><table class=\"metrics\">\n<tr><th>What</th><th>Result</th></tr>\n<tr><td>Answers with an invented (unsupported) claim, in a blind review of 60 (both search modes, earlier prompt version)</td><td><strong>0 of 60</strong></td></tr>\n<tr><td>Answers fully faithful to their cited passages (both search modes)</td><td><strong>83%</strong> (the rest: minor overstatement)</td></tr>\n<tr><td>Invalid citations, all 174 evaluated answers</td><td><strong>0</strong> (checked in code)</td></tr>\n<tr><td>Answers correct, default search (AI-graded)</td><td>91%</td></tr>\n<tr><td>Right passage in the top 10, hybrid search</td><td><strong>78%</strong> (vector-only: 64%)</td></tr>\n<tr><td>Default search vs Deep search (agent), correct answers</td><td>91% vs 87%, at 4 s vs 8 s</td></tr>\n</table></div>\n<p class=\"hint\" style=\"margin:8px 0 0\">Method, raw results and every design decision:\n<a href=\"https://github.com/Tusharr-Bansal/Citewise-Research-Agent/blob/main/docs/decisions/0017-agent-evaluation-results.md\" target=\"_blank\" rel=\"noopener\">evaluation write-up</a> and <a href=\"https://github.com/Tusharr-Bansal/Citewise-Research-Agent/blob/main/docs/decisions/0019-single-search-default.md\" target=\"_blank\" rel=\"noopener\">why single search is the default</a>.</p>",
+ "numbers": {
+  "reviewed": 60,
+  "unsupported": 0,
+  "fully_faithful": 0.833,
+  "invalid_citations": 0,
+  "answers_evaluated": 174,
+  "correct_single": 0.909,
+  "correct_agent": 0.867,
+  "recall10_hybrid": 0.778,
+  "recall10_vector": 0.644
+ }
+}

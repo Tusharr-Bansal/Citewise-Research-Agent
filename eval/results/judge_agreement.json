@@ -1,0 +1,121 @@
+{
+ "n": 60,
+ "judge_vs_human": {
+  "raw_agreement": 0.817,
+  "kappa_4class": 0.415,
+  "kappa_4class_ci95": [
+   0.12,
+   0.673
+  ],
+  "binary_agreement": 0.85,
+  "kappa_binary": 0.156
+ },
+ "draft_vs_final": {
+  "raw_agreement": 0.983,
+  "kappa_4class": 0.957,
+  "kappa_4class_ci95": [
+   0.852,
+   1.0
+  ],
+  "binary_agreement": 0.983,
+  "kappa_binary": 0.942
+ },
+ "judge_vs_reference": {
+  "accuracy": 0.817,
+  "baseline_always_supported": 0.767,
+  "recall": 0.1,
+  "specificity": 1.0,
+  "precision": 1.0,
+  "balanced_accuracy": 0.55
+ },
+ "confusion_human_rows_judge_cols": {
+  "supported": {
+   "supported": 44,
+   "partly": 0,
+   "unsupported": 0,
+   "no_claims": 2
+  },
+  "partly": {
+   "supported": 9,
+   "partly": 1,
+   "unsupported": 0,
+   "no_claims": 0
+  },
+  "unsupported": {
+   "supported": 0,
+   "partly": 0,
+   "unsupported": 0,
+   "no_claims": 0
+  },
+  "no_claims": {
+   "supported": 0,
+   "partly": 0,
+   "unsupported": 0,
+   "no_claims": 4
+  }
+ },
+ "label_counts": {
+  "human": {
+   "supported": 46,
+   "no_claims": 4,
+   "partly": 10
+  },
+  "judge": {
+   "supported": 53,
+   "no_claims": 6,
+   "partly": 1
+  }
+ },
+ "human_by_system": {
+  "single_shot": {
+   "n": 30,
+   "human_supported_or_no_claims": 0.9,
+   "human_partly": 3,
+   "human_unsupported": 0
+  },
+  "agent": {
+   "n": 30,
+   "human_supported_or_no_claims": 0.767,
+   "human_partly": 7,
+   "human_unsupported": 0
+  }
+ },
+ "judge_missed": [
+  [
+   "g:rohr2024_mil_explainability:019|agent",
+   "594 is the time-frequency count alone; it doesn\u2019t include duration or shape features"
+  ],
+  [
+   "g:niizumi2025_foundation_models:011|single_shot",
+   "S1 says the difference \u201cmay\u201d stem from noise; S3 says only \u201csome\u201d models reach SOTA on SPRS."
+  ],
+  [
+   "g:panah2023_wav2vec2:016|agent",
+   "\u201csegment-level\u201d isn\u2019t stated in S9."
+  ],
+  [
+   "g:feng2026_childvox:015|agent",
+   "S1 says \u201cprimarily child-centered\u201d, not \u201cspecifically\u201d or \u201cinfant\u201d."
+  ],
+  [
+   "g:niizumi2025_foundation_models:011|agent",
+   "S1 says the difference \u201cmay\u201d stem from noise and features are \u201clikely\u201d to capture it; the answer states both as certain."
+  ],
+  [
+   "own:f1ibcu9fwaz5b4qa4ztt|agent",
+   "S9 doesn\u2019t name CirCor as the primary dataset; S4/S6/S7 are motivation, not evidence of improvement."
+  ],
+  [
+   "g:despotovic2025_cardiophon:009|single_shot",
+   "S10: short recordings are insufficient to evaluate heart conditions (not quality); concatenation was for stable quality-feature extraction (not pretraining)."
+  ],
+  [
+   "own:lmslt4jjbqrpkpsja6zu|agent",
+   "S2 (Zhang) uses majority voting for record predictions, not averaged probabilities."
+  ],
+  [
+   "g:khan2020_time_freq_features:021|single_shot",
+   "S14 only says Springer used logistic-HSMM for segmentation; \u201cstandard\u201d and the four named states aren\u2019t in the passage."
+  ]
+ ]
+}

@@ -1,0 +1,1756 @@
+{
+ "a_035f258a2a63": {
+  "row": "g:guo2017_calibration:005|agent",
+  "claims": [
+   {
+    "claim": "Perfect calibration is formally defined as P(Ŷ = Y | P̂ = p) = p for all p ∈ [0, 1], where Ŷ is the class prediction, P̂ is the associated confidence representing the probability of correctness, and the probability is evaluated over the joint distribution.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "More formally, we define perfect calibration as (1) P Ŷ = Y | P̂ = p = p, ∁p ∈ [0, 1] where the probability is over the joint distribution.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_03927335489c": {
+  "row": "own:dwjrnxcewyw95zajrs4w|single_shot",
+  "claims": [
+   {
+    "claim": "The provided evidence does not describe how the papers estimate predictive uncertainty or what specific evidence they provide to show that their uncertainty estimates distinguish correct predictions from incorrect ones.",
+    "cited": [],
+    "quote": "",
+    "support": "unsupported"
+   }
+  ],
+  "quote_found": [
+   0.0
+  ],
+  "verdict": "unsupported",
+  "verdict_no_quote_check": "unsupported"
+ },
+ "a_0b70902b1285": {
+  "row": "g:jobayer2024_funnelnet:021|single_shot",
+  "claims": [
+   {
+    "claim": "The activation function utilized in the squeeze network component of FunnelNet is 'tanh'.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The activation function utilized in these layers is ‘tanh’ due to its [−1, 1] output range",
+    "support": "supported"
+   },
+   {
+    "claim": "The kernel size in both layers of the squeeze network component is 2 × 2.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "In both layers, a kernel size of 2 × 2 is used.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_0c8777b66dba": {
+  "row": "own:w5vxgtivrq099qmlw7u2|single_shot",
+  "claims": [
+   {
+    "claim": "Temperature scaling is a parametric post-hoc calibration method.",
+    "cited": [
+     "S2",
+     "S4",
+     "S12"
+    ],
+    "quote": "Temperature scaling is a parametric calibration method that introduces a temperature coefficient to adjust the output logits of the model",
+    "support": "supported"
+   },
+   {
+    "claim": "It introduces a single temperature coefficient to rescale the output logits of a neural network.",
+    "cited": [
+     "S2",
+     "S4",
+     "S12"
+    ],
+    "quote": "It is a single parameter model that re-scales the confidence predictions by a temperature factor.",
+    "support": "supported"
+   },
+   {
+    "claim": "The temperature parameter is learned or optimized on a validation set (or calibration data) by minimizing negative log-likelihood (NLL).",
+    "cited": [
+     "S2",
+     "S7",
+     "S12"
+    ],
+    "quote": "T is optimized with respect to NLL on the validation set.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_1339c442d951": {
+  "row": "g:rohr2024_mil_explainability:016|agent",
+  "claims": [
+   {
+    "claim": "PCG recordings are first segmented into heart phases and verified using reference segmentations from the dataset.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "we use the CirCor dataset and segment all PCG recordings into the heart phases. To verify the results, we also use reference segmentations from the dataset itself.",
+    "support": "supported"
+   },
+   {
+    "claim": "If a recording is labeled as \"murmur not hearable,\" all instances are considered without murmur and labeled as 0.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "We assume that if a recording is labeled as “murmur not hearable”, all instances are without murmur and label them as 0.",
+    "support": "supported"
+   },
+   {
+    "claim": "If it is labeled as \"murmur hearable,\" the doctor-assigned timing (systolic, diastolic, or both) is examined, assuming a murmur occurs in every heart cycle for the entire length of that phase.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "If a recording is labeled as “murmur hearable”, we look at the timing assigned by the doctor, which could mean systolic, diastolic, or both. For simplicity, we also assume, that a murmur occurs in every heart cycle for the whole length of each phase.",
+    "support": "supported"
+   },
+   {
+    "claim": "If the network's segmentation overlaps with the respective murmur phase, it is counted as a true positive; otherwise, it is counted as a false positive.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "If the segmentation by the network overlaps with the respective murmur phase, we count it as a true positive, otherwise as a false positive.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_16c4868d5a74": {
+  "row": "g:rohr2024_mil_explainability:019|agent",
+  "claims": [
+   {
+    "claim": "In the MIL-U-Net framework, time-frequency domain features are computed using amplitudes of the preprocessed signal, 4 signal transformations, and 7 additional signal variants.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The time-frequency domain features (Fig 4) rely on the amplitudes of the preprocessed signal, 4 transformations of the signal which are the spectral centroid, spectral bandwidth [34], signal energy computed in a window of 13 ms, and Hilbert envelopes computed for the frequency bands LF (15 to 90 Hz), MF (55 to 150 Hz), HF (100 to 250) Hz, SF (200 to 450 Hz), and UF (400 to 800 Hz) as proposed by Plesinger et al. [28]. Additional signals were generated by dividing the bandlimited Hilbert envelopes by each other, e.g. the envelopes for HF/LF, HF/ MF, MF/LF, SF/MF, SF/LF, UF/LF, and (HF+MF)/LF, resulting in 7 new signal variants.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_1879a181357f": {
+  "row": "g:reyna2023_physionet_challenge:020|agent",
+  "claims": [
+   {
+    "claim": "Participants were required to submit the complete code for their algorithms, including preprocessing, training, and inference steps.",
+    "cited": [
+     "S7"
+    ],
+    "quote": "For both phases of the Challenge, we required the teams to submit the complete code for their algorithms, including their preprocessing, training, and inference steps.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_1d9e8710ac91": {
+  "row": "g:althaph2025_ehst:029|single_shot",
+  "claims": [
+   {
+    "claim": "The EHST model uses a depth (Transformer layers, L) of 2–4.",
+    "cited": [
+     "S14"
+    ],
+    "quote": "Transformer Layers (L) 2–4",
+    "support": "supported"
+   },
+   {
+    "claim": "The EHST model uses 4 or 8 attention heads.",
+    "cited": [
+     "S14"
+    ],
+    "quote": "Heads (h) 4 or 8",
+    "support": "supported"
+   },
+   {
+    "claim": "The EHST model uses an embedding size (model dimension, d_model) of 128–256.",
+    "cited": [
+     "S14"
+    ],
+    "quote": "Model Dimension (dmodel ) 128–256",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_1e8af20f144f": {
+  "row": "g:festag2022_outcome_ensemble:005|agent",
+  "claims": [
+   {
+    "claim": "The murmur-and-outcome ensemble uses a short-time Fourier transform to build its spectrogram input.",
+    "cited": [
+     "S8"
+    ],
+    "quote": "a short-time Fourier transform with a frame length of 0.04 seconds, a frame step of 0.016 seconds, a Fourier transform with a size of 200, and a von-Hann-windowing is applied to the preprocessed five-second interval of the phonocardiogram.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_1efa29fc3b99": {
+  "row": "g:niizumi2025_foundation_models:011|single_shot",
+  "claims": [
+   {
+    "claim": "The effectiveness of audio foundation models differs between the ICBHI2017 dataset and the SPRS dataset primarily due to differences in data cleanliness and noise levels.",
+    "cited": [
+     "S1",
+     "S2",
+     "S5"
+    ],
+    "quote": "The difference in performance trend from ICBHI2017 may stem from data, with SPRS being cleaner than ICBHI2017. ... The features of the audio foundation models can be more effective in tasks with clean data for both respiratory and heart sounds. ... If the data are clean, the general-purpose features are more likely to be useful in solving a problem; in contrast, fine-tuning is considered necessary to make a model avoid the noise and produce output features that focus on the target sound of the task if the data is noisy.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_28a499648d20": {
+  "row": "own:dw0pc5zk9ju8641fjskp|single_shot",
+  "claims": [],
+  "quote_found": [],
+  "verdict": "no_claims",
+  "verdict_no_quote_check": "no_claims"
+ },
+ "a_2bddbc9c6a62": {
+  "row": "own:kdf3c0chci972a6wo5ls|agent",
+  "claims": [
+   {
+    "claim": "Studies evaluate generalization and robustness through validation on multiple independent datasets with varied noise profiles and demographic distributions.",
+    "cited": [
+     "S2"
+    ],
+    "quote": "Furthermore, we validated our model on multiple independent datasets with varied noise profiles and demographic distributions to assess robustness beyond the training set.",
+    "support": "supported"
+   },
+   {
+    "claim": "Studies evaluate generalization and robustness through statistical significance testing using the non-parametric A-Test across cross-validation folds.",
+    "cited": [
+     "S10"
+    ],
+    "quote": "To rigorously evaluate the statistical significance and robustness of EHST’s performance compared to baseline models, we employed the non-parametric A-Test35.",
+    "support": "supported"
+   },
+   {
+    "claim": "Studies evaluate generalization and robustness by analyzing performance across different demographic subgroups (such as pediatric versus adult patients).",
+    "cited": [
+     "S1",
+     "S2"
+    ],
+    "quote": "The results show consistent performance between the two groups, with adults achieving slightly higher scores. This consistency indicates that EHST generalizes well across diverse patient populations, which is critical for clinical deployment in varied settings.",
+    "support": "supported"
+   },
+   {
+    "claim": "Some evaluations utilize patient-level cross-validation splits to prevent data leakage.",
+    "cited": [
+     "S13"
+    ],
+    "quote": "To ensure a realistic validation scenario, the folds were created at the patient level. ... This patient-level split prevents data leakage by ensuring that segments from the same patient do not appear in both the training and validation sets, which could otherwise bias the CV results.",
+    "support": "supported"
+   },
+   {
+    "claim": "Certain approaches rely entirely on retrospective datasets without fully capturing real-world variability in devices and noise conditions.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "However, these findings are limited to retrospective datasets, and real-world variability in devices, patient populations, and noise conditions was not fully represented.",
+    "support": "supported"
+   },
+   {
+    "claim": "External validation on independent hardware or prospective clinical deployment remains a future goal.",
+    "cited": [
+     "S1",
+     "S5"
+    ],
+    "quote": "Prospective clinical validation, broader demographic coverage, and integration with multimodal data such as ECG remain important next steps to confirm generalizability and ensure reliable deployment in diverse clinical environments.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_2cebc7d28c4a": {
+  "row": "g:jobayer2024_funnelnet:027|single_shot",
+  "claims": [
+   {
+    "claim": "The FunnelNet lite model (converted to TFLite) was run on a Raspberry Pi 4B.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "support": "supported"
+   },
+   {
+    "claim": "The FunnelNet lite model achieved an average accuracy of 0.91 on a Raspberry Pi 4B.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "support": "supported"
+   },
+   {
+    "claim": "The average inference time for the FunnelNet lite model on a Raspberry Pi 4B was 9.3 ms.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "support": "supported"
+   },
+   {
+    "claim": "The minimum inference time was 9.1 ms.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "support": "supported"
+   },
+   {
+    "claim": "The maximum inference time was 16.3 ms.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "On the Raspberry Pi 4B, we achieved an average accuracy of 0.91 with an average inference time of 9.3 ms, ranging from 9.1 ms to 16.3 ms.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_2e495d5476a8": {
+  "row": "g:festag2022_outcome_ensemble:005|single_shot",
+  "claims": [
+   {
+    "claim": "The provided evidence passages do not mention the specific STFT (Short-Time Fourier Transform) settings used by the murmur-and-outcome ensemble (Festag et al., 2022) to build its spectrogram input.",
+    "cited": [],
+    "quote": "",
+    "support": "unsupported"
+   }
+  ],
+  "quote_found": [
+   0.0
+  ],
+  "verdict": "unsupported",
+  "verdict_no_quote_check": "unsupported"
+ },
+ "a_3256cf7edef2": {
+  "row": "g:xu2024_multitask_grading:017|agent",
+  "claims": [
+   {
+    "claim": "Many murmurs, particularly grade I or II, may be physiological, functional, or innocent rather than pathological and lack medical significance.",
+    "cited": [
+     "S7",
+     "S8",
+     "S14"
+    ],
+    "quote": "However, many murmurs (especially grade I or II cardiac murmurs) may be physiological or functional rather than pathological and do not have medical significance.",
+    "support": "supported"
+   },
+   {
+    "claim": "Pathological murmurs indicate underlying structural or functional heart conditions that require monitoring or intervention.",
+    "cited": [
+     "S1",
+     "S8"
+    ],
+    "quote": "Some heart murmurs are pathological, indicating a physiological problem that requires monitoring and/or intervention.",
+    "support": "supported"
+   },
+   {
+    "claim": "Robust medical decision support requires differentiating between innocent and pathological murmurs or scientifically grading them, rather than simply identifying whether a murmur is present.",
+    "cited": [
+     "S7",
+     "S8",
+     "S14"
+    ],
+    "quote": "Therefore, simply analyzing the presence or absence of cardiac murmurs cannot provide good decision support for the diagnosis of cardiac disease, and a solution that can scientifically grade cardiac murmurs should be proposed.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_33ae6517d056": {
+  "row": "g:taipalmaa2018_cycle_segmentation:004|single_shot",
+  "claims": [
+   {
+    "claim": "Taipalmaa et al. (2018) compared the k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA), and Neural Networks (NN) with different architectures for separating S2 peaks from the rest of the data.",
+    "cited": [
+     "S2",
+     "S5"
+    ],
+    "quote": "In the first phase, the performance was evaluated by separating S2 peaks from the rest of the data. Tested methods included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA) and Neural networks (NN) with different architectures (best results with 2 hidden layers with 25 neurons on both hidden layers).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_349599a8fe9b": {
+  "row": "g:balanya2024_adaptive_temp_scaling:024|agent",
+  "claims": [
+   {
+    "claim": "Parameterized Temperature Scaling (PTS) defines its temperature function as a neural network (NN) conditioned on the logit vector sorted by decreasing value of confidence, expressed as TPTS (z) = NN(zs), where the sorting makes the model order-invariant",
+    "cited": [
+     "S1"
+    ],
+    "quote": "parameterized Temperature Scaling (PTS) [15] is a specific instance of the ATS family in which the temperature function is conditioned to be a neural network (NN). The input to the NN is the logit vector sorted by decreasing value of confidence zs . Sorting the logit vector makes the model order-invariant [23] simplifying the hypothesis space at the cost of losing the possibility of discriminating between classes—i.e., it cannot consider the predicted ranking over the classes. PTS can be expressed as an ATS method with temperature function: TPTS \u0011z\u0011 \u0011= NN(zs) , (12)",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_3d571bd7de60": {
+  "row": "g:festag2022_outcome_ensemble:009|single_shot",
+  "claims": [
+   {
+    "claim": "The murmur task in the deep learning ensemble model uses a categorical focal loss function.",
+    "cited": [
+     "S8"
+    ],
+    "quote": "The parameters of the categorical focal loss function were set to α = 3 and γ = 5",
+    "support": "supported"
+   },
+   {
+    "claim": "The three classes for the murmur task (present, unknown, absent) are weighted with respect to the correct label as 5, 3, and 1, respectively.",
+    "cited": [
+     "S8"
+    ],
+    "quote": "During the loss computation for the first task, the errors were weighted with respect to the correct label (present: 5, unknown: 3, absent: 1).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_40e0bfc54de5": {
+  "row": "g:khan2020_time_freq_features:021|agent",
+  "claims": [
+   {
+    "claim": "Hidden Markov Models (HMMs) and Hidden Semi-Markov Models (HSMMs) have been used for PCG segmentation.",
+    "cited": [
+     "S8",
+     "S9",
+     "S12"
+    ],
+    "quote": "More recently, methods such as a Hidden Markov Model (HMM) and a Hidden Semi-Markov Model (HSMM) have been used [6, 7].",
+    "support": "supported"
+   },
+   {
+    "claim": "The Logistic Regression-HSMM-based algorithm is an advanced method for PCG segmentation.",
+    "cited": [
+     "S8"
+    ],
+    "quote": "Currently, the most advanced method is the Logistic Regression-HSMM-based algorithm [8].",
+    "support": "supported"
+   },
+   {
+    "claim": "The Logistic Regression-HSMM-based heart sound segmentation is an extended version of the duration-dependent hidden Markov model (DHMM).",
+    "cited": [
+     "S12"
+    ],
+    "quote": "Logistic regression-HSMM-based heart sound segmentation proposed by Springer (David B. Springer et al, 2015) is employed for the PCG segmentation, which is the extended version of duration-dependent hidden Markov model (DHMM) by Schmidt (S E Schmidt et al, 2010).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_4217874dcdec": {
+  "row": "g:jain2025_mysteth:038|single_shot",
+  "claims": [
+   {
+    "claim": "During the classification of systolic sounds, the MySteth framework identifies two specific subcategories of murmurs: Ejection Systolic Murmurs (ESM) and Pansystolic Murmurs (PSM).",
+    "cited": [
+     "S1",
+     "S3",
+     "S10"
+    ],
+    "quote": "90% in further categorizing systolic murmurs into Ejection Systolic Murmurs (ESM) and Pansystolic Murmurs (PSM).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_445428da8415": {
+  "row": "g:panah2023_wav2vec2:016|agent",
+  "claims": [
+   {
+    "claim": "As the fine-tuning data shrinks from 100% down to 13% of the training set (spanning the first four scenarios), wav2vec 2.0's recall on murmur-present recordings (segment-level) fluctuates between 0.60 and 0.68 [S9].",
+    "cited": [
+     "S9"
+    ],
+    "quote": "Present class: Recall fluctuates between 0.60 and 0.68 in the case of the first four scenarios (100% - 13% of the data).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_44a4866ef859": {
+  "row": "g:mehrtash2020_calibration_segmentation:017|single_shot",
+  "claims": [
+   {
+    "claim": "Negative Log-Likelihood (NLL), Brier score, and Expected Calibration Error (ECE%) are used to measure calibration quality in segmentation tasks.",
+    "cited": [
+     "S5",
+     "S6"
+    ],
+    "quote": "For calibration quality, we compared NLL, Brier score, and ECE%.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_477d070b3d27": {
+  "row": "g:feng2026_childvox:015|agent",
+  "claims": [
+   {
+    "claim": "The self-supervised pretrained models specifically trained on infant and child-centered audio and speech data in the ChildVox benchmark are BabyHuBERT and wav2vec-LB.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "Moreover, BabyHuBERT and wav2vec-LB are two pretrained speech models trained primarily on child-centered audio and speech data using HuBERT and wav2vec pretraining, respectively.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_4de9e01ad53b": {
+  "row": "g:bondareva2022_tandem_uq:006|agent",
+  "claims": [
+   {
+    "claim": "In the tandem-learning approach, samples with MC Dropout prediction deviation exceeding 0.2 were labeled as unknown.",
+    "cited": [
+     "S7"
+    ],
+    "quote": "The samples for which deviation exceeded 0.2 were then labelled as unknown, to further boost the model’s sensitivity to murmur.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_4f5f9ac6797a": {
+  "row": "g:niizumi2025_foundation_models:011|agent",
+  "claims": [
+   {
+    "claim": "The effectiveness of audio foundation models differs between the ICBHI2017 dataset and the SPRS dataset primarily due to differences in data cleanliness and noise levels.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3"
+    ],
+    "quote": "The difference in performance trend from ICBHI2017 may stem from data, with SPRS being cleaner than ICBHI2017.",
+    "support": "supported"
+   },
+   {
+    "claim": "ICBHI2017 samples exhibit higher noise levels and are recorded using multiple devices.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The ICBHI2017 samples were recorded using multiple recording devices and have a higher noise level, such as heart sounds layered over respiratory sounds.",
+    "support": "supported"
+   },
+   {
+    "claim": "Background noises such as heart sounds layered over respiratory sounds cause foundation model features to capture these noises as well.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "For these noisy data, the audio features of the foundation models are likely to represent these noises as well as respiratory sounds.",
+    "support": "supported"
+   },
+   {
+    "claim": "In contrast, the SPRS dataset contains less noise and cleaner data.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3"
+    ],
+    "quote": "Unlike ICBHI2017, the sounds for this task have less noise.",
+    "support": "supported"
+   },
+   {
+    "claim": "Certain audio foundation models can achieve state-of-the-art performance on the SPRS dataset without requiring fine-tuning.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3"
+    ],
+    "quote": "The results in Table II differ from those of ICBHI2017, showing that some foundation models achieve SOTA performance without the need for fine-tuning.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_5166133d2123": {
+  "row": "g:despotovic2025_cardiophon:009|agent",
+  "claims": [
+   {
+    "claim": "The Open Heart collection of phonocardiogram recordings is sourced from multiple books and internet sources",
+    "cited": [
+     "S9"
+    ],
+    "quote": "Open Heart is a collection of PCG recordings from multiple books and internet sources [29].",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_550b74e2e3d3": {
+  "row": "own:f1ibcu9fwaz5b4qa4ztt|agent",
+  "claims": [
+   {
+    "claim": "Self-supervised pretraining improves cardiac murmur classification compared with supervised learning from scratch by mitigating annotation scarcity and providing a robust initialization for downstream models.",
+    "cited": [
+     "S4",
+     "S6",
+     "S7"
+    ],
+    "quote": "To mitigate this we propose a self-supervised learning (SSL) approach that leverages unlabeled data to learn general heart sound representations, and provide a good initialization for supervised learning models, leading to faster convergence and improved accuracy.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_5c46fb36b8ac": {
+  "row": "g:zhang2024_parallel_attentive_uq:018|single_shot",
+  "claims": [
+   {
+    "claim": "Monte Carlo Dropout was incorporated as an uncertainty estimation method within the parallel-attentive cardiac murmur detection framework.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3"
+    ],
+    "quote": "Therefore, we have incorporated an effective uncertainty estimation method based on Monte Carlo Dropout into our model.",
+    "support": "supported"
+   },
+   {
+    "claim": "Temperature scaling was applied as a post-process to calibrate the predictions within the parallel-attentive cardiac murmur detection framework.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3"
+    ],
+    "quote": "Furthermore, we have employed temperature scaling to calibrate the predictions of our probabilistic model, enhancing its reliability.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_5cde631f9850": {
+  "row": "g:mehrtash2020_calibration_segmentation:010|agent",
+  "claims": [
+   {
+    "claim": "When fully convolutional networks are trained using Dice loss, they tend to be poorly calibrated, producing overconfident predictions that lead to poor uncertainty estimation.",
+    "cited": [
+     "S1",
+     "S4"
+    ],
+    "quote": "However, these networks are poorly calibrated i.e. they tend to produce overconfident predictions for both correct and erroneous classifications, making them unreliable and hard to interpret.",
+    "support": "supported"
+   },
+   {
+    "claim": "Models trained with Dice loss show significantly worse calibration quality in terms of negative log-likelihood (NLL) and expected calibration error percentage (ECE%) compared to those trained with cross-entropy loss.",
+    "cited": [
+     "S3",
+     "S6"
+    ],
+    "quote": "For all three segmentation tasks, calibration quality was significantly better in terms of NLL and ECE% for baseline (single) models trained with CE comparing to those that were trained with Dice loss.",
+    "support": "supported"
+   },
+   {
+    "claim": "Dice loss yields better segmentation quality.",
+    "cited": [
+     "S3",
+     "S6"
+    ],
+    "quote": "The results consistently show that for baseline (single) models, cross-entropy loss is better than Dice loss in terms of uncertainty estimation in terms of NLL and ECE%, but falls short in segmentation quality.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_631f4057918a": {
+  "row": "own:svqmmp8yvn19i2vmf63h|single_shot",
+  "claims": null,
+  "verdict": "judge_failed",
+  "verdict_no_quote_check": "judge_failed",
+  "raw": "\\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249 \\u2249"
+ },
+ "a_664c44552f60": {
+  "row": "own:f1ibcu9fwaz5b4qa4ztt|single_shot",
+  "claims": [
+   {
+    "claim": "self-supervised learning (SSL) provides a good initialization for supervised models, leading to faster convergence and improved accuracy",
+    "cited": [
+     "S4",
+     "S8"
+    ],
+    "quote": "provide a good initialization for supervised learning models, leading to faster convergence and improved accuracy",
+    "support": "supported"
+   },
+   {
+    "claim": "SSL serves as an effective alternative to overcome the data-supervision bottleneck of supervised approaches",
+    "cited": [
+     "S4",
+     "S8"
+    ],
+    "quote": "To overcome this data-supervision bottleneck, Self-Supervised Learning (SSL) has worked as a powerful alternative and effective paradigm, leveraging unlabeled data to learn robust and generalizable representations",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_6d9a6bbae644": {
+  "row": "g:niizumi2024_m2d_murmur:008|single_shot",
+  "claims": [
+   {
+    "claim": "When benchmarking general-purpose audio models for heart murmur detection, a total of 15 experiments per model are averaged.",
+    "cited": [
+     "S11"
+    ],
+    "quote": "We used the final evaluation result of the average of 15 experiments per model (five experiments for each of the three data splits).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_758d882566fb": {
+  "row": "g:taipalmaa2018_cycle_segmentation:004|agent",
+  "claims": [
+   {
+    "claim": "In the segmentation method by Taipalmaa et al. (2018), short PCG frames are classified using handcrafted features.",
+    "cited": [
+     "S5"
+    ],
+    "quote": "In this study, first, the PCG recordings are windowed into non-overlapping frames of 250 samples (125 ms). Then, 66 features in the time, frequency, and timefrequency domains are extracted from each frame.",
+    "support": "supported"
+   },
+   {
+    "claim": "The tested classifiers for separating S2 peaks from the rest of the data included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA), and Neural Networks (NN) with different architectures.",
+    "cited": [
+     "S5"
+    ],
+    "quote": "In the first phase, the performance was evaluated by separating S2 peaks from the rest of the data. Tested methods included k-nearest neighbor classifier (k-NN), Linear Discriminant Analysis (LDA) and Neural networks (NN) with different architectures (best results with 2 hidden layers with 25 neurons on both hidden layers).",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_75cbd2874b80": {
+  "row": "own:7a2kvfcchpngm978x45r|single_shot",
+  "claims": [
+   {
+    "claim": "Jobayer et al. state that the dataset contains 5,272 recordings from 1,568 patients with a total duration of 33.5 hours.",
+    "cited": [
+     "S3"
+    ],
+    "quote": "It is a large publicly accessible pediatric heart sound dataset with 5,272 recordings. This dataset contains data from 1,568 patients... There are a total of 33.5 hours of recordings",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_79b61e459031": {
+  "row": "g:despotovic2025_cardiophon:009|single_shot",
+  "claims": [
+   {
+    "claim": "The Open Heart collection's short screening times provide insufficient information for quality evaluation.",
+    "cited": [
+     "S10"
+    ],
+    "quote": "The file length analysis in Table 1 shows that this was generally the case for the Open Heart dataset.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_7bdbe6229ea9": {
+  "row": "own:dw0pc5zk9ju8641fjskp|agent",
+  "claims": [
+   {
+    "claim": "A quality assessment model was used to identify and prepare heart sounds by removing those that did not satisfy the minimum quality required before subsequent processing.",
+    "cited": [
+     "S2",
+     "S3",
+     "S8"
+    ],
+    "quote": "It was used to identify the heart sounds that did not satisfy the minimum quality required for further processing, and prepare the data for the subsequent heart sound classification task.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_7c780fd8fa1e": {
+  "row": "own:6zs2pl55mu4au3hhiq5t|single_shot",
+  "claims": [
+   {
+    "claim": "Existing cardiac auscultation models handle recordings labelled as \"Unknown\" (or diagnostically ambiguous) by classifying them within a three-class framework (murmur present, murmur absent, or unknown)",
+    "cited": [
+     "S13",
+     "S14"
+    ],
+    "quote": "PhysioNet 2022 proposed two tasks for challenge participants, and in our work we only focused on the first task, where the teams were invited to develop a classification algorithm for three classes: murmur present (further referred to as murmur), murmur absent (further referred to as normal), and unknown.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_7e70d405b68b": {
+  "row": "g:muna2025_ss_dppn:025|single_shot",
+  "claims": [
+   {
+    "claim": "The duration of the CirCor recordings varies, with sources stating ranges of 5 to 65 seconds [S1].",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The duration of recordings varies between 5 to 65 seconds.",
+    "support": "supported"
+   },
+   {
+    "claim": "The duration of the CirCor recordings varies, with sources stating ranges of 4.8 to 80.4 seconds [S2, S13].",
+    "cited": [
+     "S2",
+     "S13"
+    ],
+    "quote": "the duration of the individual recordings ranges from 4.8 to 80.4 seconds.",
+    "support": "supported"
+   },
+   {
+    "claim": "The duration of the CirCor recordings varies, with sources stating a mean duration of 22.9 seconds [S13].",
+    "cited": [
+     "S13"
+    ],
+    "quote": "Individual recordings last 4.8–80.4 s (mean 22.9 ± 7.4 s), with more than 33.5 h of audio.",
+    "support": "supported"
+   },
+   {
+    "claim": "The original sampling rate for the CirCor recordings is 4 kHz [S1, S7, S11].",
+    "cited": [
+     "S1",
+     "S7",
+     "S11"
+    ],
+    "quote": "The original sampling rate of the recordings is 4 kHz.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_812ce3f3ad38": {
+  "row": "own:s5f9tln46brzi1owfnze|agent",
+  "claims": [
+   {
+    "claim": "The text discusses the use and integration of Grad-CAM and attention mechanisms for interpretability.",
+    "cited": [],
+    "quote": "",
+    "support": "unsupported"
+   }
+  ],
+  "quote_found": [
+   0.0
+  ],
+  "verdict": "unsupported",
+  "verdict_no_quote_check": "unsupported"
+ },
+ "a_86ed6619b7fd": {
+  "row": "g:desimone2025_uncertainty_edge:027|agent",
+  "claims": [
+   {
+    "claim": "The resource-efficient Light murmur detection model proposed by De Simone et al. has 23k parameters.",
+    "cited": [
+     "S3"
+    ],
+    "quote": "Ours (Light) ... Params ... 23k",
+    "support": "supported"
+   },
+   {
+    "claim": "Compared to existing approaches, this model reduces the number of parameters by 2 to 4 orders of magnitude.",
+    "cited": [
+     "S2"
+    ],
+    "quote": "Nevertheless, it reduces the number of parameters by 2 to 4 orders of magnitude with respect to existing approaches",
+    "support": "supported"
+   },
+   {
+    "claim": "Existing transformer approaches have 85.4M parameters.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Classifier Transformer ... Params 85.4M",
+    "support": "supported"
+   },
+   {
+    "claim": "Existing CNN approaches have 141.5k parameters.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Classifier CNN ... Params 141.5k",
+    "support": "supported"
+   },
+   {
+    "claim": "Existing CRNN approaches have 43.6M parameters.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Classifier CRNN ... Params 43.6M",
+    "support": "supported"
+   },
+   {
+    "claim": "Existing CNN approaches have 2.25M parameters.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Classifier CNN ... Params 2.25M",
+    "support": "supported"
+   },
+   {
+    "claim": "Existing CNN+LSTM approaches have 3.4M parameters.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Classifier CNN+LSTM ... Params 3.4M",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   0.5,
+   1.0,
+   1.0,
+   0.7916666666666666,
+   0.75,
+   0.8260869565217391,
+   0.38461538461538464
+  ],
+  "verdict": "partly",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_8b8d51ae99b1": {
+  "row": "own:w5vxgtivrq099qmlw7u2|agent",
+  "claims": [
+   {
+    "claim": "Temperature scaling is a parametric post-hoc calibration method that introduces a single temperature coefficient to rescale or adjust the output logits of a model, amplifying or dampening them to align predicted probabilities with actual uncertainty",
+    "cited": [
+     "S2",
+     "S4",
+     "S11"
+    ],
+    "quote": "Temperature scaling is a parametric calibration method that introduces a temperature coefficient to adjust the output logits of the model, effectively amplifying or dampening them. ... This process helps to improve the calibration of the model’s confidence estimation. ... T is optimized with respect to NLL on the validation set. ... T is a learnt temperature scaling parameter, which is optimised on the validation set to align the predicted probabilities with the actual uncertainty of the validation set.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   0.7542168674698795
+  ],
+  "verdict": "partly",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_90ac00b57afc": {
+  "row": "own:lmslt4jjbqrpkpsja6zu|agent",
+  "claims": [
+   {
+    "claim": "Published methods aggregate segment-level predictions to recording-level predictions by calculating the average of the segments' probabilities for each class and selecting the class with the highest probability.",
+    "cited": [
+     "S1",
+     "S2"
+    ],
+    "quote": "To determine the prediction for each patient, we need to first aggregate segment-level predictions to produce recording-level predictions. To this end, the average of the segments’ probabilities for each class is calculated and the class with the highest probability determines the recording’s prediction.",
+    "support": "supported"
+   },
+   {
+    "claim": "Recording-level predictions are then aggregated into patient-level results using specific rules that prioritize the classes: a patient is assigned \"present\" if at least one recording/segment is classified as present, \"unknown\" if none are present and at least one is unknown, and \"absent\" if all are absent.",
+    "cited": [
+     "S1",
+     "S2"
+    ],
+    "quote": "Assign present if at least one recording was classified as present. Assign unknown if none of the recordings was classified as present, and at least one recording was classified as unknown. • Assign absent if all recordings were classified as absent.",
+    "support": "supported"
+   },
+   {
+    "claim": "For uncertainty estimation, patient-level results are obtained by first taking the average of segments matching the record's prediction, and then averaging records matching the patient's prediction.",
+    "cited": [
+     "S3"
+    ],
+    "quote": "Starting with the mapping — from segment to record—, we first determine the predictions for records and then take the average of segments that align with the record’s prediction. Subsequently, with the mapping — from record to patient—, we initially ascertain the patient’s predictions and then average records that match the patient’s predictions.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_912077d70e85": {
+  "row": "g:golnari2025_qivcnet:004|agent",
+  "claims": [
+   {
+    "claim": "The reversal fusion residual (RFR) block lets QiVC-Net read heart-sound recordings both forwards and backwards in time.",
+    "cited": [
+     "S1",
+     "S3"
+    ],
+    "quote": "QiVC-Net further incorporates a reversal fusion residual (RFR) block that models bidirectional temporal dependencies in PCG recordings.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_92c6d80aadc6": {
+  "row": "own:6zs2pl55mu4au3hhiq5t|agent",
+  "claims": [
+   {
+    "claim": "Some approaches use a combination of an SVM to identify unknown samples and a DNN for murmur prediction.",
+    "cited": [
+     "S10"
+    ],
+    "quote": "First, we used a support vector machine for identification of unknown samples, followed by a Deep Neural Network (DNN) for prediction of murmur.",
+    "support": "supported"
+   },
+   {
+    "claim": "Monte Carlo dropouts are used for uncertainty estimation to filter out unclassifiable samples.",
+    "cited": [
+     "S10"
+    ],
+    "quote": "In addition, we implemented uncertainty estimation in DNN using Monte Carlo dropouts for further eliminating any samples that should be labelled as unknown.",
+    "support": "supported"
+   },
+   {
+    "claim": "Uncertainty quantification (UQ) can provide confidence scores that support selective classification by flagging or discarding uncertain samples.",
+    "cited": [
+     "S9"
+    ],
+    "quote": "UQ can support model calibration [15] and enable selective classification [16], where uncertain samples are flagged or discarded, leading to safer and more robust decision-making.",
+    "support": "supported"
+   },
+   {
+    "claim": "The reported limitations include inherent label noise, particularly for the Unknown class, which can affect training and evaluation reliability.",
+    "cited": [
+     "S7"
+    ],
+    "quote": "Moreover, the dataset annotations inherently contain label noise, particularly for the Unknown class, which may affect both training and evaluation reliability.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_9316be543115": {
+  "row": "g:rohr2024_mil_explainability:016|single_shot",
+  "claims": [
+   {
+    "claim": "Recordings are first segmented into heart phases and verified against reference segmentations from the dataset.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "In a second evaluation, we use the CirCor dataset and segment all PCG recordings into the heart phases. To verify the results, we also use reference segmentation from the dataset itself.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_956f46079452": {
+  "row": "g:reyna2023_physionet_challenge:020|single_shot",
+  "claims": [
+   {
+    "claim": "For the George B. Moody PhysioNet Challenge 2022, participants were required to submit the complete code for their algorithms, including their preprocessing, training, and inference steps",
+    "cited": [
+     "S2",
+     "S7"
+    ],
+    "quote": "For the Challenge, we required the participants to submit the complete code for their algorithms, improving the transparency, reproducibility, and utility of their work. [...] For both phases of the Challenge, we required the teams to submit the complete code for their algorithms, including their preprocessing, training, and inference steps.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_a1c8ebd190e6": {
+  "row": "g:althaph2025_ehst:016|agent",
+  "claims": [
+   {
+    "claim": "The Heart Sounds Shenzhen (HSS) dataset classifies valvular heart disease into normal, mild, moderate, or severe categories.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3",
+     "S5"
+    ],
+    "quote": "Heart Sounds Shenzhen (HSS) Normal, Mild, Severe 845 4 kHz (Electronic) Centered on valvular disease severity",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_a226d993fe58": {
+  "row": "g:noponen2007_pediatric_murmur:017|single_shot",
+  "claims": [
+   {
+    "claim": "A simple duration-and-frequency rule on phonocardiograms can differentiate innocent from pathological heart murmurs in children with high accuracy.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "Using simple quantitative criterias a level of pediatric cardiologist is easily achieved in screening heart murmurs in children.",
+    "support": "supported"
+   },
+   {
+    "claim": "Using a combined criterion—specifically, if a systolic murmur contains intensive frequency components exceeding 200 Hz or has a relative duration accounting for over 80% of the entire systolic duration—the screening achieved 90% specificity and 91% sensitivity.",
+    "cited": [
+     "S1",
+     "S7"
+    ],
+    "quote": "If the systolic murmur contained intensive frequency components of over 200 Hz, or its length accounted for over 80 % of the whole systolic duration, it was considered pathological. Using these criteria, 90 % specificity and 91 % sensitivity in screening were achieved.",
+    "support": "supported"
+   },
+   {
+    "claim": "When using individual criteria, a relative duration cut-off of 65% achieved 76% sensitivity and 84% specificity.",
+    "cited": [
+     "S13"
+    ],
+    "quote": "Sensitivity of 76 % and specificity of 84 % were achieved using a cut-off value of 65 % for the relative duration of systolic murmur to differentiate between pathological and physiological murmurs",
+    "support": "supported"
+   },
+   {
+    "claim": "When using individual criteria, a high-frequency limit cut-off of 190 Hz achieved 88% sensitivity and 88% specificity.",
+    "cited": [
+     "S13"
+    ],
+    "quote": "When the frequency of 190 Hz for the high frequency limit was used as a classification criterion, both sensitivity and specificity increased to 88%",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_a398eccb337b": {
+  "row": "g:noponen2007_pediatric_murmur:019|agent",
+  "claims": [
+   {
+    "claim": "Calculating the volume of a murmur as a percentage of the mean volumes of S1 and S2 can be misleading",
+    "cited": [
+     "S4"
+    ],
+    "quote": "volume of murmur was calculated as a percentage of the volume of murmur compared to the mean volumes of S1 and S2. This may be misleading, as we can see in case 4.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_a682d43d7d45": {
+  "row": "g:desimone2025_uncertainty_edge:018|single_shot",
+  "claims": [
+   {
+    "claim": "In the edge-deployable murmur detector, predictions with low confidence scores (uncertain segments) are subjected to selective classification, which involves pruning or removing them.",
+    "cited": [
+     "S2",
+     "S3"
+    ],
+    "quote": "Incorporating uncertaintybased selective classification further improved sensitivity by 3%, enhancing robustness and clinical reliability. ... Retaining only the segments with confident predictions resulted in performance enhancement, specifically in terms of the model Sensitivity. ... This resulted in removing approximately 20% of the segments on the test set.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   0.8388157894736842
+  ],
+  "verdict": "partly",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_aea2326e0ac0": {
+  "row": "own:svqmmp8yvn19i2vmf63h|agent",
+  "claims": [
+   {
+    "claim": "Zhang et al. (2024) use Monte Carlo Dropout for murmur uncertainty.",
+    "cited": [
+     "S2"
+    ],
+    "quote": "When the uncertainty of the model is obtained by Monte Carlo Dropout, the dropout layer is turned on during inference and the forward propagation process is performed N times for the same input.",
+    "support": "supported"
+   },
+   {
+    "claim": "Zhang et al. (2024) measure uncertainty using Shannon entropy.",
+    "cited": [
+     "S2"
+    ],
+    "quote": "The uncertainty of the model is measured using the following Shannon entropy: H(p) = − ∑ pK logpK , (2) k=1 where K is the number of categories.",
+    "support": "supported"
+   },
+   {
+    "claim": "Bondareva et al. (2022) use Monte Carlo Dropout (preserving dropout for testing).",
+    "cited": [
+     "S3"
+    ],
+    "quote": "Preserving dropout for testing, a number of predictions was obtained on the samples from the test set, and the deviation of the predictions was considered as model uncertainty.",
+    "support": "supported"
+   },
+   {
+    "claim": "Bondareva et al. (2022) measure uncertainty using the deviation (standard deviation) of the predictions.",
+    "cited": [
+     "S3"
+    ],
+    "quote": "the deviation of the predictions was considered as model uncertainty.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_b4713a73bd17": {
+  "row": "own:lmslt4jjbqrpkpsja6zu|single_shot",
+  "claims": [
+   {
+    "claim": "Published methods aggregate multiple phonocardiogram recordings or segments from the same patient through hierarchical rules.",
+    "cited": [
+     "S1",
+     "S2",
+     "S8"
+    ],
+    "quote": "",
+    "support": "supported"
+   },
+   {
+    "claim": "Segment-level predictions are first aggregated to recording-level or location-level predictions.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3",
+     "S8"
+    ],
+    "quote": "To determine the prediction for each patient, we need to first aggregate segment-level predictions to produce recording-level predictions.",
+    "support": "supported"
+   },
+   {
+    "claim": "Aggregation to recording/location level is often done by averaging probabilities, using majority voting, or applying a Voter block based on a threshold.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3",
+     "S8"
+    ],
+    "quote": "the average of the segments’ probabilities for each class is calculated and the class with the highest probability determines the recording’s prediction.",
+    "support": "supported"
+   },
+   {
+    "claim": "Recording- or location-level results are combined using priority-based rules where the presence of a murmur across any recording or location takes highest priority, followed by an unknown/unclear label, and finally an absent label.",
+    "cited": [
+     "S1",
+     "S2",
+     "S8"
+    ],
+    "quote": "Assign present if at least one recording was classified as present. Assign unknown if none of the recordings was classified as present, and at least one recording was classified as unknown. Assign absent if all recordings were classified as absent.",
+    "support": "supported"
+   },
+   {
+    "claim": "The provided passages describe these aggregation pathways and evaluate the final system performance using metrics such as weighted accuracy, recall, and F1-score at the patient level.",
+    "cited": [
+     "S1",
+     "S2",
+     "S3",
+     "S9",
+     "S13"
+    ],
+    "quote": "We use three metrics to report the performance of the models: (1) Recall which is used to measure the models’ performance across each class.",
+    "support": "supported"
+   },
+   {
+    "claim": "The provided passages do not explicitly detail an evaluation of the specific effect of the aggregation step itself.",
+    "cited": [],
+    "quote": "",
+    "support": "unsupported"
+   }
+  ],
+  "quote_found": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0
+  ],
+  "verdict": "partly",
+  "verdict_no_quote_check": "partly"
+ },
+ "a_c0b50ee5bafa": {
+  "row": "own:33g1eby4skql5fhrq3j9|agent",
+  "claims": [
+   {
+    "claim": "Individual passages discuss signal quality.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "Therefore, assessing the recording quality is essential to ensure the robustness, reliability and clinical interpretability of the models for screening of CVDs.",
+    "support": "supported"
+   },
+   {
+    "claim": "Individual passages discuss explainability.",
+    "cited": [
+     "S2"
+    ],
+    "quote": "Recent publications show first results of the application of explainable methods to PCG classification employing SHAP [9] or Attention mechanisms [10].",
+    "support": "supported"
+   },
+   {
+    "claim": "Individual passages discuss uncertainty estimation.",
+    "cited": [
+     "S4"
+    ],
+    "quote": "Moreover, the introduction of techniques such as Monte Carlo methods and temperature scaling further enhanced the model’s reliability, yielding more reliable predictions in uncertainty assessment and calibration.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_c4376aeb994f": {
+  "row": "g:reyna2023_physionet_challenge:011|single_shot",
+  "claims": [
+   {
+    "claim": "For the CirCor DigiScope dataset used in the PhysioNet Challenge 2022, the murmur annotations and their characteristics (location, timing, shape, pitch, quality, and grade) were manually identified by a single cardiac physiologist.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The murmur annotations and characteristics (location, timing, shape, pitch, quality, and grade) were manually identified by a single cardiac physiologist",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_c53db49aacb1": {
+  "row": "g:balanya2024_adaptive_temp_scaling:039|single_shot",
+  "claims": [
+   {
+    "claim": "In low-data or data-scarce settings, the performance of HnLTS is greatly impacted and it fails.",
+    "cited": [
+     "S2",
+     "S5"
+    ],
+    "quote": "Interestingly, HnLTS fails in low-data scenarios, even though it could, in theory, recover the HTS solution by zeroing the wL parameter.",
+    "support": "supported"
+   },
+   {
+    "claim": "HnLTS could theoretically recover the HTS solution by zeroing the linear parameter.",
+    "cited": [
+     "S2",
+     "S5"
+    ],
+    "quote": "Interestingly, HnLTS fails in low-data scenarios, even though it could, in theory, recover the HTS solution by zeroing the wL parameter.",
+    "support": "supported"
+   },
+   {
+    "claim": "The increased expressiveness and complexity of HnLTS make the model more difficult to train and can cause more harm than good by complicating the training objective under data scarcity.",
+    "cited": [
+     "S3",
+     "S5"
+    ],
+    "quote": "This suggests that increasing expressiveness can do more harm than good by complicating the training objective.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_ccac28219be2": {
+  "row": "g:jobayer2024_funnelnet:021|agent",
+  "claims": [
+   {
+    "claim": "The activation function utilized in the squeeze network component of FunnelNet is 'tanh'.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The activation function utilized in these layers is ‘tanh’ due to its [−1, 1] output range",
+    "support": "supported"
+   },
+   {
+    "claim": "The kernel size in both layers of the squeeze network component is 2 × 2.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "In both layers, a kernel size of 2 × 2 is used.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_e0f76f3b487f": {
+  "row": "g:khan2020_time_freq_features:021|single_shot",
+  "claims": [
+   {
+    "claim": "The standard method for splitting and segmenting heart sounds into states such as S1, systole, S2, and diastole is a logistic hidden semi-Markov model (logistic-HSMM).",
+    "cited": [
+     "S14"
+    ],
+    "quote": "Similarly, Springer (David B. Springer et al, 2015) used logistic-HSMM for segmentation.",
+    "support": "overstated"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "partly",
+  "verdict_no_quote_check": "partly"
+ },
+ "a_e9aaa3fe779c": {
+  "row": "g:zhang2024_parallel_attentive_uq:008|agent",
+  "claims": [
+   {
+    "claim": "When Monte Carlo Dropout is applied, the dropout layer is turned on during inference",
+    "cited": [
+     "S1"
+    ],
+    "quote": "When the uncertainty of the model is obtained by Monte Carlo Dropout, the dropout layer is turned on during inference",
+    "support": "supported"
+   },
+   {
+    "claim": "the model performs forward propagation N times for the same input to obtain prediction probabilities",
+    "cited": [
+     "S1"
+    ],
+    "quote": "the forward propagation process is performed N times for the same input.",
+    "support": "supported"
+   },
+   {
+    "claim": "The uncertainty of the model is then measured using Shannon entropy, formulated as H(p) = -sum_{k=1}^{K} p_k log p_k, where K is the number of categories",
+    "cited": [
+     "S1"
+    ],
+    "quote": "The uncertainty of the model is measured using the following Shannon entropy: H(p) = − K X pK logpK , (2) k=1 where K is the number of categories.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_ec3f6879bcfd": {
+  "row": "g:ismail2018_pcg_review:006|single_shot",
+  "claims": [
+   {
+    "claim": "Automated heart-sound analysis presents unique challenges due to complex temporal structures, physiological variability, and the need for high clinical diagnostic accuracy.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "Automated classification of heart sounds presents unique challenges due to their complex temporal structure, physiological variability, and the necessity for high diagnostic accuracy in clinical settings.",
+    "support": "supported"
+   },
+   {
+    "claim": "Main sub-problems and challenges include dealing with variability in signal quality and noise from equipment and environment.",
+    "cited": [
+     "S1"
+    ],
+    "quote": "Variability in signal quality poses a significant barrier; the quality of PCG recordings can differ considerably due to recording equipment and environmental conditions, resulting in inconsistent and noisy signals that complicate analysis [7].",
+    "support": "supported"
+   },
+   {
+    "claim": "Performing accurate heart sound segmentation (such as locating cardiac cycles and S1/S2 markers) is a main sub-problem.",
+    "cited": [
+     "S8",
+     "S10"
+    ],
+    "quote": "The PCG segmentation for locating each cardiac cycle is crucial for an accurate anomaly detection.",
+    "support": "supported"
+   },
+   {
+    "claim": "Identifying and classifying complex pathologies and murmurs is a main sub-problem.",
+    "cited": [
+     "S1",
+     "S11",
+     "S14"
+    ],
+    "quote": "Identifying pathological heart sounds, particularly murmurs, remains a challenging task, even for experienced clinicians, with accuracy rates varying based on their expertise [1].",
+    "support": "supported"
+   },
+   {
+    "claim": "Handling interpatient variability is a main sub-problem.",
+    "cited": [
+     "S8"
+    ],
+    "quote": "This approach does not, however, consider the interpatient variability as segments from the same patient are present in the train and test set.",
+    "support": "supported"
+   },
+   {
+    "claim": "Addressing the lack of large, high-quality annotated datasets is a main sub-problem.",
+    "cited": [
+     "S3",
+     "S14"
+    ],
+    "quote": "The main difficulty in achieving deep learning’s potential in healthcare is a clear lack of high-quality large datasets.",
+    "support": "supported"
+   },
+   {
+    "claim": "Overcoming the \"black-box\" nature of deep learning models to ensure clinical interpretability is a main sub-problem.",
+    "cited": [
+     "S2",
+     "S12"
+    ],
+    "quote": "Most existing methods have poor interpretability, making clinical application difficult. This is because current AI-assisted cardiac sound diagnosis methods typically rely on ’black-box' models such as deep learning, which require a large amount of high-dimensional data for effective training.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ },
+ "a_fe68a3ef485d": {
+  "row": "g:niizumi2024_m2d_murmur:013|single_shot",
+  "claims": [
+   {
+    "claim": "Combining a convolutional neural network model (specifically CNN14) with an M2D model for cardiac sound detection can improve the detection of unknown classes.",
+    "cited": [
+     "S1",
+     "S2"
+    ],
+    "quote": "The CNN14+M2D and BYOL-A+M2D results show that they can improve the Unkown detection performance, although the overall performance is slightly degraded.",
+    "support": "supported"
+   }
+  ],
+  "quote_found": [
+   1.0
+  ],
+  "verdict": "supported",
+  "verdict_no_quote_check": "supported"
+ }
+}

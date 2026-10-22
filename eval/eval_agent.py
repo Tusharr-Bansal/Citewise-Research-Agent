@@ -6,6 +6,7 @@ and two LLM-judge verdicts (judge = a different, stronger model than the answere
   faithfulness  (all questions) is every claim backed by the passage it cites?
 
 Usage:  python eval/eval_agent.py  -> eval/results/agent_eval.json + printed summary
+        python eval/eval_agent.py --systems single_shot --out agent_eval_v4_fast.json   (one system, own file)
 """
 
 from __future__ import annotations
@@ -104,7 +105,9 @@ def main() -> None:
     papers = {r[0]: f"{r[1]} ({r[2]})" for r in agent.retriever.conn.execute(
         "SELECT id, authors, year FROM papers WHERE project_id = %s", (DEMO_PROJECT_ID,))}
 
-    out_path = HERE / "results" / "agent_eval.json"
+    args = sys.argv[1:]
+    systems = tuple(args[args.index("--systems") + 1].split(",")) if "--systems" in args else ("single_shot", "agent")
+    out_path = HERE / "results" / (args[args.index("--out") + 1] if "--out" in args else "agent_eval.json")
     rows = json.loads(out_path.read_text()) if out_path.exists() else {}
     save = lambda: out_path.write_text(json.dumps(rows, indent=1, ensure_ascii=False))  # noqa: E731
     questions = [("single", q) for q in single] + [("synthesis", q) for q in synth]
@@ -115,7 +118,7 @@ def main() -> None:
     # the next run (after the quota resets) picks up where this one stopped.
     quota_hit = False
     for i, (kind, q) in enumerate(questions, 1):
-        for system in ("single_shot", "agent"):
+        for system in systems:
             key = f"{q['id']}|{system}"
             if key in rows or quota_hit:
                 continue
@@ -163,7 +166,7 @@ def main() -> None:
             failed += 1
             print(f"[judge] {key[:60]} FAILED ({type(e).__name__}); will retry on next run", flush=True)
     print(f"\njudge failures this run: {failed}")
-    print(f"answered {len(rows)}/{2 * len(questions)} question-system pairs")
+    print(f"answered {len(rows)}/{len(systems) * len(questions)} question-system pairs")
     summarize({k: r for k, r in rows.items() if "faithfulness" in r and (r["kind"] != "single" or "correctness" in r)})
 
 
@@ -174,6 +177,8 @@ def summarize(rows: dict) -> None:
     print()
     for system in ("single_shot", "agent"):
         R = [r for r in rows.values() if r["system"] == system]
+        if not R:
+            continue
         S = [r for r in R if r["kind"] == "single"]
         corr = [r["correctness"]["verdict"] for r in S]
         faith = [r["faithfulness"]["verdict"] for r in R]
