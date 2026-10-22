@@ -1,184 +1,205 @@
 [
-  {
-    "key": "jain2025_mysteth",
-    "title": "MYSTETH—home-based heart monitoring",
-    "authors": "Jain et al.",
-    "year": 2025,
-    "url": "https://doi.org/10.3389/fdgth.2025.1616334"
-  },
-  {
-    "key": "xu2024_multitask_grading",
-    "title": "Cardiac murmur grading and risk analysis of cardiac diseases based on adaptable heterogeneous-modality multi-task learning",
-    "authors": "Xu et al.",
-    "year": 2024,
-    "url": "https://doi.org/10.1007/s13755-023-00249-4"
-  },
-  {
-    "key": "despotovic2025_cardiophon",
-    "title": "CardioPHON: Quality assessment and self-supervised pretraining for screening of cardiac function based on phonocardiogram recordings",
-    "authors": "Despotovic et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2511.04533"
-  },
-  {
-    "key": "rohr2024_mil_explainability",
-    "title": "Multiple instance learning framework can facilitate explainability in murmur detection",
-    "authors": "Rohr et al.",
-    "year": 2024,
-    "url": "https://doi.org/10.1371/journal.pdig.0000461"
-  },
-  {
-    "key": "althaph2025_ehst",
-    "title": "Explainable attention-based deep learning for classification and interpretation of heart murmurs using phonocardiograms",
-    "authors": "Althaph & Challa",
-    "year": 2025,
-    "url": "https://doi.org/10.1038/s41598-025-21971-x"
-  },
-  {
-    "key": "panah2023_wav2vec2",
-    "title": "Exploring wav2vec 2.0 model for heart murmur detection",
-    "authors": "Panah et al.",
-    "year": 2023,
-    "url": "https://eurasip.org/Proceedings/Eusipco/Eusipco2023/pdfs/0001010.pdf"
-  },
-  {
-    "key": "desimone2025_uncertainty_edge",
-    "title": "Optimizing Uncertainty-Aware Deep Learning for On-the-Edge Murmur Detection in Low-Resource Settings",
-    "authors": "De Simone et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2511.00966"
-  },
-  {
-    "key": "golnari2025_qivcnet",
-    "title": "QiVC-Net: Quantum-Inspired Variational Convolutional Network, with Application to Biosignal Classification",
-    "authors": "Golnari et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2511.05730"
-  },
-  {
-    "key": "niizumi2024_m2d_murmur",
-    "title": "Exploring Pre-trained General-purpose Audio Representations for Heart Murmur Detection",
-    "authors": "Niizumi et al.",
-    "year": 2024,
-    "url": "https://arxiv.org/abs/2404.17107"
-  },
-  {
-    "key": "muna2025_ss_dppn",
-    "title": "SS-DPPN: A self-supervised dual-path foundation model for the generalizable cardiac audio representation",
-    "authors": "Muna et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2510.10719"
-  },
-  {
-    "key": "zhang2024_parallel_attentive_uq",
-    "title": "Intelligent Cardiac Auscultation for Murmur Detection via Parallel-Attentive Models with Uncertainty Estimation",
-    "authors": "Zhang et al.",
-    "year": 2024,
-    "url": "https://arxiv.org/abs/2405.03953"
-  },
-  {
-    "key": "bondareva2022_tandem_uq",
-    "title": "Towards Uncertainty-Aware Murmur Detection in Heart Sounds via Tandem Learning",
-    "authors": "Bondareva et al.",
-    "year": 2022,
-    "url": "https://doi.org/10.22489/CinC.2022.234"
-  },
-  {
-    "key": "reyna2023_physionet_challenge",
-    "title": "Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022",
-    "authors": "Reyna et al.",
-    "year": 2023,
-    "url": "https://doi.org/10.1371/journal.pdig.0000324"
-  },
-  {
-    "key": "guo2017_calibration",
-    "title": "On Calibration of Modern Neural Networks",
-    "authors": "Guo et al.",
-    "year": 2017,
-    "url": "https://arxiv.org/abs/1706.04599"
-  },
-  {
-    "key": "balanya2024_adaptive_temp_scaling",
-    "title": "Adaptive Temperature Scaling for Robust Calibration of Deep Neural Networks",
-    "authors": "Balanya et al.",
-    "year": 2024,
-    "url": "https://doi.org/10.1007/s00521-024-09505-4"
-  },
-  {
-    "key": "mehrtash2020_calibration_segmentation",
-    "title": "Confidence Calibration and Predictive Uncertainty Estimation for Deep Medical Image Segmentation",
-    "authors": "Mehrtash et al.",
-    "year": 2020,
-    "url": "https://doi.org/10.1109/TMI.2020.3006437"
-  },
-  {
-    "key": "ismail2018_pcg_review",
-    "title": "Localization and classification of heart beats in phonocardiography signals—a comprehensive review",
-    "authors": "Ismail et al.",
-    "year": 2018,
-    "url": "https://doi.org/10.1186/s13634-018-0545-9"
-  },
-  {
-    "key": "taipalmaa2018_cycle_segmentation",
-    "title": "Feature-Based Cardiac Cycle Segmentation in Phonocardiogram Recordings",
-    "authors": "Taipalmaa et al.",
-    "year": 2018,
-    "url": "https://doi.org/10.22489/CinC.2018.222"
-  },
-  {
-    "key": "noponen2007_pediatric_murmur",
-    "title": "Phono-spectrographic analysis of heart murmur in children",
-    "authors": "Noponen et al.",
-    "year": 2007,
-    "url": "https://doi.org/10.1186/1471-2431-7-23"
-  },
-  {
-    "key": "jobayer2024_funnelnet",
-    "title": "FunnelNet: An End-to-End Deep Learning Framework to Monitor Digital Heart Murmur in Real-Time",
-    "authors": "Jobayer et al.",
-    "year": 2024,
-    "url": "https://arxiv.org/abs/2405.09570"
-  },
-  {
-    "key": "festag2022_outcome_ensemble",
-    "title": "Outcome Prediction and Murmur Detection in Sets of Phonocardiograms by a Deep Learning-Based Ensemble Approach",
-    "authors": "Festag et al.",
-    "year": 2022,
-    "url": "https://doi.org/10.22489/CinC.2022.137"
-  },
-  {
-    "key": "khan2020_time_freq_features",
-    "title": "Automatic heart sound classification from segmented/unsegmented phonocardiogram signals using time and frequency features",
-    "authors": "Khan et al.",
-    "year": 2020,
-    "url": "https://doi.org/10.1088/1361-6579/ab8770"
-  },
-  {
-    "key": "pedrosa2014_pediatric_segmentation",
-    "title": "Automatic Heart Sound Segmentation and Murmur Detection in Pediatric Phonocardiograms",
-    "authors": "Pedrosa et al.",
-    "year": 2014,
-    "url": "https://doi.org/10.1109/EMBC.2014.6944078"
-  },
-  {
-    "key": "feng2026_childvox",
-    "title": "ChildVox: A Speech, Audio, and Large Audio-Language Model Benchmark in Understanding and Characterizing Sound across Childhood",
-    "authors": "Feng et al.",
-    "year": 2026,
-    "url": "https://arxiv.org/abs/2605.29257"
-  },
-  {
-    "key": "niizumi2025_foundation_models",
-    "title": "Assessing the Utility of Audio Foundation Models for Heart and Respiratory Sound Analysis",
-    "authors": "Niizumi et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2504.18004"
-  },
-  {
-    "key": "sondermann2025_cycle_normalization",
-    "title": "Comparative Analysis of CNN and Transformer Architectures with Heart Cycle Normalization for Automated Phonocardiogram Classification",
-    "authors": "Sondermann et al.",
-    "year": 2025,
-    "url": "https://arxiv.org/abs/2507.07058"
-  }
+ {
+  "key": "jain2025_mysteth",
+  "title": "MYSTETH—home-based heart monitoring",
+  "authors": "Jain et al.",
+  "year": 2025,
+  "url": "https://doi.org/10.3389/fdgth.2025.1616334"
+ },
+ {
+  "key": "xu2024_multitask_grading",
+  "title": "Cardiac murmur grading and risk analysis of cardiac diseases based on adaptable heterogeneous-modality multi-task learning",
+  "authors": "Xu et al.",
+  "year": 2024,
+  "url": "https://doi.org/10.1007/s13755-023-00249-4"
+ },
+ {
+  "key": "despotovic2025_cardiophon",
+  "title": "CardioPHON: Quality assessment and self-supervised pretraining for screening of cardiac function based on phonocardiogram recordings",
+  "authors": "Despotovic et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2511.04533"
+ },
+ {
+  "key": "rohr2024_mil_explainability",
+  "title": "Multiple instance learning framework can facilitate explainability in murmur detection",
+  "authors": "Rohr et al.",
+  "year": 2024,
+  "url": "https://doi.org/10.1371/journal.pdig.0000461"
+ },
+ {
+  "key": "althaph2025_ehst",
+  "title": "Explainable attention-based deep learning for classification and interpretation of heart murmurs using phonocardiograms",
+  "authors": "Althaph & Challa",
+  "year": 2025,
+  "url": "https://doi.org/10.1038/s41598-025-21971-x"
+ },
+ {
+  "key": "panah2023_wav2vec2",
+  "title": "Exploring wav2vec 2.0 model for heart murmur detection",
+  "authors": "Panah et al.",
+  "year": 2023,
+  "url": "https://eurasip.org/Proceedings/Eusipco/Eusipco2023/pdfs/0001010.pdf"
+ },
+ {
+  "key": "desimone2025_uncertainty_edge",
+  "title": "Optimizing Uncertainty-Aware Deep Learning for On-the-Edge Murmur Detection in Low-Resource Settings",
+  "authors": "De Simone et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2511.00966"
+ },
+ {
+  "key": "golnari2025_qivcnet",
+  "title": "QiVC-Net: Quantum-Inspired Variational Convolutional Network, with Application to Biosignal Classification",
+  "authors": "Golnari et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2511.05730"
+ },
+ {
+  "key": "niizumi2024_m2d_murmur",
+  "title": "Exploring Pre-trained General-purpose Audio Representations for Heart Murmur Detection",
+  "authors": "Niizumi et al.",
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2404.17107"
+ },
+ {
+  "key": "muna2025_ss_dppn",
+  "title": "SS-DPPN: A self-supervised dual-path foundation model for the generalizable cardiac audio representation",
+  "authors": "Muna et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2510.10719"
+ },
+ {
+  "key": "zhang2024_parallel_attentive_uq",
+  "title": "Intelligent Cardiac Auscultation for Murmur Detection via Parallel-Attentive Models with Uncertainty Estimation",
+  "authors": "Zhang et al.",
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2405.03953"
+ },
+ {
+  "key": "bondareva2022_tandem_uq",
+  "title": "Towards Uncertainty-Aware Murmur Detection in Heart Sounds via Tandem Learning",
+  "authors": "Bondareva et al.",
+  "year": 2022,
+  "url": "https://doi.org/10.22489/CinC.2022.234"
+ },
+ {
+  "key": "reyna2023_physionet_challenge",
+  "title": "Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022",
+  "authors": "Reyna et al.",
+  "year": 2023,
+  "url": "https://doi.org/10.1371/journal.pdig.0000324"
+ },
+ {
+  "key": "guo2017_calibration",
+  "title": "On Calibration of Modern Neural Networks",
+  "authors": "Guo et al.",
+  "year": 2017,
+  "url": "https://arxiv.org/abs/1706.04599"
+ },
+ {
+  "key": "balanya2024_adaptive_temp_scaling",
+  "title": "Adaptive Temperature Scaling for Robust Calibration of Deep Neural Networks",
+  "authors": "Balanya et al.",
+  "year": 2024,
+  "url": "https://doi.org/10.1007/s00521-024-09505-4"
+ },
+ {
+  "key": "mehrtash2020_calibration_segmentation",
+  "title": "Confidence Calibration and Predictive Uncertainty Estimation for Deep Medical Image Segmentation",
+  "authors": "Mehrtash et al.",
+  "year": 2020,
+  "url": "https://doi.org/10.1109/TMI.2020.3006437"
+ },
+ {
+  "key": "ismail2018_pcg_review",
+  "title": "Localization and classification of heart beats in phonocardiography signals—a comprehensive review",
+  "authors": "Ismail et al.",
+  "year": 2018,
+  "url": "https://doi.org/10.1186/s13634-018-0545-9"
+ },
+ {
+  "key": "taipalmaa2018_cycle_segmentation",
+  "title": "Feature-Based Cardiac Cycle Segmentation in Phonocardiogram Recordings",
+  "authors": "Taipalmaa et al.",
+  "year": 2018,
+  "url": "https://doi.org/10.22489/CinC.2018.222"
+ },
+ {
+  "key": "noponen2007_pediatric_murmur",
+  "title": "Phono-spectrographic analysis of heart murmur in children",
+  "authors": "Noponen et al.",
+  "year": 2007,
+  "url": "https://doi.org/10.1186/1471-2431-7-23"
+ },
+ {
+  "key": "jobayer2024_funnelnet",
+  "title": "FunnelNet: An End-to-End Deep Learning Framework to Monitor Digital Heart Murmur in Real-Time",
+  "authors": "Jobayer et al.",
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2405.09570"
+ },
+ {
+  "key": "festag2022_outcome_ensemble",
+  "title": "Outcome Prediction and Murmur Detection in Sets of Phonocardiograms by a Deep Learning-Based Ensemble Approach",
+  "authors": "Festag et al.",
+  "year": 2022,
+  "url": "https://doi.org/10.22489/CinC.2022.137"
+ },
+ {
+  "key": "khan2020_time_freq_features",
+  "title": "Automatic heart sound classification from segmented/unsegmented phonocardiogram signals using time and frequency features",
+  "authors": "Khan et al.",
+  "year": 2020,
+  "url": "https://doi.org/10.1088/1361-6579/ab8770"
+ },
+ {
+  "key": "pedrosa2014_pediatric_segmentation",
+  "title": "Automatic Heart Sound Segmentation and Murmur Detection in Pediatric Phonocardiograms",
+  "authors": "Pedrosa et al.",
+  "year": 2014,
+  "url": "https://doi.org/10.1109/EMBC.2014.6944078"
+ },
+ {
+  "key": "feng2026_childvox",
+  "title": "ChildVox: A Speech, Audio, and Large Audio-Language Model Benchmark in Understanding and Characterizing Sound across Childhood",
+  "authors": "Feng et al.",
+  "year": 2026,
+  "url": "https://arxiv.org/abs/2605.29257"
+ },
+ {
+  "key": "niizumi2025_foundation_models",
+  "title": "Assessing the Utility of Audio Foundation Models for Heart and Respiratory Sound Analysis",
+  "authors": "Niizumi et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2504.18004"
+ },
+ {
+  "key": "sondermann2025_cycle_normalization",
+  "title": "Comparative Analysis of CNN and Transformer Architectures with Heart Cycle Normalization for Automated Phonocardiogram Classification",
+  "authors": "Sondermann et al.",
+  "year": 2025,
+  "url": "https://arxiv.org/abs/2507.07058"
+ },
+ {
+  "key": "wu2024_murmur_quality",
+  "title": "Heart Murmur Quality Detection Using Deep Neural Networks with Attention Mechanism",
+  "authors": "Wu et al.",
+  "year": 2024,
+  "url": "https://doi.org/10.3390/app14156825"
+ },
+ {
+  "key": "alotaibi2025_whisper",
+  "title": "Classification of heart sound signals with Whisper model",
+  "authors": "Alotaibi et al.",
+  "year": 2025,
+  "url": "https://doi.org/10.1080/09540091.2025.2449943"
+ },
+ {
+  "key": "rodrigues2026_poor_quality",
+  "title": "Automated Detection of Poor-Quality Digital Heart Sounds via Noise Augmentation",
+  "authors": "Rodrigues et al.",
+  "year": 2026,
+  "url": "https://ssrn.com/abstract=6749564"
+ }
 ]
