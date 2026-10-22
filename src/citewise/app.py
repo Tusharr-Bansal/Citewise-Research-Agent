@@ -5,7 +5,9 @@ Run locally:  uvicorn citewise.app:app --port 7860
 
 from __future__ import annotations
 
+import ipaddress
 import json
+import logging
 import os
 import queue
 import re
@@ -15,6 +17,7 @@ import threading
 import time
 from collections import defaultdict, deque
 from pathlib import Path
+from typing import Literal
 
 from fastapi import FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
@@ -37,13 +40,42 @@ PROJECT_TTL_DAYS = int(os.environ.get("CITEWISE_PROJECT_TTL_DAYS", "7"))  # uplo
 CLEANUP_EVERY_S = 3600
 PER_IP_PER_MINUTE = int(os.environ.get("CITEWISE_PER_IP_PER_MINUTE", "5"))
 PER_IP_PER_DAY = int(os.environ.get("CITEWISE_PER_IP_PER_DAY", "30"))
-# The answer model's free tier allows 500 requests/day; a question takes ~3 (up to 6), and each upload 1.
-GLOBAL_PER_DAY = int(os.environ.get("CITEWISE_GLOBAL_PER_DAY", "120"))   # protects the free-tier API quota
+# The answer model's free tier allows 500 requests/day. The budget is counted in LLM calls: a fast question
+# (single search) costs 1, a deep one (agent) is charged 3 (its median; up to 6). 400 leaves ~100 for upload
+# metadata and evaluation runs. See docs/decisions/0015 and 0019.
+GLOBAL_CALLS_PER_DAY = int(os.environ.get("CITEWISE_GLOBAL_CALLS_PER_DAY", "400"))
+CALLS_CHARGED = {"fast": 1, "deep": 3}
 PROJECTS_PER_IP_PER_DAY = 10
 UPLOADS_PER_IP_PER_DAY = 120
 _PROJECT_ID = re.compile(r"^[A-Za-z0-9_-]{6,64}$")
 
 app = FastAPI(title="Citewise", docs_url=None, redoc_url=None)
+
+
+class HideInternalHealthChecks(logging.Filter):
+    """Drop access-log lines for /api/ping that come from a private address.
+
+    Render's health checker calls /api/ping every few seconds from its internal network (10.x),
+    which buried every other log line. The external keep-alive (cron-job.org) reaches the app through
+    Render's proxy, so with --proxy-headers its client address is a public IP: those lines stay, and so
+    does every request to any other path.
+    """
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        try:  # uvicorn's access record: (client_addr, method, path, http_version, status_code)
+            client, _method, path = record.args[0], record.args[1], record.args[2]
+        except (TypeError, IndexError):
+            return True
+        if not str(path).startswith("/api/ping"):
+            return True
+        host = str(client).rsplit(":", 1)[0].strip("[]")
+        try:
+            return not ipaddress.ip_address(host).is_private
+        except ValueError:
+            return True  # unparseable address: keep the line rather than hide something unexpected
+
+
+logging.getLogger("uvicorn.access").addFilter(HideInternalHealthChecks())
 _state: dict = {}
 _answer_lock = threading.Lock()  # one agent run at a time: the free tier can't take parallel bursts
 
@@ -64,31 +96,49 @@ def state() -> dict:
 
 
 def load_demo_if_missing(conn) -> None:
-    """First start against an empty database: load the demo project from the bundled data dump."""
-    if conn.execute("SELECT 1 FROM projects WHERE id = %s", (DEMO_PROJECT_ID,)).fetchone():
-        return
+    """Load the demo project from the bundled data dump when it's missing or out of date.
+
+    The demo row stores the SHA-256 of the dump it came from (projects.data_version). Shipping a new
+    dump (e.g. more papers) therefore replaces the demo on the next start, with no version to bump by hand.
+    Delete and reload run in ONE transaction (psql --single-transaction), so a failure leaves the old demo.
+    """
     dump = DEMO_DUMP
     if not dump.exists():
         return
     import gzip
+    import hashlib
     import subprocess
-    sql = gzip.decompress(dump.read_bytes())
-    subprocess.run(["psql", db.config.DATABASE_URL, "-q", "-v", "ON_ERROR_STOP=1"], input=sql, check=True,
-                   stdout=subprocess.DEVNULL)
+    raw = dump.read_bytes()
+    version = hashlib.sha256(raw).hexdigest()[:16]
+    row = conn.execute("SELECT data_version FROM projects WHERE id = %s", (DEMO_PROJECT_ID,)).fetchone()
+    if row and row[0] == version:
+        return
+    print(f"[demo] {'loading' if not row else 'replacing'} demo project from {dump.name} ({version})", flush=True)
+    # public.* explicitly: pg_dump output empties search_path, so unqualified names fail after it
+    sql = (f"DELETE FROM public.projects WHERE id = '{DEMO_PROJECT_ID}';\n".encode() + gzip.decompress(raw)
+           + f"\nUPDATE public.projects SET data_version = '{version}', updated_at = now() "
+             f"WHERE id = '{DEMO_PROJECT_ID}';\n".encode())
+    subprocess.run(["psql", db.config.DATABASE_URL, "-q", "-v", "ON_ERROR_STOP=1", "--single-transaction"],
+                   input=sql, check=True, stdout=subprocess.DEVNULL)
 
 
 def _ingest_worker() -> None:
     """Processes uploads one at a time (embedding is CPU-bound; parallel jobs would just contend)."""
-    conn, llm = db.connect(), LLM()
+    llm = LLM()
     while True:
         project_id, paper_id, path, filename = _state["jobs"].get()
+        # A fresh connection per paper: a long-lived one would be dead after the database's idle suspend.
         try:
-            ingest_paper(conn, project_id, paper_id, path, filename, llm=llm)
-        except IngestError:
-            pass  # the paper row already carries the error message
-        except Exception:  # noqa: BLE001
-            conn.execute("UPDATE papers SET status = 'failed', error = 'Processing failed.' WHERE id = %s",
-                         (paper_id,))
+            with db.connect() as conn:
+                try:
+                    ingest_paper(conn, project_id, paper_id, path, filename, llm=llm)
+                except IngestError:
+                    pass  # the paper row already carries the error message
+                except Exception:  # noqa: BLE001
+                    conn.execute("UPDATE papers SET status = 'failed', error = 'Processing failed.' "
+                                 "WHERE id = %s", (paper_id,))
+        except Exception:  # noqa: BLE001  (e.g. the database unreachable); the worker must keep running
+            pass
         finally:
             path.unlink(missing_ok=True)  # the PDF itself isn't kept after processing
 
@@ -101,18 +151,19 @@ class RateLimiter:
         self.windows: dict[tuple, deque] = defaultdict(deque)
         self.lock = threading.Lock()
 
-    def take(self, rules: list[tuple[tuple, int, int, str]], count: int = 1) -> None:
-        """rules: (key, limit, window_seconds, message). All must allow `count` more; then all are charged."""
+    def take(self, rules: list[tuple], count: int = 1) -> None:
+        """rules: (key, limit, window_seconds, message[, units]). A rule's units default to `count`.
+        All-or-nothing: every rule must allow its units, and only then are all of them charged."""
         now = time.time()
         with self.lock:
-            for key, limit, span, msg in rules:
+            for key, limit, span, msg, *units in rules:
                 q = self.windows[key]
                 while q and now - q[0] > span:
                     q.popleft()
-                if len(q) + count > limit:
+                if len(q) + (units[0] if units else count) > limit:
                     raise HTTPException(status_code=429, detail=msg)
-            for key, *_ in rules:
-                self.windows[key].extend([now] * count)
+            for key, _limit, _span, _msg, *units in rules:
+                self.windows[key].extend([now] * (units[0] if units else count))
 
 
 limiter = RateLimiter()
@@ -304,6 +355,9 @@ def delete_paper(project_id: str, paper_id: str) -> dict:
 # --- questions --------------------------------------------------------------------
 class Ask(BaseModel):
     question: str = Field(min_length=3, max_length=MAX_QUESTION_CHARS)
+    # fast = one hybrid search (the default: as accurate as the agent on the evaluation, at 1/3 the cost);
+    # deep = the plan/search/check agent loop (docs/decisions/0019)
+    mode: Literal["fast", "deep"] = "fast"
 
 
 @app.post("/api/projects/{project_id}/ask")
@@ -312,13 +366,15 @@ def ask(project_id: str, body: Ask, request: Request) -> JSONResponse:
     question = " ".join(body.question.split())
     ip = client_ip(request)
     limiter.take([
-        (("ask-global",), GLOBAL_PER_DAY, 86400, "The demo has reached its daily question limit. Please try again tomorrow."),
+        (("ask-global",), GLOBAL_CALLS_PER_DAY, 86400, "The demo has reached its daily question limit. "
+         "Please try again tomorrow.", CALLS_CHARGED[body.mode]),          # charged in LLM calls
         (("ask-day", ip), PER_IP_PER_DAY, 86400, "You've reached today's question limit. Please try again tomorrow."),
         (("ask-min", ip), PER_IP_PER_MINUTE, 60, "Too many questions in a minute. Wait a moment and try again."),
     ])
     try:
         with _answer_lock:
-            r = state()["agent"].run(project_id, question)
+            agent = state()["agent"]
+            r = agent.run(project_id, question) if body.mode == "deep" else agent.single_shot(project_id, question)
     except DailyQuotaExhausted:
         raise HTTPException(status_code=429, detail="Today's free AI quota is used up. It resets at midnight "
                                                     "Pacific time; please try again after that.")
@@ -343,6 +399,7 @@ def ask(project_id: str, body: Ask, request: Request) -> JSONResponse:
             | ({"output": t["output"]} if t["step"] == "check" else {})
             for t in r.trace
         ],
+        "mode": body.mode,
         "stats": {"llm_calls": r.llm_calls, "input_tokens": r.input_tokens,
                   "output_tokens": r.output_tokens, "latency_s": r.latency_s},
     })

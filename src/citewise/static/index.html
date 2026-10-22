@@ -94,6 +94,8 @@ textarea { resize: vertical; }
 .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .spacer { flex: 1; }
 .hint { color: var(--muted); font-size: 13px; }
+.check { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--muted); cursor: pointer; }
+.check input { width: 16px; height: 16px; accent-color: var(--ink); margin: 0; }
 button { font: 600 14px var(--font-ui); cursor: pointer; }
 .primary { background: var(--ink); color: var(--bg); border: 1px solid var(--ink); border-radius: 3px; padding: 10px 18px; }
 .secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; padding: 10px 16px; }
@@ -234,7 +236,7 @@ footer { color: var(--muted); font-size: 13px; }
           <p style="margin:0 0 8px">Drop PDF files here, or</p>
           <button class="secondary" type="button" id="pick">Choose PDFs</button>
           <input type="file" id="file" accept="application/pdf,.pdf" multiple hidden>
-          <p class="hint" style="margin:8px 0 0">Text PDFs only (not scans), up to 25 MB each and 40 per project. Processing takes about 20–60 seconds per paper.</p>
+          <p class="hint" style="margin:8px 0 0">Text PDFs only (not scans), up to 25 MB each and 40 per project. Processing takes a few minutes per paper.</p>
         </div>
         <div class="status" id="upload-status" aria-live="polite"></div>
         <div class="upload-progress" id="upload-progress" hidden>
@@ -251,7 +253,9 @@ footer { color: var(--muted); font-size: 13px; }
       <form class="card" id="ask-form">
         <label class="f" for="q">Ask a question about these papers</label>
         <textarea id="q" rows="3" maxlength="500" placeholder="e.g. Which papers report calibration error, and how do they measure it?"></textarea>
-        <div class="row"><span class="hint" id="q-count">0 / 500</span><span class="spacer"></span><button class="primary" type="submit" id="ask-go">Ask</button></div>
+        <div class="row"><span class="hint" id="q-count">0 / 500</span><span class="spacer"></span>
+          <label class="check" title="Plans several searches, checks the evidence and searches again. Slower; not more accurate on our tests."><input type="checkbox" id="deep"> Deep search</label>
+          <button class="primary" type="submit" id="ask-go">Ask</button></div>
       </form>
       <div class="examples" id="examples"></div>
       <div class="status" id="ask-status" aria-live="polite"></div>
@@ -267,8 +271,8 @@ footer { color: var(--muted); font-size: 13px; }
         <p class="sec-h" style="margin-bottom:10px">Cited passages</p>
         <div class="sources" id="cited"></div>
       </section>
-      <details class="box" id="more-src"><summary>Other passages the agent read</summary><div class="sources" id="uncited" style="margin-top:10px"></div></details>
-      <details class="box"><summary>How the agent searched</summary><ol class="trace" id="trace"></ol></details>
+      <details class="box" id="more-src"><summary>Other passages it read</summary><div class="sources" id="uncited" style="margin-top:10px"></div></details>
+      <details class="box"><summary>How it searched</summary><ol class="trace" id="trace"></ol></details>
     </div>
 
     <details class="box" id="eval-box" hidden style="order:9">
@@ -601,9 +605,12 @@ footer { color: var(--muted); font-size: 13px; }
     if (busy || !current) return;
     if (question.length < 3) { $("ask-status").textContent = "Type a question first."; return; }
     busy = true; $("ask-go").disabled = true; $("ask-status").className = "status";
-    $("ask-status").textContent = "Searching the papers and checking the evidence. This usually takes 10–20 seconds…";
+    const mode = $("deep").checked ? "deep" : "fast";
+    $("ask-status").textContent = mode === "deep"
+      ? "Deep search: planning searches and checking the evidence. This usually takes 10–20 seconds…"
+      : "Searching the papers. This usually takes a few seconds…";
     try {
-      const r = await api(`projects/${encodeURIComponent(current.id)}/ask`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question }) });
+      const r = await api(`projects/${encodeURIComponent(current.id)}/ask`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question, mode }) });
       $("ask-status").textContent = ""; render(r);
     } catch (err) { $("ask-status").className = "status error"; $("ask-status").textContent = err.message; }
     finally { busy = false; $("ask-go").disabled = false; }

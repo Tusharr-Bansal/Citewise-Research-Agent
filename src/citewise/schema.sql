@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS projects (
     created_at  timestamptz NOT NULL DEFAULT now(),
     updated_at  timestamptz NOT NULL DEFAULT now() -- bumped when papers change; invalidates search caches
 );
+-- Checksum of the bundled demo dump the demo project was loaded from; a different file triggers a reload.
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS data_version text;
 
 CREATE TABLE IF NOT EXISTS papers (
     id          text PRIMARY KEY,                  -- citation key, e.g. guo2017_calibration

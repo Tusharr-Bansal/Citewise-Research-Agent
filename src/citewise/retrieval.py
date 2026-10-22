@@ -19,6 +19,8 @@ import threading
 from collections import Counter
 from dataclasses import dataclass, field
 
+import psycopg
+
 from . import db
 from .embeddings import embed_query
 
@@ -91,11 +93,28 @@ class _ProjectIndex:
 
 class Retriever:
     def __init__(self, use_query_prefix: bool = True, candidates: int = 50):
-        self.conn = db.connect()
+        self._conn = db.connect()
         self.use_query_prefix = use_query_prefix
         self.candidates = candidates  # depth of each list before fusion
         self._indexes: dict[str, _ProjectIndex] = {}
         self._lock = threading.Lock()
+
+    # --- connection --------------------------------------------------------------
+    @property
+    def conn(self) -> psycopg.Connection:
+        if self._conn.closed:
+            self._conn = db.connect()
+        return self._conn
+
+    def ensure_connection(self) -> None:
+        """Reconnect if the server has dropped the connection. Neon closes every connection when its
+        compute suspends after a few idle minutes, and a dropped connection only shows up on its next
+        query, so this costs one round trip per question."""
+        try:
+            self.conn.execute("SELECT 1")
+        except psycopg.OperationalError:
+            self._conn.close()
+            self._conn = db.connect()
 
     # --- per-project index (rebuilt only when the project's papers change) -------
     def index(self, project: str) -> _ProjectIndex:

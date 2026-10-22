@@ -90,6 +90,9 @@ Evidence passages:
 Answer the question using ONLY these passages.
 - Put a citation like [S3] after every sentence that states a fact, pointing to the passage(s) that support it.
 - If passages disagree, say so and cite both.
+- Keep the strength of what the passages say. Copy their hedges and quantifiers ("may", "likely", "some",
+  "primarily") instead of strengthening them, and do not add details (a number, scope, dataset, purpose)
+  that the cited passage does not state. Cite each passage only for what it actually says.
 - If the evidence does not answer the question, or only partly, say exactly what is missing. Do not guess.
 - Be concise: a few sentences, or a short list for multi-part questions.
 """
@@ -182,6 +185,7 @@ class ResearchAgent:
 
     def _project(self, project: str) -> tuple[str, dict]:
         """(system prompt, {paper_id: (title, authors, year, url)}) for one project."""
+        self.retriever.ensure_connection()  # first DB use of every question
         conn = self.retriever.conn
         row = conn.execute("SELECT name, description FROM projects WHERE id = %s", (project,)).fetchone()
         if row is None:
