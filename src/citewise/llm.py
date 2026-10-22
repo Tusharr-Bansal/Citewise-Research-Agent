@@ -15,12 +15,14 @@ import hashlib
 import json
 import os
 import random
+import re
 import sqlite3
 import threading
 import time
 from dataclasses import dataclass
 from typing import Any
 
+import httpx
 from google import genai
 from google.genai import errors, types
 
@@ -36,6 +38,12 @@ RETRYABLE = {429, 500, 502, 503, 504}
 
 class DailyQuotaExhausted(RuntimeError):
     """The free tier's requests-per-day quota is used up. Retrying is pointless until it resets."""
+
+
+def server_retry_delay(e: Exception) -> float:
+    """Seconds the server asked us to wait (google.rpc.RetryInfo), or 0 if it didn't say."""
+    m = re.search(r"'retryDelay': '(\d+(?:\.\d+)?)s'", str(e))
+    return min(float(m.group(1)) + 1, 90) if m else 0.0
 
 
 def is_daily_quota(e: Exception) -> bool:
@@ -87,8 +95,11 @@ class LLM:
         json_schema: dict | None = None,
         purpose: str = "unspecified",
         use_cache: bool = True,
+        max_output_tokens: int | None = None,
     ) -> LLMResponse:
         settings = {"system": system, "temperature": temperature, "schema": json_schema}
+        if max_output_tokens is not None:  # only in the key when set, so existing cache entries stay valid
+            settings["max_output_tokens"] = max_output_tokens
         key = hashlib.sha256(
             json.dumps([self.model, prompt, settings], sort_keys=True).encode()
         ).hexdigest()
@@ -105,6 +116,7 @@ class LLM:
             system_instruction=system,
             response_mime_type="application/json" if json_schema else None,
             response_json_schema=json_schema,
+            max_output_tokens=max_output_tokens,
         )
         resp, latency = self._call_with_retry(prompt, cfg)
         usage = resp.usage_metadata
@@ -136,13 +148,20 @@ class LLM:
             try:
                 resp = self.client.models.generate_content(model=self.model, contents=prompt, config=cfg)
                 return resp, time.perf_counter() - t0
+            except httpx.TransportError as e:  # dropped connection / reset: transient, retry like a 5xx
+                if attempt == self.max_attempts:
+                    raise
+                delay = random.uniform(0, min(60, 2**attempt))
+                print(f"[llm] {type(e).__name__} on attempt {attempt}; retrying in {delay:.1f}s")
+                time.sleep(delay)
             except errors.APIError as e:
                 if is_daily_quota(e):
                     raise DailyQuotaExhausted(f"{self.model}: daily free-tier quota used up") from e
                 if e.code not in RETRYABLE or attempt == self.max_attempts:
                     raise
-                # exponential backoff with full jitter: 2, 4, 8, ... seconds, capped
-                delay = random.uniform(0, min(60, 2**attempt))
+                # exponential backoff with full jitter: 2, 4, 8, ... seconds, capped; but never sooner
+                # than the server's own RetryInfo delay (a per-minute quota says "retry in 25s")
+                delay = max(random.uniform(0, min(60, 2**attempt)), server_retry_delay(e))
                 print(f"[llm] {e.code} on attempt {attempt}; retrying in {delay:.1f}s")
                 time.sleep(delay)
         raise RuntimeError("unreachable")

@@ -1,5 +1,5 @@
 """The retry policy must tell a per-minute rate limit (retry) from a per-day quota (give up now)."""
-from citewise.llm import is_daily_quota
+from citewise.llm import is_daily_quota, server_retry_delay
 
 
 class FakeAPIError(Exception):
@@ -21,3 +21,10 @@ def test_per_minute_limit_is_not_daily():
 
 def test_server_error_is_not_daily():
     assert not is_daily_quota(FakeAPIError(503, "UNAVAILABLE PerDay"))
+
+
+def test_server_retry_delay_is_honoured():
+    # format copied from a real per-minute 429 (2026-10-22)
+    e = FakeAPIError(429, "... {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}")
+    assert server_retry_delay(e) == 26
+    assert server_retry_delay(FakeAPIError(503, "UNAVAILABLE")) == 0
