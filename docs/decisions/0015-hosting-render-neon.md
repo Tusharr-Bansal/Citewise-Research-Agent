@@ -49,7 +49,7 @@ Options as of late Sept 2026 (from providers' own pages, collected by snapdeploy
 
 **Two problems this exposed, both fixed:**
 1. **Retrying a daily quota is pointless.** The retry loop treated every 429 alike, so a visitor waited ~30 s through six retries for "the model is busy, try again in a minute", which was false. Now `llm.py` recognises a per-day quota (a 429 whose quota id contains `PerDay`), raises `DailyQuotaExhausted` immediately, and the app answers **HTTP 429 in under a second**: "Today's free AI quota is used up. It resets at midnight Pacific time." Per-minute 429s still retry. Tests: `tests/test_llm.py` (uses the real quota id).
-2. **The global cap was above what the quota allows.** 300 questions/day × ~3 LLM calls each ≈ 900 calls > 500. Lowered to **120 questions/day** (~360 calls), leaving room for upload metadata calls (one per paper). Override with `CITEWISE_GLOBAL_PER_DAY`.
+2. **The global cap was above what the quota allows.** 300 questions/day × ~3 LLM calls each ≈ 900 calls > 500. Lowered to **120 questions/day** (~360 calls), leaving room for upload metadata calls (one per paper). Override with `CITEWISE_GLOBAL_PER_DAY`. *(Superseded by [0019](0019-single-search-default.md): the cap is now 400 LLM calls/day, `CITEWISE_GLOBAL_CALLS_PER_DAY`; a fast question costs 1 call, a deep one 3.)*
 
 **Consequence to remember:** the deployed app and the evaluation use the same API key, so they share one daily budget. Run evaluations before sharing the link widely, or on days the demo is quiet.
 
@@ -81,3 +81,28 @@ The idle app is ~240 MB, so a batch of 32 passages of up to 350 tokens added ~40
 **Also learned:** that the crash happened at the embedding step implies `pdftotext` ran, which is indirect evidence the poppler fix above is working. The direct check is still an upload reaching "ready".
 
 **Lesson:** the earlier memory measurement (280 MB) was of an idle app answering questions, which isn't the worst case. Measure peak memory on the heaviest path (here, ingestion), not the common one.
+
+## Addendum: hide Render's health checks from the access log (Tushar's request)
+
+Render calls `/api/ping` from its internal network every few seconds, which buried every real request in the logs. Tushar wanted those lines gone, but the **cron-job.org keep-alive pings kept**, as visible proof that the keep-alive is working.
+
+**How they're told apart:** Render's health checker connects from a **private** address (the log showed `10.237.x.x`). cron-job.org arrives through Render's proxy, and with `--proxy-headers` Uvicorn logs the forwarded **public** address. A `logging.Filter` on `uvicorn.access` (`HideInternalHealthChecks` in `app.py`) drops `/api/ping` lines from private addresses only; every other path is logged as before. No change was needed on Render or cron-job.org.
+
+**Tested:** unit tests (`tests/test_logging.py`, using an address from the real Render log), and a live Uvicorn run with the production flags. An internal ping was hidden; a ping with `X-Forwarded-For: 195.201.26.157` was logged as `195.201.26.157`; `/api/health` was logged.
+
+**Caveat:** this relies on Render's health checker using a private address and the proxy forwarding the client's address. If Render changes either, the worst case is that the health-check lines come back. Nothing breaks.
+
+## Addendum: questions failed after the database's idle suspend, until a restart
+
+**Symptom (live, 2026-10-22):** "Something went wrong while answering" on every question, fixed only by restarting the Render service.
+
+**Cause:** the retriever opened one database connection at startup and kept it for the life of the process. Neon suspends its compute after ~5 idle minutes and **closes every open connection**. The keep-alive ping deliberately never touches the database (so Neon *can* suspend), so the app stayed up while its connection died. The next query raised `AdminShutdown`, and every query after that `the connection is closed`. The upload worker had the same long-lived connection. Request handlers were fine: they already open a short-lived connection per request.
+
+**Reproduced locally** by terminating the retriever's backend with `pg_terminate_backend` (what the suspend does): the first question then failed, and so did every later one.
+
+**Fix:**
+- **Retriever:** `Retriever.ensure_connection()` runs `SELECT 1` at the start of every question (`ResearchAgent._project`, the first database use in both modes). If the connection was dropped, it reconnects, which also wakes Neon. Cost: one round trip per question.
+- **Upload worker:** opens a fresh connection per paper.
+- **Tested:** after a forced drop, both fast and deep questions answer normally; unit tests in `tests/test_reconnect.py`.
+
+**Lesson:** a design that lets the database sleep must assume every connection can disappear between requests. Long-lived connections and an auto-suspending database don't mix without a liveness check.

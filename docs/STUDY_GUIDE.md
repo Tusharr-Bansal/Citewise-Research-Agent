@@ -4,16 +4,16 @@ How to learn this project well enough to defend every part of it in an interview
 
 ## 0. The one-minute pitch (memorise this)
 
-> I built Citewise, a research assistant where you create a project, upload the papers from your literature review, and ask questions; it answers with citations to the exact passage. I evaluated it on the papers from my own literature review on pediatric heart-sound screening. Retrieval is hybrid (BM25 plus vector search in Postgres with pgvector), and an agent plans searches, checks whether the evidence is enough, and searches again, including inside a specific paper. I built the test set myself: I verified 51 LLM-drafted questions, rewrote 21 of them and wrote 13 of my own. That showed something important: on the LLM's own wording, retrieval looked 96% accurate, but on my natural rewrites it was 57%. So unreviewed synthetic eval sets can overstate quality by about 40 points. I also measured how well an LLM judge agrees with me on answer faithfulness.
-
-Fill in the final agent numbers from `eval/results/` once the evaluation is complete.
+> I built and deployed Citewise, a research assistant where you create a project, upload the papers from your literature review, and ask questions. Every claim in the answer cites the exact passage it came from, and the citations are checked in code. Retrieval is hybrid (BM25 plus vector search in Postgres with pgvector), which beat vector-only search by 14 points. I evaluated it on my own literature review on pediatric heart-sound screening, with a test set I verified myself. In a blind review of 60 answers, none contained invented facts and 83% were fully faithful. The evaluation also earned its keep: it caught a regression, which I traced and fixed (+17 points), and it showed that a single search matched a multi-step agent at a third of the cost, so single search became the default. And it showed that test questions written by an LLM make retrieval look 40 points better than natural questions do.
 
 ## 1. The big picture (30 min)
 
 ```
 PDFs ──► pdf_extract.py ──► chunking.py ──► embeddings.py ──► Postgres (pgvector + text index)
                                                                       │
-question ──► agent.py: PLAN ──► retrieval.py (BM25 + vector, RRF) ◄───┘
+default ("fast"): question ──► retrieval.py ──► ANSWER  (agent.single_shot, 1 LLM call)   │
+                                                                                     │
+deep: question ──► agent.py: PLAN ──► retrieval.py (BM25 + vector, RRF) ◄────────────┘
                         │              ▲
                         ▼              │ new queries / search inside one paper
                       CHECK ───────────┘
@@ -50,9 +50,10 @@ You should be able to explain:
 
 ## 4. The agent (45 min)
 
-Read `src/citewise/agent.py` top to bottom (it's short) and decision 0012.
+Read `src/citewise/agent.py` top to bottom (it's short) and decisions 0012 and 0019.
 
 You should be able to explain:
+- **Why single search is the default and the agent is opt-in ("Deep search"; 0019):** equal correctness on this corpus at a third of the LLM calls, so the free daily quota serves about three times as many questions; the budget counts LLM calls (fast = 1, deep = 3), not questions.
 - The four steps and the stopping conditions (max rounds, max LLM calls).
 - Why a hand-written loop instead of LangGraph, and how it would map to a LangGraph graph.
 - **Paper-scoped search**, with the STFT example ("short-time Fourier transform" vs "STFT").
@@ -62,19 +63,22 @@ You should be able to explain:
 
 ## 5. Evaluation (60 min)
 
-Read decision 0010, `eval/build_gold.py`, `eval/eval_retrieval.py`, `eval/eval_agent.py`, and the results in `eval/results/`.
+Read decisions 0010, 0016, 0017, 0018 and 0019; `eval/build_gold.py`, `eval/eval_retrieval.py`, `eval/eval_agent.py`, `eval/compare_runs.py`, `eval/judge_agreement.py`; and the results in `eval/results/`.
 
 You should be able to explain:
-- How the gold set was built, and *your own* labeling decisions (the patterns: vague subject, copying, reverse lookups, citation summaries, wrong table answers, inflated totals, duplicates).
+- How the gold set was built, and *your own* labelling decisions (the patterns: vague subject, copying, reverse lookups, citation summaries, wrong table answers, inflated totals, duplicates).
 - **Lexical-overlap bias**, with your numbers (96% vs 57%).
 - Ambiguous questions and why they're scored separately.
-- The agent vs single-search comparison: evidence recall, correctness, faithfulness, cost.
-- **LLM-as-judge:** why a different, stronger model judges; self-preference bias; **Cohen's kappa** between the judge and you (you already know kappa from your SQA labeling, which is a strong link to make in an interview).
-- Confidence intervals: why 45 questions can't resolve differences under ~10 points.
+- **The regression (0016):** how a prompt change silently lowered evidence recall, how the per-question comparison and the search traces found the cause, and why the fix is a guarantee in code rather than a prompt tweak.
+- **Agent vs single search (0017):** same correctness at 3× the calls, the paired bootstrap, and why 45 questions can't resolve a 7-point difference.
+- **Faithfulness review:** the rubric (unbacked claim = Partly; marked interpretation fine; naming the paper fine; contradicted grouped citation = Partly), the 0 unsupported / 83% fully faithful result, and the overstatement patterns you found.
+- **LLM-as-judge:** a different model as judge (self-preference bias); judged against the reviewed labels it passed every good answer but caught 1 of 10 overstatements (recall 0.10, specificity 1.00, accuracy 0.82 vs a 0.77 always-"supported" baseline); why κ is a secondary figure here.
+- **The hedge-keeping prompt and the 29-paper rerun (0019):** why it was checked only on the answers that motivated it (a development-set check, not a new faithfulness number); the swapped-number error it introduced on one answer; and the one question that lost its evidence to top-k competition from the new papers.
+- **The claim-level judge (0018):** pre-registration, running once, and why it failed (it quoted the right evidence but missed the overstatement).
 
 ## 6. Production concerns (30 min)
 
-Read `src/citewise/llm.py`, `src/citewise/app.py`, `Dockerfile`, `render.yaml`, and decisions 0013, 0014 and 0015.
+Read `src/citewise/llm.py`, `src/citewise/app.py`, `Dockerfile`, `render.yaml`, and decisions 0013, 0014 and 0015 (with their addenda: quota, `pdftotext`, memory, progress bar, 7-day expiry).
 
 You should be able to explain:
 - Retries with exponential backoff and jitter; why 503/429 are retried and 400 isn't.

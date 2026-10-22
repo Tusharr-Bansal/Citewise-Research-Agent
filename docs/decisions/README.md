@@ -29,5 +29,8 @@ Entries are never rewritten after the fact. If a decision changes, a new entry s
 | [0014](0014-generalize-to-projects.md) | Citewise: projects, uploads, any field; the MySteth corpus becomes the demo | Accepted |
 | [0015](0015-hosting-render-neon.md) | Hosting: Render (app) + Neon (Postgres), DB-free keep-alive ping, free-tier quota handling | Accepted |
 | [0016](0016-search-the-original-question.md) | The agent always searches the user's question as typed (half the evidence budget) | Accepted; amends 0012 |
+| [0017](0017-agent-evaluation-results.md) | Agent evaluation: fix recovers evidence (+17 pts); single search matches the agent at 1/3 the cost; 83% fully faithful, 0% unsupported; LLM judge lenient (caught 1 of 10 overstatements) | Final |
+| [0018](0018-claim-level-judge.md) | Claim-level judge with quote check, pre-registered and run once: worse (κ 0.41 → 0.20); misses come from the judge model, not the prompt | Negative result; old judge kept |
+| [0019](0019-single-search-default.md) | Single search is the default, the agent becomes opt-in Deep search; budget counted in LLM calls; hedge-keeping answer prompt; demo completed to 29 papers, versioned reload | Accepted; amends 0012, 0015 |
 
 Records 0001–0013 were written when the project was the PCG-only "PCG Research Agent" (package `pcg_agent`); their file paths now live under `src/citewise/`. They're left as written, because they record what was true then.

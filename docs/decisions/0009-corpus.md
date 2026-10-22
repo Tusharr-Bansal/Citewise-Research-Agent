@@ -22,6 +22,7 @@ Use all 29 papers from Tushar's literature-review spreadsheet for MySteth 2.0 (p
 
 - **23 papers** were provided as PDFs and ingested on 2026-10-21.
 - **6 papers** with non-Drive links still need downloading: Wu 2024 (MDPI), Feng / ChildVox (arXiv), Alotaibi (Taylor & Francis), Niizumi 2025 (arXiv), Rodrigues (SSRN), Sondermann (arXiv).
+- *Update:* Feng, Niizumi and Sondermann were added before the gold set was built (26 papers). Wu, Alotaibi and Rodrigues were added on 2026-10-22, completing all **29**; see [0019](0019-single-search-default.md).
 
 ## Consequences
 

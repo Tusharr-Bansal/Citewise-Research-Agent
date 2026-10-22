@@ -1,6 +1,6 @@
 # 0012 — Agent: a hand-written plan → search → check → answer loop with guards
 
-**Date:** 2026-10-22 · **Status:** Accepted; first-round search amended by [0016](0016-search-the-original-question.md) (the question as typed is always searched)
+**Date:** 2026-10-22 · **Status:** Accepted; first-round search amended by [0016](0016-search-the-original-question.md) (the question as typed is always searched); since [0019](0019-single-search-default.md) the agent is the opt-in "Deep search" mode, and single search is the default
 
 ## Context
 
